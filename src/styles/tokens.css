@@ -1,0 +1,49 @@
+/* Layout concept: catálogo editorial em faixas — areia clara, lagoa turquesa profunda
+   e linhas douradas finas como cristas de duna; imagens do catálogo em sangria total. */
+:root {
+  color-scheme: light;
+  /* Cores */
+  --shell: #fbf8f2;          /* branco areia */
+  --sand: #f2e9da;           /* bege areia */
+  --sand-2: #e6d6bd;         /* areia molhada */
+  --sand-3: #cfb894;
+  --lagoon: #2aa39c;         /* verde-turquesa da lagoa */
+  --teal: #19706d;           /* turquesa da marca */
+  --teal-deep: #0c3b3c;      /* lagoa funda */
+  --teal-ink: #082a2b;
+  --gold: #b08a52;           /* dourado discreto */
+  --gold-soft: #d6bd92;
+  --ink: #1d2a29;
+  --ink-2: #44524f;
+  --muted: #6d7a76;
+  --line: rgba(29, 42, 41, 0.12);
+  --line-light: rgba(251, 248, 242, 0.18);
+  --line-strong: rgba(29, 42, 41, 0.22);
+  --white: #ffffff;
+  --danger: #a4452f;
+  --ok: #2b7a52;
+
+  /* Tipografia */
+  --font-display: 'Marcellus', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Jost', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --font-script: 'Allura', 'Brush Script MT', cursive;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem);
+  --fs-2xl: clamp(2.2rem, 1.2rem + 3.4vw, 4.4rem);
+  --fs-3xl: clamp(2.6rem, 1rem + 5.6vw, 6.6rem);
+
+  /* Espaço e forma */
+  --gutter: clamp(16px, 4vw, 56px);
+  --section-y: clamp(72px, 9vw, 140px);
+  --maxw: 1280px;
+  --radius: 4px;
+  --radius-lg: 14px;
+  --shadow-soft: 0 18px 50px -24px rgba(12, 59, 60, 0.35);
+  --shadow-pop: 0 24px 70px -20px rgba(8, 42, 43, 0.45);
+  --ease: cubic-bezier(0.22, 0.61, 0.21, 1);
+  --header-h: 76px;
+}
