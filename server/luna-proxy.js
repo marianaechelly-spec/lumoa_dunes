@@ -1,5 +1,5 @@
 /* =========================================================================
-   Proxy seguro da IA da Luna (exemplo para Vercel / Netlify / Node 18+)
+   Proxy seguro da IA da Luma (exemplo para Vercel / Netlify / Node 18+)
    A chave fica SOMENTE aqui, na variável de ambiente ANTHROPIC_API_KEY.
    O site chama este endpoint definindo config.lunaAiEndpoint = '/api/luna'.
 
@@ -10,7 +10,7 @@ const MAX_Q = 600;
 
 // Copie aqui o mesmo texto de instruções do frontend (Lumoa.lunaAI._instructions()),
 // ou gere-o no build. Mantê-lo no servidor impede que o visitante altere as regras.
-const INSTRUCTIONS = process.env.LUNA_INSTRUCTIONS || `Você é a Luna, anfitriã virtual do Lumoa Dunes (Santo Amaro - MA).
+const INSTRUCTIONS = process.env.LUNA_INSTRUCTIONS || `Você é a Luma, assistente virtual do Lumoa Dunes (Santo Amaro - MA).
 Use somente as informações oficiais do catálogo. Nunca informe preços, condições de pagamento,
 disponibilidade de lotes ou prazos: encaminhe à equipe comercial. Responda em até 90 palavras.`;
 

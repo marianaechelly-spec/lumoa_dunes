@@ -223,7 +223,7 @@
         h('h3', null, it.nome), h('p', null, it.desc),
         h('div', { class: 'm3-card__links' },
           h('button', { type: 'button', onclick: () => this.overview() }, 'Ver todo o condomínio'),
-          h('button', { type: 'button', onclick: () => L.luna.ask('amenity:' + it.id) }, 'Perguntar à Luna'))));
+          h('button', { type: 'button', onclick: () => L.luna.ask('amenity:' + it.id) }, 'Perguntar à Luma'))));
       card.classList.remove('in'); void card.offsetWidth; card.classList.add('in');
       if (!opts.silent) L.bus.dispatchEvent(new CustomEvent('plan-select', { detail: it.id }));
     },
@@ -244,7 +244,7 @@
       card.classList.remove('in'); void card.offsetWidth; card.classList.add('in');
     },
 
-    /* Tour guiado: a câmera percorre os espaços e a Luna apresenta cada um */
+    /* Tour guiado: a câmera percorre os espaços e a Luma apresenta cada um */
     tour() {
       const seq = ['portaria', 'guarderia', 'beach-tennis', 'playground', 'redario', 'piscina', 'rooftop', 'churrasqueira', 'petplay'];
       this.tourOn = true; let i = 0;
@@ -278,5 +278,5 @@
   };
 
   L.maquete = M;
-  L.plan = { select: (id) => M.select(id) }; // compatibilidade com as ações da Luna
+  L.plan = { select: (id) => M.select(id) }; // compatibilidade com as ações da Luma
 })(window.Lumoa);

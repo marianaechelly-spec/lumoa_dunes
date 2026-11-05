@@ -1,22 +1,22 @@
 /* =========================================================================
-   LUNA — apresentadora virtual
+   LUMA — apresentadora virtual
    - Aparece em cena (figura recortada da peça oficial), fala com o visitante
      em balão e, se o visitante ativar, com voz (síntese de fala pt-BR).
    - Acompanha a navegação com falas curtas por seção.
-   - Ao conversar, abre um palco: a Luna à esquerda, a fala dela em destaque,
+   - Ao conversar, abre um palco: a Luma à esquerda, a fala dela em destaque,
      opções e campo para perguntar. O histórico fica disponível sob demanda.
    ========================================================================= */
 (function (L) {
   const { $, $$, h, esc, scrollToId, isMobile, store, toast, copyText } = L.ui;
   const E = () => L.lunaEngine;
-  const FIG = 'assets/img/luna-apresentadora.webp';
-  const WELCOME = 'Olá! Seja muito bem-vindo ao Lumoa Dunes! Eu sou a Luna e vou apresentar a você um lugar onde a exclusividade encontra a natureza. Posso ajudar você a conhecer nosso empreendimento?';
+  const FIG = 'assets/img/luma-corpo.webp';
+  const WELCOME = 'Olá! Seja muito bem-vindo ao Lumoa Dunes! Eu sou a Luma e vou apresentar a você um lugar onde a exclusividade encontra a natureza. Posso ajudar você a conhecer nosso empreendimento?';
   const START = ['sobre', 'lotes', 'casas', 'lazer', 'localizacao', 'consultor'];
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const strip = (s) => String(s).replace(/<[^>]+>/g, ' ').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
   const md = (s, trusted) => (trusted ? s : esc(s)).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
-  // Falas da Luna ao chegar em cada seção (uma vez por visita)
+  // Falas da Luma ao chegar em cada seção (uma vez por visita)
   const CUES = {
     empreendimento: { text: 'São apenas **32 lotes de 200 m²**, em uma área total de 10.840 m², no bairro Olho D’Água.', opts: [['Ver a maquete 3D', 'goto:implantacao'], ['Me conte mais', 'intent:sobre']] },
     implantacao: { text: 'Esta é a **maquete 3D** do condomínio. Arraste para girar e toque nos números para conhecer cada espaço.', opts: [['Mostrar o rooftop', 'plan:rooftop'], ['Mostrar a piscina', 'plan:piscina']] },
@@ -68,7 +68,14 @@
       const hero = $('#inicio');
       if (hero) new IntersectionObserver(([en]) => { const on = en.intersectionRatio > 0.55; this.pres.classList.toggle('is-hero', on && !isMobile()); this.pres.classList.toggle('on-hero', on); }, { threshold: [0, 0.55, 1] }).observe(hero);
       L.bus.addEventListener('section', (e) => this.cue(e.detail));
-      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => isMobile() ? this.say('Olá! Eu sou a **Luna**, sua anfitriã no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
+      // No rodapé a Luma sai de cena para não cobrir os textos legais
+      const foot = document.querySelector('.footer');
+      if (foot) new IntersectionObserver(([en]) => { this.pres.classList.toggle('at-end', en.isIntersecting); if (en.isIntersecting) this.hush(); }, { threshold: 0.25 }).observe(foot);
+      // Se a pessoa continua rolando, o balão sai da frente do conteúdo
+      addEventListener('scroll', () => {
+        if (this.pres.classList.contains('speech-open') && !this.pres.matches(':hover') && Math.abs(scrollY - this.sayY) > innerHeight * 0.45) this.hush();
+      }, { passive: true });
+      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => isMobile() ? this.say('Olá! Eu sou a **Luma**, sua assistente no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
       if (document.documentElement.classList.contains('boot')) L.bus.addEventListener('ready', start, { once: true }); else setTimeout(start, 400);
     },
 
@@ -76,14 +83,14 @@
 
     /* ---------------------- Apresentadora em cena ---------------------- */
     buildPresenter() {
-      this.fig = h('button', { class: 'presenter__figure', type: 'button', 'aria-label': 'Conversar com a Luna', html: `<img src="${FIG}" alt="Luna, anfitriã virtual do Lumoa Dunes">` });
+      this.fig = h('button', { class: 'presenter__figure', type: 'button', 'aria-label': 'Conversar com a Luma', html: `<img src="${FIG}" alt="Luma, assistente virtual do Lumoa Dunes">` });
       this.fig.addEventListener('click', () => this.open());
       this.sText = h('p', { class: 'speech__text' });
       this.sActs = h('div', { class: 'speech__actions' });
       this.soundBtns = [];
       const sound = this.soundButton();
       const speech = h('div', { class: 'presenter__speech', role: 'status', 'aria-live': 'polite' },
-        h('div', { class: 'speech__who' }, h('strong', null, 'Luna'), h('span', { class: 'wave', 'aria-hidden': 'true', html: '<i></i><i></i><i></i><i></i>' }),
+        h('div', { class: 'speech__who' }, h('strong', null, 'Luma'), h('span', { class: 'wave', 'aria-hidden': 'true', html: '<i></i><i></i><i></i><i></i>' }),
           h('div', { class: 'speech__tools' }, sound,
             h('button', { type: 'button', 'aria-label': 'Ocultar fala', title: 'Ocultar', html: '<svg><use href="#i-close"/></svg>', onclick: () => this.hush() }))),
         this.sText, this.sActs);
@@ -92,8 +99,8 @@
     },
 
     soundButton(withLabel) {
-      const b = h('button', { type: 'button', class: voice.on ? 'is-on' : '', 'aria-pressed': String(voice.on), title: 'Ouvir a voz da Luna' });
-      const paint = () => { b.innerHTML = `<svg><use href="#i-${voice.on ? 'sound' : 'mute'}"/></svg>` + (withLabel ? `<span>${voice.on ? 'Voz ligada' : 'Ouvir a Luna'}</span>` : ''); b.classList.toggle('is-on', voice.on); b.setAttribute('aria-pressed', String(voice.on)); b.setAttribute('aria-label', voice.on ? 'Desligar a voz da Luna' : 'Ligar a voz da Luna'); };
+      const b = h('button', { type: 'button', class: voice.on ? 'is-on' : '', 'aria-pressed': String(voice.on), title: 'Ouvir a voz da Luma' });
+      const paint = () => { b.innerHTML = `<svg><use href="#i-${voice.on ? 'sound' : 'mute'}"/></svg>` + (withLabel ? `<span>${voice.on ? 'Voz ligada' : 'Ouvir a Luma'}</span>` : ''); b.classList.toggle('is-on', voice.on); b.setAttribute('aria-pressed', String(voice.on)); b.setAttribute('aria-label', voice.on ? 'Desligar a voz da Luma' : 'Ligar a voz da Luma'); };
       paint();
       if (!voice.supported()) b.hidden = true;
       b.addEventListener('click', () => {
@@ -117,6 +124,7 @@
     async say(text, opts = [], ttl = 10000) {
       if (this.open_) return;
       clearTimeout(this.hideT);
+      this.sayY = scrollY;
       this.pres.classList.add('speech-open');
       this.sActs.replaceChildren();
       this.lastSpoken = text;
@@ -135,7 +143,8 @@
 
     cue(section) {
       const c = CUES[section];
-      if (!c || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
+      // No celular o balão ocuparia a tela toda: a Luma só fala quando a pessoa toca nela
+      if (!c || isMobile() || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
       this.seen.add(section);
       clearTimeout(this.cueT);
       this.cueT = setTimeout(() => this.say(c.text, c.opts, isMobile() ? 6500 : 9000), 1200);
@@ -174,7 +183,7 @@
       this.media = h('div', { class: 'lstage__media' });
       this.opts = h('div', { class: 'lstage__opts', role: 'group', 'aria-label': 'Opções' });
       this.hist = h('div', { class: 'lstage__history', hidden: true });
-      this.input = h('textarea', { id: 'lunaInput', rows: '1', placeholder: 'Pergunte algo para a Luna…', 'aria-label': 'Pergunta para a Luna', maxlength: '600' });
+      this.input = h('textarea', { id: 'lunaInput', rows: '1', placeholder: 'Pergunte algo para a Luma…', 'aria-label': 'Pergunta para a Luma', maxlength: '600' });
       const send = h('button', { class: 'lstage__send', type: 'submit', 'aria-label': 'Enviar', html: '<svg><use href="#i-send"/></svg>' });
       const form = h('form', { class: 'lstage__form' }, this.input, send);
       form.addEventListener('submit', (e) => { e.preventDefault(); this.submitInput(); });
@@ -185,11 +194,11 @@
         this.soundButton(true), this.histBtn,
         h('button', { type: 'button', 'aria-label': 'Minimizar', title: 'Minimizar', html: '<svg><use href="#i-minus"/></svg>', onclick: () => this.minimize() }),
         h('button', { type: 'button', 'aria-label': 'Encerrar conversa', title: 'Encerrar conversa', html: '<svg><use href="#i-close"/></svg>', onclick: () => this.close() }));
-      this.stage = h('section', { class: 'lstage', id: 'lunaStage', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Conversa com a Luna', 'aria-hidden': 'true' },
+      this.stage = h('section', { class: 'lstage', id: 'lunaStage', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Conversa com a Luma', 'aria-hidden': 'true' },
         h('div', { class: 'lstage__box' },
-          h('div', { class: 'lstage__set' }, h('img', { src: FIG, alt: '' }), h('div', { class: 'lstage__tag' }, h('strong', null, 'Luna'), h('span', null, 'Anfitriã virtual · online'))),
+          h('div', { class: 'lstage__set' }, h('img', { src: FIG, alt: '' }), h('div', { class: 'lstage__tag' }, h('strong', null, 'Luma'), h('span', null, 'Assistente virtual · online'))),
           h('div', { class: 'lstage__main' }, bar, this.you, h('div', { class: 'lstage__scroll' }, this.speech, this.media), this.opts, form,
-            h('p', { class: 'lstage__legal' }, 'A Luna responde com base no catálogo oficial. Valores, condições e disponibilidade: equipe comercial.'), this.hist)));
+            h('p', { class: 'lstage__legal' }, 'A Luma responde com base no catálogo oficial. Valores, condições e disponibilidade: equipe comercial.'), this.hist)));
       this.stage.addEventListener('click', (e) => { if (e.target === this.stage) this.minimize(); });
       document.body.append(this.stage);
     },
@@ -220,14 +229,14 @@
       this.started = false; this.log = [];
       this.speech.replaceChildren(); this.media.replaceChildren(); this.opts.replaceChildren(); this.you.textContent = '';
       E().ctx = { topic: null, house: null, expect: null, flow: null, history: [] };
-      toast('Conversa encerrada. A Luna continua aqui quando você precisar.');
+      toast('Conversa encerrada. A Luma continua aqui quando você precisar.');
     },
 
     toggleHistory() {
       const show = this.hist.hidden;
       this.hist.hidden = !show; this.histBtn.classList.toggle('is-on', show); this.histBtn.setAttribute('aria-pressed', String(show));
       if (show) {
-        const rows = (this.log || []).map((m) => h('p', { class: m.u ? 'u' : '' }, h('b', null, m.u ? 'Você' : 'Luna'), m.t));
+        const rows = (this.log || []).map((m) => h('p', { class: m.u ? 'u' : '' }, h('b', null, m.u ? 'Você' : 'Luma'), m.t));
         this.hist.replaceChildren(...(rows.length ? rows : [h('p', null, 'A conversa ainda não começou.')]));
         this.hist.scrollTop = this.hist.scrollHeight;
       }
@@ -291,7 +300,7 @@
       if (on) { this.speech.innerHTML = '<p><span class="caret"></span></p>'; this.talk(true); } else this.talk(false);
     },
 
-    /** Reproduz a resposta da Luna no palco: fala em destaque, imagens e opções */
+    /** Reproduz a resposta da Luma no palco: fala em destaque, imagens e opções */
     async play(turn) {
       if (!turn) return;
       this.speech.replaceChildren(); this.media.replaceChildren(); this.opts.replaceChildren();
@@ -312,7 +321,7 @@
       const cards = [...(turn.cards || []), ...(turn.cardsRow || [])];
       cards.forEach((c, i) => this.media.append(this.card(c, i)));
       this.renderOptions(turn.actions || [], turn.quick || (E().ctx.flow ? [] : ['menu', 'consultor']));
-      this.input.placeholder = (turn.input && turn.input.placeholder) || 'Pergunte algo para a Luna…';
+      this.input.placeholder = (turn.input && turn.input.placeholder) || 'Pergunte algo para a Luma…';
       this.input.setAttribute('inputmode', turn.input && turn.input.type === 'tel' ? 'tel' : turn.input && turn.input.type === 'email' ? 'email' : 'text');
       if (turn.input && !isMobile()) this.input.focus({ preventScroll: true });
     },

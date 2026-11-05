@@ -1,7 +1,7 @@
 /* =========================================================================
    LUMOA DUNES — Dados oficiais do empreendimento
-   Fonte: BOOK LUMOA CASAS.pdf (catálogo oficial) e peça de divulgação da Luna.
-   Este arquivo é a ÚNICA fonte de verdade do site e da Luna.
+   Fonte: BOOK LUMOA CASAS.pdf (catálogo oficial) e peça de divulgação da Luma.
+   Este arquivo é a ÚNICA fonte de verdade do site e da Luma.
    Não adicione preços, condições comerciais ou disponibilidade de lotes aqui
    sem que a equipe comercial tenha confirmado oficialmente.
    ========================================================================= */

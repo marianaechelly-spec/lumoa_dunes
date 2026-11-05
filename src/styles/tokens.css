@@ -33,12 +33,12 @@
   --fs-md: 1rem;
   --fs-lg: 1.1875rem;
   --fs-xl: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem);
-  --fs-2xl: clamp(2.2rem, 1.2rem + 3.4vw, 4.4rem);
+  --fs-2xl: clamp(2rem, 1.1rem + 2.6vw, 3.6rem);
   --fs-3xl: clamp(2.6rem, 1rem + 5.6vw, 6.6rem);
 
   /* Espaço e forma */
   --gutter: clamp(16px, 4vw, 56px);
-  --section-y: clamp(72px, 9vw, 140px);
+  --section-y: clamp(64px, 7vw, 112px);
   --maxw: 1280px;
   --radius: 4px;
   --radius-lg: 14px;

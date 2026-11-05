@@ -1,5 +1,5 @@
 /* =========================================================================
-   LUNA — Motor de conversa
+   LUMA — Motor de conversa
    - Reconhece a intenção do visitante (palavras-chave + contexto da conversa)
    - Conduz o fluxo de coleta de interesse com consentimento (LGPD)
    - Recorre à IA (quando disponível) só para perguntas fora do roteiro
@@ -59,7 +59,7 @@
       if (!id && ctx.topic && /\b(mais|detalhes?|continua|continue|e ai|e entao)\b/.test(nt)) return ctx.topic;
       // "e a planta?", "e as fotos?" usam o contexto
       if (id === 'plantas' && !ctx.house && ctx.topic && ctx.topic.startsWith('casa-')) ctx.house = ctx.topic.slice(5);
-      // Respostas curtas de concordância depois de uma oferta da Luna
+      // Respostas curtas de concordância depois de uma oferta da Luma
       if (!id && ctx.offer && /^(sim|claro|quero|pode|pode ser|ok|beleza|bora|isso|aceito|com certeza|por favor)\b/.test(norm(text))) return ctx.offer;
       return id;
     },
@@ -151,7 +151,7 @@
     async submitLead() {
       const d = this.ctx.flow.data;
       const temas = [...new Set(this.ctx.history.filter((m) => m.topic).map((m) => m.topic))].slice(-6).join(', ');
-      const res = await L.leads.submit({ ...d, origem: 'luna', mensagem: temas ? `Assuntos na conversa com a Luna: ${temas}` : '' });
+      const res = await L.leads.submit({ ...d, origem: 'luna', mensagem: temas ? `Assuntos na conversa com a Luma: ${temas}` : '' });
       const first = d.nome.split(' ')[0];
       this.ctx.flow = null;
       if (res.ok && res.channel !== 'whatsapp') {

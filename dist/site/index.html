@@ -50,12 +50,12 @@
   --fs-md: 1rem;
   --fs-lg: 1.1875rem;
   --fs-xl: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem);
-  --fs-2xl: clamp(2.2rem, 1.2rem + 3.4vw, 4.4rem);
+  --fs-2xl: clamp(2rem, 1.1rem + 2.6vw, 3.6rem);
   --fs-3xl: clamp(2.6rem, 1rem + 5.6vw, 6.6rem);
 
   /* Espaço e forma */
   --gutter: clamp(16px, 4vw, 56px);
-  --section-y: clamp(72px, 9vw, 140px);
+  --section-y: clamp(64px, 7vw, 112px);
   --maxw: 1280px;
   --radius: 4px;
   --radius-lg: 14px;
@@ -105,7 +105,7 @@ p { margin: 0; }
 .lead { font-size: var(--fs-lg); font-weight: 300; color: var(--ink); line-height: 1.6; max-width: 56ch; }
 .body { color: var(--ink-2); font-weight: 300; max-width: 60ch; }
 .section--deep .body { color: rgba(251, 248, 242, 0.75); }
-.quote { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--teal); line-height: 1.35; max-width: 30ch; }
+.quote { font-family: var(--font-display); font-size: clamp(1.3rem, 1rem + 0.9vw, 1.75rem); color: var(--teal); line-height: 1.35; max-width: 30ch; }
 .section-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(40px, 5vw, 72px); }
 .section-top > div:first-child { display: grid; gap: 20px; }
 .section-top__side { display: grid; gap: 22px; justify-items: start; }
@@ -246,9 +246,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* ================= EMPREENDIMENTO ================= */
 .intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: clamp(40px, 7vw, 120px); align-items: center; }
 .intro-grid__text { display: grid; gap: 28px; }
-.intro-grid__img { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; position: relative; }
+.intro-grid__img { margin: 0; aspect-ratio: 5 / 6; max-height: 640px; overflow: hidden; position: relative; }
 .intro-grid__img img { position: absolute; inset: -6% 0; width: 100%; height: 112%; object-fit: cover; }
-.facts { margin-top: clamp(64px, 8vw, 120px); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 40px; border-top: 1px solid var(--line-strong); padding-top: 40px; }
+.facts { margin-top: clamp(56px, 6vw, 96px); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 40px; border-top: 1px solid var(--line-strong); padding-top: 40px; }
 .facts__lead { display: grid; gap: 16px; align-content: start; }
 .facts__text { font-family: var(--font-display); font-size: 1.35rem; color: var(--teal-deep); line-height: 1.35; max-width: 22ch; }
 .facts__nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; }
@@ -344,7 +344,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .compare tbody th { font-weight: 400; color: var(--muted); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; width: 24%; }
 
 /* ================= LOCALIZAÇÃO ================= */
-.location { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.2fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
+.location { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(36px, 5vw, 80px); align-items: center; }
+.location__top { grid-template-columns: 1fr; }
+.location__top .display { max-width: 18ch; }
 .location__text { display: grid; gap: 28px; }
 .location__list { margin: 0; display: grid; border-top: 1px solid var(--line-strong); }
 .location__list div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
@@ -519,14 +521,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .tool--accent:hover, .tool--accent.is-on { background: var(--teal-deep); border-color: var(--gold); }
 
 /* styles/luna.css */
-/* ================= LUNA — apresentadora ================= */
+/* ================= LUMA — apresentadora ================= */
 .presenter { position: fixed; z-index: 90; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 0; display: flex; align-items: flex-end; gap: 0; pointer-events: none; transition: opacity 0.5s var(--ease), transform 0.6s var(--ease); }
 .presenter > * { pointer-events: auto; }
-.presenter.is-hidden { opacity: 0; transform: translateY(40px); pointer-events: none; }
-.presenter.is-hidden > * { pointer-events: none; }
-.presenter__figure { position: relative; border: 0; padding: 0; background: none; cursor: pointer; height: var(--fig-h, 250px); aspect-ratio: 565 / 1031; transition: height 0.9s var(--ease); flex: none; margin-bottom: calc(env(safe-area-inset-bottom, 0px) * -1); }
-.presenter__figure img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: drop-shadow(0 18px 30px rgba(8, 42, 43, 0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; -webkit-mask: linear-gradient(#000 80%, transparent); mask: linear-gradient(#000 80%, transparent); }
-.presenter.is-hero { --fig-h: min(64vh, 600px); }
+.presenter.is-hidden, .presenter.at-end { opacity: 0; transform: translateY(40px); pointer-events: none; }
+.presenter.is-hidden > *, .presenter.at-end > * { pointer-events: none; }
+.presenter__figure { position: relative; border: 0; padding: 0; background: none; cursor: pointer; height: var(--fig-h, 250px); aspect-ratio: 647 / 1236; transition: height 0.9s var(--ease); flex: none; margin-bottom: calc(env(safe-area-inset-bottom, 0px) * -1); }
+.presenter__figure img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 18px 30px rgba(8, 42, 43, 0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; }
+.presenter.is-hero { --fig-h: min(calc(100vh - var(--header-h, 80px) - 40px), 640px); }
 .presenter.is-talking .presenter__figure img { animation: breathe 5s ease-in-out infinite, talk 0.9s ease-in-out infinite; }
 @keyframes breathe { 50% { transform: translateY(-3px) scale(1.006); } }
 @keyframes talk { 50% { translate: 0 -1.5px; } }
@@ -541,6 +543,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .presenter.is-hero .presenter__speech::after { bottom: auto; top: 54px; }
 .presenter.speech-open .presenter__speech { opacity: 1; transform: none; visibility: visible; }
 .presenter__speech::after { content: ""; position: absolute; right: -8px; bottom: 32px; width: 16px; height: 16px; background: inherit; transform: rotate(45deg); }
+/* Fora do topo: Luma menor e balão acima dela, para não cobrir o conteúdo */
+@media (min-width: 641px) {
+  .presenter:not(.is-hero) { --fig-h: 210px; flex-direction: column; align-items: flex-end; }
+  .presenter:not(.is-hero) .presenter__speech { width: 300px; margin: 0 8px 10px 0; padding: 16px 18px 14px; gap: 10px; }
+  .presenter:not(.is-hero) .presenter__speech::after { right: 56px; bottom: -7px; top: auto; }
+  .presenter:not(.is-hero) .speech__text { font-size: 0.92rem; min-height: 0; }
+}
 .speech__who { display: flex; align-items: center; gap: 10px; font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
 .speech__who strong { font-family: var(--font-display); font-weight: 400; font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; color: var(--teal-deep); }
 .speech__tools { margin-left: auto; display: flex; gap: 2px; }
@@ -568,7 +577,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .lstage.is-open .lstage__box { transform: none; }
 .lstage__set { position: relative; overflow: hidden; background: url(assets/img/dunas-aereo-sm.webp) center / cover; }
 .lstage__set::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,59,60,0.35), rgba(12,59,60,0.78)); }
-.lstage__set img { position: absolute; left: 50%; bottom: 0; height: 96%; width: auto; max-width: none; transform: translateX(-50%); object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; -webkit-mask: linear-gradient(#000 82%, transparent); mask: linear-gradient(#000 82%, transparent); }
+.lstage__set img { position: absolute; left: 0; right: 0; margin-inline: auto; bottom: 12px; height: calc(100% - 96px); width: auto; max-width: 92%; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; }
 .lstage.is-talking .lstage__set img { animation: breathe 5s ease-in-out infinite, talk 0.9s ease-in-out infinite; }
 .lstage__tag { position: absolute; left: 24px; top: 24px; z-index: 1; color: var(--shell); display: grid; gap: 4px; }
 .lstage__tag strong { font-family: var(--font-display); font-weight: 400; font-size: 2rem; line-height: 1; }
@@ -617,7 +626,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 860px) {
   .lstage { padding: 0; }
   .lstage__box { width: 100%; height: 100%; grid-template-columns: 1fr; grid-template-rows: 30svh 1fr; }
-  .lstage__set img { height: 118%; bottom: -24%; }
+  .lstage__set img { height: calc(100% - 60px); bottom: 0; left: auto; right: 20px; margin: 0; }
   .lstage__tag { top: calc(16px + env(safe-area-inset-top, 0px)); left: 20px; }
   .lstage__tag strong { font-size: 1.6rem; }
   .lstage__bar { position: absolute; top: calc(-30svh + 8px + env(safe-area-inset-top, 0px)); right: 8px; left: auto; padding: 0; color: var(--shell); }
@@ -728,6 +737,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 @media (max-width: 640px) { .btn--3d { display: none; } }
 
+/* Celular: filtros da galeria em uma linha só (arrastar para o lado) e sem setas no lazer */
+@media (max-width: 640px) {
+  .filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); width: auto; max-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters > * { flex: none; }
+  #lazer .arrows { display: none; }
+}
+
 </style>
 
 </head>
@@ -768,7 +785,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <a href="#galeria">Galeria</a>
       <a href="#contato">Contato</a>
     </nav>
-    <button class="btn btn--line btn--sm header__cta" type="button" data-luna-open>Fale com a Luna</button>
+    <button class="btn btn--line btn--sm header__cta" type="button" data-luna-open>Fale com a Luma</button>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
   </div>
 </header>
@@ -780,7 +797,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   <a href="#localizacao" style="--i:5">Localização</a>
   <a href="#galeria" style="--i:6">Galeria</a>
   <a href="#contato" style="--i:7">Contato</a>
-  <button class="btn btn--gold" type="button" data-luna-open>Fale com a Luna</button>
+  <button class="btn btn--gold" type="button" data-luna-open>Fale com a Luma</button>
 </nav>
 
 <main>
@@ -802,7 +819,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <p class="hero__sub reveal-line"><span>O primeiro condomínio de alto padrão da região, com apenas 32 lotes.</span></p>
     <div class="hero__actions">
       <a class="btn btn--gold" href="#empreendimento">Conheça o empreendimento</a>
-      <button class="btn btn--glass" type="button" data-luna-open>Fale com a Luna</button>
+      <button class="btn btn--glass" type="button" data-luna-open>Fale com a Luma</button>
       <a class="btn btn--glass btn--3d" href="#implantacao"><svg><use href="#i-cube"/></svg>Maquete 3D</a>
     </div>
   </div>
@@ -941,10 +958,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 <!-- ================= LOCALIZAÇÃO ================= -->
 <section class="section" id="localizacao" aria-labelledby="t-loc">
-  <div class="wrap location">
-    <div class="location__text">
+  <div class="wrap section-top location__top">
+    <div>
       <p class="eyebrow" data-reveal>Localização</p>
       <h2 class="display" id="t-loc" data-reveal>O portal mais autêntico dos Lençóis Maranhenses</h2>
+    </div>
+  </div>
+  <div class="wrap location">
+    <div class="location__text">
       <dl class="location__list" data-reveal>
         <div><dt>Cidade</dt><dd>Santo Amaro — Maranhão</dd></div>
         <div><dt>Bairro</dt><dd>Olho D’Água</dd></div>
@@ -953,7 +974,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </dl>
       <div class="location__actions" data-reveal>
         <a class="btn btn--dark" id="mapLink" href="#" target="_blank" rel="noopener">Ver a região no Google Maps</a>
-        <button class="btn btn--line" type="button" data-luna-intent="localizacao">Perguntar à Luna</button>
+        <button class="btn btn--line" type="button" data-luna-intent="localizacao">Perguntar à Luma</button>
       </div>
     </div>
     <figure class="map" id="map" data-reveal="wipe">
@@ -1023,7 +1044,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       </nav>
       <div class="footer__info">
         <p>Bairro Olho D’Água<br>Santo Amaro — MA · Lençóis Maranhenses</p>
-        <button type="button" class="link" data-luna-open>Fale com a Luna</button>
+        <button type="button" class="link" data-luna-open>Fale com a Luma</button>
         <button type="button" class="link" id="teamPanelBtn" hidden>Painel da equipe · interessados</button>
       </div>
     </div>
@@ -1053,7 +1074,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <div class="panel" id="teamPanel" aria-hidden="true">
   <div class="panel__box" role="dialog" aria-modal="true" aria-labelledby="t-panel">
     <div class="panel__head"><h3 id="t-panel">Interessados</h3><button class="tool" type="button" id="teamPanelClose" aria-label="Fechar painel"><svg><use href="#i-close"/></svg></button></div>
-    <p class="body">Contatos enviados pelo formulário e pela Luna. Visível somente para a equipe.</p>
+    <p class="body">Contatos enviados pelo formulário e pela Luma. Visível somente para a equipe.</p>
     <div id="teamPanelList" class="panel__list"></div>
   </div>
 </div>
@@ -1071,14 +1092,14 @@ window.Lumoa = window.Lumoa || {};
 window.Lumoa.config = {
   // Número oficial do WhatsApp comercial, só dígitos com DDI e DDD.
   // Ex.: '5598999999999'. Vazio = botões de WhatsApp ficam ocultos e o
-  // atendimento segue pelo formulário e pela Luna.
+  // atendimento segue pelo formulário e pela Luma.
   whatsapp: '',
 
   // Endpoint que recebe os interessados (POST JSON). Ex.: '/api/leads'
   // (ver server/leads-endpoint.js) ou um serviço de formulários.
   leadEndpoint: '',
 
-  // Endpoint seguro da IA da Luna (ver server/luna-proxy.js).
+  // Endpoint seguro da IA da Luma (ver server/luna-proxy.js).
   // A chave da API fica SOMENTE no servidor, em variável de ambiente.
   lunaAiEndpoint: '',
 
@@ -1093,8 +1114,8 @@ window.Lumoa.config = {
 /* data/empreendimento.js */
 /* =========================================================================
    LUMOA DUNES — Dados oficiais do empreendimento
-   Fonte: BOOK LUMOA CASAS.pdf (catálogo oficial) e peça de divulgação da Luna.
-   Este arquivo é a ÚNICA fonte de verdade do site e da Luna.
+   Fonte: BOOK LUMOA CASAS.pdf (catálogo oficial) e peça de divulgação da Luma.
+   Este arquivo é a ÚNICA fonte de verdade do site e da Luma.
    Não adicione preços, condições comerciais ou disponibilidade de lotes aqui
    sem que a equipe comercial tenha confirmado oficialmente.
    ========================================================================= */
@@ -1499,13 +1520,13 @@ window.Lumoa = window.Lumoa || {};
 
 /* services/luna-ai.js */
 /* =========================================================================
-   Integração de IA da Luna — sem chaves no frontend
+   Integração de IA da Luma — sem chaves no frontend
    Provedores, nesta ordem:
    1) Artefato Claude: capacidade "sample" do visualizador (sem chave, com
       consentimento do visitante).
    2) config.lunaAiEndpoint: seu servidor (server/luna-proxy.js), que guarda a
       chave da API em variável de ambiente.
-   Sem provedor, a Luna segue apenas com o atendimento guiado.
+   Sem provedor, a Luma segue apenas com o atendimento guiado.
    ========================================================================= */
 (function (L) {
   let samplePromise = null;
@@ -1540,7 +1561,7 @@ window.Lumoa = window.Lumoa || {};
   const SECOES = ['empreendimento', 'condominio', 'implantacao', 'lazer', 'casas', 'localizacao', 'galeria', 'contato'];
 
   function instructions() {
-    return `Você é a Luna, anfitriã virtual oficial do condomínio Lumoa Dunes. Fale em português do Brasil, com tom acolhedor, elegante, profissional e natural.
+    return `Você é a Luma, assistente virtual oficial do condomínio Lumoa Dunes. Fale em português do Brasil, com tom acolhedor, elegante, profissional e natural.
 REGRAS OBRIGATÓRIAS:
 - Use SOMENTE as informações oficiais abaixo. Se algo não estiver nelas, diga com gentileza que essa informação não consta no catálogo e ofereça o contato de um consultor.
 - NUNCA informe ou estime preços, valores, parcelas, condições de pagamento, descontos, disponibilidade de lotes, prazos de obra ou de entrega, retorno de investimento. Para isso, encaminhe sempre à equipe comercial.
@@ -1596,7 +1617,7 @@ ${knowledge()}`;
           return guard(r.text);
         } catch (e) {
           if (e && (e.code === 'not_granted' || e.code === 'unavailable')) disabled = true;
-          console.warn('[Luna] IA indisponível:', e && (e.code || e.message));
+          console.warn('[Luma] IA indisponível:', e && (e.code || e.message));
         }
       }
       if (L.config.lunaAiEndpoint) {
@@ -1608,7 +1629,7 @@ ${knowledge()}`;
           if (!r.ok) throw new Error('HTTP ' + r.status);
           const j = await r.json();
           return j && j.text ? guard(j.text) : null;
-        } catch (e) { console.warn('[Luna] endpoint de IA falhou:', e.message); }
+        } catch (e) { console.warn('[Luma] endpoint de IA falhou:', e.message); }
       }
       return null;
     },
@@ -1619,9 +1640,9 @@ ${knowledge()}`;
 
 /* luna/knowledge.js */
 /* =========================================================================
-   LUNA — Base de conhecimento do atendimento guiado
+   LUMA — Base de conhecimento do atendimento guiado
    Todas as respostas usam apenas informações de Lumoa.data (catálogo oficial).
-   Regra de ouro: a Luna NUNCA informa preços, condições de pagamento,
+   Regra de ouro: a Luma NUNCA informa preços, condições de pagamento,
    disponibilidade de lotes, prazos de obra ou qualquer dado comercial.
    ========================================================================= */
 (function (L) {
@@ -1648,7 +1669,7 @@ ${knowledge()}`;
   I.saudacao = {
     kw: ['oi', 'ola', 'bom dia', 'boa tarde', 'boa noite', 'hey', 'e ai', 'opa', 'tudo bem'],
     r: () => ({
-      say: ['Olá! Que bom ter você por aqui. Eu sou a Luna, a anfitriã virtual do Lumoa Dunes.', 'Sobre o que você gostaria de conversar?'],
+      say: ['Olá! Que bom ter você por aqui. Eu sou a Luma, a assistente virtual do Lumoa Dunes.', 'Sobre o que você gostaria de conversar?'],
       quick: ['sobre', 'lotes', 'casas', 'lazer', 'localizacao', 'consultor'],
     }),
   };
@@ -1915,9 +1936,9 @@ ${knowledge()}`;
   };
 
   I.luna = {
-    kw: ['quem e voce', 'quem e vc', 'voce e', 'robo', 'bot', 'inteligencia artificial', 'ia', 'luna', 'seu nome', 'assistente'],
+    kw: ['quem e voce', 'quem e vc', 'voce e', 'robo', 'bot', 'inteligencia artificial', 'ia', 'luma', 'luna', 'seu nome', 'assistente'],
     r: () => ({
-      say: ['Eu sou a **Luna**, a anfitriã virtual do Lumoa Dunes. Conheço cada detalhe do catálogo oficial e estou aqui para apresentar o empreendimento, mostrar as casas, os espaços de lazer e conectar você à nossa equipe.', 'Valores e disponibilidade eu deixo com os consultores, para você receber sempre a informação oficial.'],
+      say: ['Eu sou a **Luma**, a assistente virtual do Lumoa Dunes. Conheço cada detalhe do catálogo oficial e estou aqui para apresentar o empreendimento, mostrar as casas, os espaços de lazer e conectar você à nossa equipe.', 'Valores e disponibilidade eu deixo com os consultores, para você receber sempre a informação oficial.'],
       quick: ['sobre', 'casas', 'lazer', 'consultor'],
     }),
   };
@@ -1950,7 +1971,7 @@ ${knowledge()}`;
 
 /* luna/engine.js */
 /* =========================================================================
-   LUNA — Motor de conversa
+   LUMA — Motor de conversa
    - Reconhece a intenção do visitante (palavras-chave + contexto da conversa)
    - Conduz o fluxo de coleta de interesse com consentimento (LGPD)
    - Recorre à IA (quando disponível) só para perguntas fora do roteiro
@@ -2010,7 +2031,7 @@ ${knowledge()}`;
       if (!id && ctx.topic && /\b(mais|detalhes?|continua|continue|e ai|e entao)\b/.test(nt)) return ctx.topic;
       // "e a planta?", "e as fotos?" usam o contexto
       if (id === 'plantas' && !ctx.house && ctx.topic && ctx.topic.startsWith('casa-')) ctx.house = ctx.topic.slice(5);
-      // Respostas curtas de concordância depois de uma oferta da Luna
+      // Respostas curtas de concordância depois de uma oferta da Luma
       if (!id && ctx.offer && /^(sim|claro|quero|pode|pode ser|ok|beleza|bora|isso|aceito|com certeza|por favor)\b/.test(norm(text))) return ctx.offer;
       return id;
     },
@@ -2102,7 +2123,7 @@ ${knowledge()}`;
     async submitLead() {
       const d = this.ctx.flow.data;
       const temas = [...new Set(this.ctx.history.filter((m) => m.topic).map((m) => m.topic))].slice(-6).join(', ');
-      const res = await L.leads.submit({ ...d, origem: 'luna', mensagem: temas ? `Assuntos na conversa com a Luna: ${temas}` : '' });
+      const res = await L.leads.submit({ ...d, origem: 'luna', mensagem: temas ? `Assuntos na conversa com a Luma: ${temas}` : '' });
       const first = d.nome.split(' ')[0];
       this.ctx.flow = null;
       if (res.ok && res.channel !== 'whatsapp') {
@@ -2126,24 +2147,24 @@ ${knowledge()}`;
 
 /* luna/widget.js */
 /* =========================================================================
-   LUNA — apresentadora virtual
+   LUMA — apresentadora virtual
    - Aparece em cena (figura recortada da peça oficial), fala com o visitante
      em balão e, se o visitante ativar, com voz (síntese de fala pt-BR).
    - Acompanha a navegação com falas curtas por seção.
-   - Ao conversar, abre um palco: a Luna à esquerda, a fala dela em destaque,
+   - Ao conversar, abre um palco: a Luma à esquerda, a fala dela em destaque,
      opções e campo para perguntar. O histórico fica disponível sob demanda.
    ========================================================================= */
 (function (L) {
   const { $, $$, h, esc, scrollToId, isMobile, store, toast, copyText } = L.ui;
   const E = () => L.lunaEngine;
-  const FIG = 'assets/img/luna-apresentadora.webp';
-  const WELCOME = 'Olá! Seja muito bem-vindo ao Lumoa Dunes! Eu sou a Luna e vou apresentar a você um lugar onde a exclusividade encontra a natureza. Posso ajudar você a conhecer nosso empreendimento?';
+  const FIG = 'assets/img/luma-corpo.webp';
+  const WELCOME = 'Olá! Seja muito bem-vindo ao Lumoa Dunes! Eu sou a Luma e vou apresentar a você um lugar onde a exclusividade encontra a natureza. Posso ajudar você a conhecer nosso empreendimento?';
   const START = ['sobre', 'lotes', 'casas', 'lazer', 'localizacao', 'consultor'];
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const strip = (s) => String(s).replace(/<[^>]+>/g, ' ').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
   const md = (s, trusted) => (trusted ? s : esc(s)).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
-  // Falas da Luna ao chegar em cada seção (uma vez por visita)
+  // Falas da Luma ao chegar em cada seção (uma vez por visita)
   const CUES = {
     empreendimento: { text: 'São apenas **32 lotes de 200 m²**, em uma área total de 10.840 m², no bairro Olho D’Água.', opts: [['Ver a maquete 3D', 'goto:implantacao'], ['Me conte mais', 'intent:sobre']] },
     implantacao: { text: 'Esta é a **maquete 3D** do condomínio. Arraste para girar e toque nos números para conhecer cada espaço.', opts: [['Mostrar o rooftop', 'plan:rooftop'], ['Mostrar a piscina', 'plan:piscina']] },
@@ -2195,7 +2216,14 @@ ${knowledge()}`;
       const hero = $('#inicio');
       if (hero) new IntersectionObserver(([en]) => { const on = en.intersectionRatio > 0.55; this.pres.classList.toggle('is-hero', on && !isMobile()); this.pres.classList.toggle('on-hero', on); }, { threshold: [0, 0.55, 1] }).observe(hero);
       L.bus.addEventListener('section', (e) => this.cue(e.detail));
-      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => isMobile() ? this.say('Olá! Eu sou a **Luna**, sua anfitriã no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
+      // No rodapé a Luma sai de cena para não cobrir os textos legais
+      const foot = document.querySelector('.footer');
+      if (foot) new IntersectionObserver(([en]) => { this.pres.classList.toggle('at-end', en.isIntersecting); if (en.isIntersecting) this.hush(); }, { threshold: 0.25 }).observe(foot);
+      // Se a pessoa continua rolando, o balão sai da frente do conteúdo
+      addEventListener('scroll', () => {
+        if (this.pres.classList.contains('speech-open') && !this.pres.matches(':hover') && Math.abs(scrollY - this.sayY) > innerHeight * 0.45) this.hush();
+      }, { passive: true });
+      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => isMobile() ? this.say('Olá! Eu sou a **Luma**, sua assistente no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
       if (document.documentElement.classList.contains('boot')) L.bus.addEventListener('ready', start, { once: true }); else setTimeout(start, 400);
     },
 
@@ -2203,14 +2231,14 @@ ${knowledge()}`;
 
     /* ---------------------- Apresentadora em cena ---------------------- */
     buildPresenter() {
-      this.fig = h('button', { class: 'presenter__figure', type: 'button', 'aria-label': 'Conversar com a Luna', html: `<img src="${FIG}" alt="Luna, anfitriã virtual do Lumoa Dunes">` });
+      this.fig = h('button', { class: 'presenter__figure', type: 'button', 'aria-label': 'Conversar com a Luma', html: `<img src="${FIG}" alt="Luma, assistente virtual do Lumoa Dunes">` });
       this.fig.addEventListener('click', () => this.open());
       this.sText = h('p', { class: 'speech__text' });
       this.sActs = h('div', { class: 'speech__actions' });
       this.soundBtns = [];
       const sound = this.soundButton();
       const speech = h('div', { class: 'presenter__speech', role: 'status', 'aria-live': 'polite' },
-        h('div', { class: 'speech__who' }, h('strong', null, 'Luna'), h('span', { class: 'wave', 'aria-hidden': 'true', html: '<i></i><i></i><i></i><i></i>' }),
+        h('div', { class: 'speech__who' }, h('strong', null, 'Luma'), h('span', { class: 'wave', 'aria-hidden': 'true', html: '<i></i><i></i><i></i><i></i>' }),
           h('div', { class: 'speech__tools' }, sound,
             h('button', { type: 'button', 'aria-label': 'Ocultar fala', title: 'Ocultar', html: '<svg><use href="#i-close"/></svg>', onclick: () => this.hush() }))),
         this.sText, this.sActs);
@@ -2219,8 +2247,8 @@ ${knowledge()}`;
     },
 
     soundButton(withLabel) {
-      const b = h('button', { type: 'button', class: voice.on ? 'is-on' : '', 'aria-pressed': String(voice.on), title: 'Ouvir a voz da Luna' });
-      const paint = () => { b.innerHTML = `<svg><use href="#i-${voice.on ? 'sound' : 'mute'}"/></svg>` + (withLabel ? `<span>${voice.on ? 'Voz ligada' : 'Ouvir a Luna'}</span>` : ''); b.classList.toggle('is-on', voice.on); b.setAttribute('aria-pressed', String(voice.on)); b.setAttribute('aria-label', voice.on ? 'Desligar a voz da Luna' : 'Ligar a voz da Luna'); };
+      const b = h('button', { type: 'button', class: voice.on ? 'is-on' : '', 'aria-pressed': String(voice.on), title: 'Ouvir a voz da Luma' });
+      const paint = () => { b.innerHTML = `<svg><use href="#i-${voice.on ? 'sound' : 'mute'}"/></svg>` + (withLabel ? `<span>${voice.on ? 'Voz ligada' : 'Ouvir a Luma'}</span>` : ''); b.classList.toggle('is-on', voice.on); b.setAttribute('aria-pressed', String(voice.on)); b.setAttribute('aria-label', voice.on ? 'Desligar a voz da Luma' : 'Ligar a voz da Luma'); };
       paint();
       if (!voice.supported()) b.hidden = true;
       b.addEventListener('click', () => {
@@ -2244,6 +2272,7 @@ ${knowledge()}`;
     async say(text, opts = [], ttl = 10000) {
       if (this.open_) return;
       clearTimeout(this.hideT);
+      this.sayY = scrollY;
       this.pres.classList.add('speech-open');
       this.sActs.replaceChildren();
       this.lastSpoken = text;
@@ -2262,7 +2291,8 @@ ${knowledge()}`;
 
     cue(section) {
       const c = CUES[section];
-      if (!c || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
+      // No celular o balão ocuparia a tela toda: a Luma só fala quando a pessoa toca nela
+      if (!c || isMobile() || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
       this.seen.add(section);
       clearTimeout(this.cueT);
       this.cueT = setTimeout(() => this.say(c.text, c.opts, isMobile() ? 6500 : 9000), 1200);
@@ -2301,7 +2331,7 @@ ${knowledge()}`;
       this.media = h('div', { class: 'lstage__media' });
       this.opts = h('div', { class: 'lstage__opts', role: 'group', 'aria-label': 'Opções' });
       this.hist = h('div', { class: 'lstage__history', hidden: true });
-      this.input = h('textarea', { id: 'lunaInput', rows: '1', placeholder: 'Pergunte algo para a Luna…', 'aria-label': 'Pergunta para a Luna', maxlength: '600' });
+      this.input = h('textarea', { id: 'lunaInput', rows: '1', placeholder: 'Pergunte algo para a Luma…', 'aria-label': 'Pergunta para a Luma', maxlength: '600' });
       const send = h('button', { class: 'lstage__send', type: 'submit', 'aria-label': 'Enviar', html: '<svg><use href="#i-send"/></svg>' });
       const form = h('form', { class: 'lstage__form' }, this.input, send);
       form.addEventListener('submit', (e) => { e.preventDefault(); this.submitInput(); });
@@ -2312,11 +2342,11 @@ ${knowledge()}`;
         this.soundButton(true), this.histBtn,
         h('button', { type: 'button', 'aria-label': 'Minimizar', title: 'Minimizar', html: '<svg><use href="#i-minus"/></svg>', onclick: () => this.minimize() }),
         h('button', { type: 'button', 'aria-label': 'Encerrar conversa', title: 'Encerrar conversa', html: '<svg><use href="#i-close"/></svg>', onclick: () => this.close() }));
-      this.stage = h('section', { class: 'lstage', id: 'lunaStage', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Conversa com a Luna', 'aria-hidden': 'true' },
+      this.stage = h('section', { class: 'lstage', id: 'lunaStage', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Conversa com a Luma', 'aria-hidden': 'true' },
         h('div', { class: 'lstage__box' },
-          h('div', { class: 'lstage__set' }, h('img', { src: FIG, alt: '' }), h('div', { class: 'lstage__tag' }, h('strong', null, 'Luna'), h('span', null, 'Anfitriã virtual · online'))),
+          h('div', { class: 'lstage__set' }, h('img', { src: FIG, alt: '' }), h('div', { class: 'lstage__tag' }, h('strong', null, 'Luma'), h('span', null, 'Assistente virtual · online'))),
           h('div', { class: 'lstage__main' }, bar, this.you, h('div', { class: 'lstage__scroll' }, this.speech, this.media), this.opts, form,
-            h('p', { class: 'lstage__legal' }, 'A Luna responde com base no catálogo oficial. Valores, condições e disponibilidade: equipe comercial.'), this.hist)));
+            h('p', { class: 'lstage__legal' }, 'A Luma responde com base no catálogo oficial. Valores, condições e disponibilidade: equipe comercial.'), this.hist)));
       this.stage.addEventListener('click', (e) => { if (e.target === this.stage) this.minimize(); });
       document.body.append(this.stage);
     },
@@ -2347,14 +2377,14 @@ ${knowledge()}`;
       this.started = false; this.log = [];
       this.speech.replaceChildren(); this.media.replaceChildren(); this.opts.replaceChildren(); this.you.textContent = '';
       E().ctx = { topic: null, house: null, expect: null, flow: null, history: [] };
-      toast('Conversa encerrada. A Luna continua aqui quando você precisar.');
+      toast('Conversa encerrada. A Luma continua aqui quando você precisar.');
     },
 
     toggleHistory() {
       const show = this.hist.hidden;
       this.hist.hidden = !show; this.histBtn.classList.toggle('is-on', show); this.histBtn.setAttribute('aria-pressed', String(show));
       if (show) {
-        const rows = (this.log || []).map((m) => h('p', { class: m.u ? 'u' : '' }, h('b', null, m.u ? 'Você' : 'Luna'), m.t));
+        const rows = (this.log || []).map((m) => h('p', { class: m.u ? 'u' : '' }, h('b', null, m.u ? 'Você' : 'Luma'), m.t));
         this.hist.replaceChildren(...(rows.length ? rows : [h('p', null, 'A conversa ainda não começou.')]));
         this.hist.scrollTop = this.hist.scrollHeight;
       }
@@ -2418,7 +2448,7 @@ ${knowledge()}`;
       if (on) { this.speech.innerHTML = '<p><span class="caret"></span></p>'; this.talk(true); } else this.talk(false);
     },
 
-    /** Reproduz a resposta da Luna no palco: fala em destaque, imagens e opções */
+    /** Reproduz a resposta da Luma no palco: fala em destaque, imagens e opções */
     async play(turn) {
       if (!turn) return;
       this.speech.replaceChildren(); this.media.replaceChildren(); this.opts.replaceChildren();
@@ -2439,7 +2469,7 @@ ${knowledge()}`;
       const cards = [...(turn.cards || []), ...(turn.cardsRow || [])];
       cards.forEach((c, i) => this.media.append(this.card(c, i)));
       this.renderOptions(turn.actions || [], turn.quick || (E().ctx.flow ? [] : ['menu', 'consultor']));
-      this.input.placeholder = (turn.input && turn.input.placeholder) || 'Pergunte algo para a Luna…';
+      this.input.placeholder = (turn.input && turn.input.placeholder) || 'Pergunte algo para a Luma…';
       this.input.setAttribute('inputmode', turn.input && turn.input.type === 'tel' ? 'tel' : turn.input && turn.input.type === 'email' ? 'email' : 'text');
       if (turn.input && !isMobile()) this.input.focus({ preventScroll: true });
     },
@@ -3286,7 +3316,7 @@ ${knowledge()}`;
         h('h3', null, it.nome), h('p', null, it.desc),
         h('div', { class: 'm3-card__links' },
           h('button', { type: 'button', onclick: () => this.overview() }, 'Ver todo o condomínio'),
-          h('button', { type: 'button', onclick: () => L.luna.ask('amenity:' + it.id) }, 'Perguntar à Luna'))));
+          h('button', { type: 'button', onclick: () => L.luna.ask('amenity:' + it.id) }, 'Perguntar à Luma'))));
       card.classList.remove('in'); void card.offsetWidth; card.classList.add('in');
       if (!opts.silent) L.bus.dispatchEvent(new CustomEvent('plan-select', { detail: it.id }));
     },
@@ -3307,7 +3337,7 @@ ${knowledge()}`;
       card.classList.remove('in'); void card.offsetWidth; card.classList.add('in');
     },
 
-    /* Tour guiado: a câmera percorre os espaços e a Luna apresenta cada um */
+    /* Tour guiado: a câmera percorre os espaços e a Luma apresenta cada um */
     tour() {
       const seq = ['portaria', 'guarderia', 'beach-tennis', 'playground', 'redario', 'piscina', 'rooftop', 'churrasqueira', 'petplay'];
       this.tourOn = true; let i = 0;
@@ -3341,7 +3371,7 @@ ${knowledge()}`;
   };
 
   L.maquete = M;
-  L.plan = { select: (id) => M.select(id) }; // compatibilidade com as ações da Luna
+  L.plan = { select: (id) => M.select(id) }; // compatibilidade com as ações da Luma
 })(window.Lumoa);
 
 /* components/lazer.js */
@@ -3363,7 +3393,7 @@ ${knowledge()}`;
           h('div', { class: 'slide__body' }, h('h3', null, it.nome), h('p', null, it.desc),
             h('div', { class: 'slide__links' },
               h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.plan.select(id); scrollToId('implantacao'); } }, 'Ver na maquete'),
-              h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.luna.ask('amenity:' + id); } }, 'Perguntar à Luna'))));
+              h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.luna.ask('amenity:' + id); } }, 'Perguntar à Luma'))));
         card.querySelector('.slide__img').addEventListener('click', () => L.lightbox.open(RAIL.map((k) => { const x = L.findLazer(k); return { src: x.img, legenda: x.nome }; }), i));
         rail.append(card);
       });
@@ -3481,7 +3511,7 @@ ${knowledge()}`;
         h('span', { class: 'rooms-title' }, `Ambientes · ${planta.titulo}`),
         rooms,
         h('div', { class: 'spec__actions' },
-          h('button', { class: 'btn btn--dark btn--sm', type: 'button', onclick: () => L.luna.ask('casa-' + c.id) }, 'Perguntar à Luna'),
+          h('button', { class: 'btn btn--dark btn--sm', type: 'button', onclick: () => L.luna.ask('casa-' + c.id) }, 'Perguntar à Luma'),
           h('button', { class: 'btn btn--line btn--sm', type: 'button', onclick: () => { L.contact.prefill(c.nome); scrollToId('contato'); } }, 'Tenho interesse')));
 
       this.root.replaceChildren(viewer, spec);
@@ -3634,7 +3664,7 @@ ${knowledge()}`;
         parts.push(h('span', { class: 'copy-line', style: { color: 'var(--muted)', fontSize: '.9rem' } }, 'WhatsApp oficial: ', h('strong', null, '+' + num)));
       }
       if (cfg.email) parts.push(h('span', { class: 'copy-line', style: { color: 'var(--muted)', fontSize: '.9rem' } }, 'E-mail: ', h('strong', null, cfg.email)));
-      parts.push(h('button', { class: 'link', type: 'button', 'data-luna-intent': 'consultor' }, 'Prefere falar com a Luna? Ela registra seu contato.'));
+      parts.push(h('button', { class: 'link', type: 'button', 'data-luna-intent': 'consultor' }, 'Prefere falar com a Luma? Ela registra seu contato.'));
       box.replaceChildren(...parts);
     },
 
@@ -3680,7 +3710,7 @@ ${knowledge()}`;
           h('div', { class: 'check', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>' }),
           h('h3', null, `Obrigada, ${lead.nome.split(' ')[0]}!`),
           h('p', { style: { color: 'var(--ink-2)' } }, 'Recebemos seus dados. Um consultor do Lumoa Dunes vai entrar em contato pelo telefone informado.'),
-          h('button', { class: 'btn btn--line btn--sm', type: 'button', 'data-luna-open': '' }, 'Continuar com a Luna')));
+          h('button', { class: 'btn btn--line btn--sm', type: 'button', 'data-luna-open': '' }, 'Continuar com a Luma')));
         toast('Contato enviado para a equipe comercial.');
         L.bus.dispatchEvent(new CustomEvent('lead', { detail: lead }));
       } else if (res.channel === 'whatsapp') {
@@ -3734,11 +3764,11 @@ ${knowledge()}`;
       list.replaceChildren(h('p', { class: 'empty' }, 'Carregando contatos…'));
       try {
         const rows = await L.leads.listAll();
-        if (!rows.length) { list.replaceChildren(h('p', { class: 'empty' }, 'Nenhum interessado ainda. Os contatos enviados pelo formulário e pela Luna aparecem aqui.')); return; }
+        if (!rows.length) { list.replaceChildren(h('p', { class: 'empty' }, 'Nenhum interessado ainda. Os contatos enviados pelo formulário e pela Luma aparecem aqui.')); return; }
         list.replaceChildren(...rows.map((r) => h('div', { class: 'lead-row' },
           h('strong', null, r.nome || 'Sem nome'),
           h('span', null, [r.telefone, r.email].filter(Boolean).join(' · ')),
-          h('small', null, `${r.interesse || 'Interesse não informado'} · via ${r.origem === 'luna' ? 'Luna' : 'formulário'} · ${new Date(r.atualizadoEm).toLocaleString('pt-BR')}`),
+          h('small', null, `${r.interesse || 'Interesse não informado'} · via ${r.origem === 'luna' ? 'Luma' : 'formulário'} · ${new Date(r.atualizadoEm).toLocaleString('pt-BR')}`),
           r.mensagem ? h('p', null, r.mensagem) : null)));
       } catch (e) {
         list.replaceChildren(h('p', { class: 'empty' }, 'Não foi possível carregar os contatos agora. Feche e abra o painel para tentar de novo.'));

@@ -1,8 +1,8 @@
 # Lumoa Dunes — site oficial
 
-Site institucional do Lumoa Dunes (Santo Amaro – MA, Lençóis Maranhenses) com a anfitriã virtual **Luna**.
+Site institucional do Lumoa Dunes (Santo Amaro – MA, Lençóis Maranhenses) com a assistente virtual **Luma**.
 Todas as informações vêm do catálogo oficial *BOOK LUMOA CASAS.pdf*. Nada de preço, condição comercial ou
-disponibilidade de lotes é exibido ou respondido pela Luna.
+disponibilidade de lotes é exibido ou respondido pela Luma.
 
 ## Estrutura
 
@@ -16,7 +16,7 @@ src/
                           maquete (controles + versão CSS 3D de reserva), lazer, casas, galeria/lightbox, contato
   services/               leads.js (envio de interessados) · luna-ai.js (IA sem chave no frontend)
   luna/                   knowledge.js (respostas do catálogo) · engine.js (intenções, contexto, cadastro LGPD)
-                          widget.js (Luna apresentadora em cena, palco de conversa e voz pt-BR)
+                          widget.js (Luma apresentadora em cena, palco de conversa e voz pt-BR)
   main.js                 inicialização
 server/                   exemplos de backend: luna-proxy.js (IA) e leads-endpoint.js (interessados)
 assets/img/               imagens extraídas do catálogo, otimizadas em WebP
@@ -35,13 +35,13 @@ Nenhuma dependência nova foi adicionada; as fontes vêm do Google Fonts (Marcel
 
 | Campo | Para quê |
 |---|---|
-| `whatsapp` | Número oficial (ex.: `5598999999999`). Ativa os botões de WhatsApp no site e na Luna. |
+| `whatsapp` | Número oficial (ex.: `5598999999999`). Ativa os botões de WhatsApp no site e na Luma. |
 | `leadEndpoint` | URL que recebe os interessados (ex.: `/api/leads` com `server/leads-endpoint.js`). |
 | `lunaAiEndpoint` | URL do proxy de IA (ex.: `/api/luna` com `server/luna-proxy.js` e `ANTHROPIC_API_KEY` no servidor). |
 | `coordenadas` | Latitude/longitude confirmadas: o botão do mapa passa a abrir o ponto exato. |
 | `email` | E-mail comercial exibido na seção de contato. |
 
-## Como a Luna funciona
+## Como a Luma funciona
 
 1. **Atendimento guiado** (sempre ativo): reconhece a intenção da mensagem, considera o contexto (ex.: "e a planta?" depois de falar da Casa Estrela), responde com textos do catálogo, mostra imagens, leva o visitante à seção certa do site e conduz o cadastro de interesse com consentimento.
 2. **IA** (opcional): só é usada para perguntas fora do roteiro. As instruções obrigam a responder apenas com os dados oficiais, e um filtro no frontend bloqueia qualquer resposta com valores ou condições comerciais.

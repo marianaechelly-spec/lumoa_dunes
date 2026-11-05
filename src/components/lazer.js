@@ -16,7 +16,7 @@
           h('div', { class: 'slide__body' }, h('h3', null, it.nome), h('p', null, it.desc),
             h('div', { class: 'slide__links' },
               h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.plan.select(id); scrollToId('implantacao'); } }, 'Ver na maquete'),
-              h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.luna.ask('amenity:' + id); } }, 'Perguntar à Luna'))));
+              h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.luna.ask('amenity:' + id); } }, 'Perguntar à Luma'))));
         card.querySelector('.slide__img').addEventListener('click', () => L.lightbox.open(RAIL.map((k) => { const x = L.findLazer(k); return { src: x.img, legenda: x.nome }; }), i));
         rail.append(card);
       });

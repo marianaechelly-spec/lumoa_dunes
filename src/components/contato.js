@@ -24,7 +24,7 @@
         parts.push(h('span', { class: 'copy-line', style: { color: 'var(--muted)', fontSize: '.9rem' } }, 'WhatsApp oficial: ', h('strong', null, '+' + num)));
       }
       if (cfg.email) parts.push(h('span', { class: 'copy-line', style: { color: 'var(--muted)', fontSize: '.9rem' } }, 'E-mail: ', h('strong', null, cfg.email)));
-      parts.push(h('button', { class: 'link', type: 'button', 'data-luna-intent': 'consultor' }, 'Prefere falar com a Luna? Ela registra seu contato.'));
+      parts.push(h('button', { class: 'link', type: 'button', 'data-luna-intent': 'consultor' }, 'Prefere falar com a Luma? Ela registra seu contato.'));
       box.replaceChildren(...parts);
     },
 
@@ -70,7 +70,7 @@
           h('div', { class: 'check', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>' }),
           h('h3', null, `Obrigada, ${lead.nome.split(' ')[0]}!`),
           h('p', { style: { color: 'var(--ink-2)' } }, 'Recebemos seus dados. Um consultor do Lumoa Dunes vai entrar em contato pelo telefone informado.'),
-          h('button', { class: 'btn btn--line btn--sm', type: 'button', 'data-luna-open': '' }, 'Continuar com a Luna')));
+          h('button', { class: 'btn btn--line btn--sm', type: 'button', 'data-luna-open': '' }, 'Continuar com a Luma')));
         toast('Contato enviado para a equipe comercial.');
         L.bus.dispatchEvent(new CustomEvent('lead', { detail: lead }));
       } else if (res.channel === 'whatsapp') {
@@ -124,11 +124,11 @@
       list.replaceChildren(h('p', { class: 'empty' }, 'Carregando contatos…'));
       try {
         const rows = await L.leads.listAll();
-        if (!rows.length) { list.replaceChildren(h('p', { class: 'empty' }, 'Nenhum interessado ainda. Os contatos enviados pelo formulário e pela Luna aparecem aqui.')); return; }
+        if (!rows.length) { list.replaceChildren(h('p', { class: 'empty' }, 'Nenhum interessado ainda. Os contatos enviados pelo formulário e pela Luma aparecem aqui.')); return; }
         list.replaceChildren(...rows.map((r) => h('div', { class: 'lead-row' },
           h('strong', null, r.nome || 'Sem nome'),
           h('span', null, [r.telefone, r.email].filter(Boolean).join(' · ')),
-          h('small', null, `${r.interesse || 'Interesse não informado'} · via ${r.origem === 'luna' ? 'Luna' : 'formulário'} · ${new Date(r.atualizadoEm).toLocaleString('pt-BR')}`),
+          h('small', null, `${r.interesse || 'Interesse não informado'} · via ${r.origem === 'luna' ? 'Luma' : 'formulário'} · ${new Date(r.atualizadoEm).toLocaleString('pt-BR')}`),
           r.mensagem ? h('p', null, r.mensagem) : null)));
       } catch (e) {
         list.replaceChildren(h('p', { class: 'empty' }, 'Não foi possível carregar os contatos agora. Feche e abra o painel para tentar de novo.'));

@@ -37,7 +37,7 @@ p { margin: 0; }
 .lead { font-size: var(--fs-lg); font-weight: 300; color: var(--ink); line-height: 1.6; max-width: 56ch; }
 .body { color: var(--ink-2); font-weight: 300; max-width: 60ch; }
 .section--deep .body { color: rgba(251, 248, 242, 0.75); }
-.quote { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--teal); line-height: 1.35; max-width: 30ch; }
+.quote { font-family: var(--font-display); font-size: clamp(1.3rem, 1rem + 0.9vw, 1.75rem); color: var(--teal); line-height: 1.35; max-width: 30ch; }
 .section-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(40px, 5vw, 72px); }
 .section-top > div:first-child { display: grid; gap: 20px; }
 .section-top__side { display: grid; gap: 22px; justify-items: start; }

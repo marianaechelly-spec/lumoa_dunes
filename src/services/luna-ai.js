@@ -1,11 +1,11 @@
 /* =========================================================================
-   Integração de IA da Luna — sem chaves no frontend
+   Integração de IA da Luma — sem chaves no frontend
    Provedores, nesta ordem:
    1) Artefato Claude: capacidade "sample" do visualizador (sem chave, com
       consentimento do visitante).
    2) config.lunaAiEndpoint: seu servidor (server/luna-proxy.js), que guarda a
       chave da API em variável de ambiente.
-   Sem provedor, a Luna segue apenas com o atendimento guiado.
+   Sem provedor, a Luma segue apenas com o atendimento guiado.
    ========================================================================= */
 (function (L) {
   let samplePromise = null;
@@ -40,7 +40,7 @@
   const SECOES = ['empreendimento', 'condominio', 'implantacao', 'lazer', 'casas', 'localizacao', 'galeria', 'contato'];
 
   function instructions() {
-    return `Você é a Luna, anfitriã virtual oficial do condomínio Lumoa Dunes. Fale em português do Brasil, com tom acolhedor, elegante, profissional e natural.
+    return `Você é a Luma, assistente virtual oficial do condomínio Lumoa Dunes. Fale em português do Brasil, com tom acolhedor, elegante, profissional e natural.
 REGRAS OBRIGATÓRIAS:
 - Use SOMENTE as informações oficiais abaixo. Se algo não estiver nelas, diga com gentileza que essa informação não consta no catálogo e ofereça o contato de um consultor.
 - NUNCA informe ou estime preços, valores, parcelas, condições de pagamento, descontos, disponibilidade de lotes, prazos de obra ou de entrega, retorno de investimento. Para isso, encaminhe sempre à equipe comercial.
@@ -96,7 +96,7 @@ ${knowledge()}`;
           return guard(r.text);
         } catch (e) {
           if (e && (e.code === 'not_granted' || e.code === 'unavailable')) disabled = true;
-          console.warn('[Luna] IA indisponível:', e && (e.code || e.message));
+          console.warn('[Luma] IA indisponível:', e && (e.code || e.message));
         }
       }
       if (L.config.lunaAiEndpoint) {
@@ -108,7 +108,7 @@ ${knowledge()}`;
           if (!r.ok) throw new Error('HTTP ' + r.status);
           const j = await r.json();
           return j && j.text ? guard(j.text) : null;
-        } catch (e) { console.warn('[Luna] endpoint de IA falhou:', e.message); }
+        } catch (e) { console.warn('[Luma] endpoint de IA falhou:', e.message); }
       }
       return null;
     },

@@ -1,7 +1,7 @@
 /* =========================================================================
-   LUNA — Base de conhecimento do atendimento guiado
+   LUMA — Base de conhecimento do atendimento guiado
    Todas as respostas usam apenas informações de Lumoa.data (catálogo oficial).
-   Regra de ouro: a Luna NUNCA informa preços, condições de pagamento,
+   Regra de ouro: a Luma NUNCA informa preços, condições de pagamento,
    disponibilidade de lotes, prazos de obra ou qualquer dado comercial.
    ========================================================================= */
 (function (L) {
@@ -28,7 +28,7 @@
   I.saudacao = {
     kw: ['oi', 'ola', 'bom dia', 'boa tarde', 'boa noite', 'hey', 'e ai', 'opa', 'tudo bem'],
     r: () => ({
-      say: ['Olá! Que bom ter você por aqui. Eu sou a Luna, a anfitriã virtual do Lumoa Dunes.', 'Sobre o que você gostaria de conversar?'],
+      say: ['Olá! Que bom ter você por aqui. Eu sou a Luma, a assistente virtual do Lumoa Dunes.', 'Sobre o que você gostaria de conversar?'],
       quick: ['sobre', 'lotes', 'casas', 'lazer', 'localizacao', 'consultor'],
     }),
   };
@@ -295,9 +295,9 @@
   };
 
   I.luna = {
-    kw: ['quem e voce', 'quem e vc', 'voce e', 'robo', 'bot', 'inteligencia artificial', 'ia', 'luna', 'seu nome', 'assistente'],
+    kw: ['quem e voce', 'quem e vc', 'voce e', 'robo', 'bot', 'inteligencia artificial', 'ia', 'luma', 'luna', 'seu nome', 'assistente'],
     r: () => ({
-      say: ['Eu sou a **Luna**, a anfitriã virtual do Lumoa Dunes. Conheço cada detalhe do catálogo oficial e estou aqui para apresentar o empreendimento, mostrar as casas, os espaços de lazer e conectar você à nossa equipe.', 'Valores e disponibilidade eu deixo com os consultores, para você receber sempre a informação oficial.'],
+      say: ['Eu sou a **Luma**, a assistente virtual do Lumoa Dunes. Conheço cada detalhe do catálogo oficial e estou aqui para apresentar o empreendimento, mostrar as casas, os espaços de lazer e conectar você à nossa equipe.', 'Valores e disponibilidade eu deixo com os consultores, para você receber sempre a informação oficial.'],
       quick: ['sobre', 'casas', 'lazer', 'consultor'],
     }),
   };

@@ -92,7 +92,7 @@
         h('span', { class: 'rooms-title' }, `Ambientes · ${planta.titulo}`),
         rooms,
         h('div', { class: 'spec__actions' },
-          h('button', { class: 'btn btn--dark btn--sm', type: 'button', onclick: () => L.luna.ask('casa-' + c.id) }, 'Perguntar à Luna'),
+          h('button', { class: 'btn btn--dark btn--sm', type: 'button', onclick: () => L.luna.ask('casa-' + c.id) }, 'Perguntar à Luma'),
           h('button', { class: 'btn btn--line btn--sm', type: 'button', onclick: () => { L.contact.prefill(c.nome); scrollToId('contato'); } }, 'Tenho interesse')));
 
       this.root.replaceChildren(viewer, spec);

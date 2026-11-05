@@ -1,11 +1,11 @@
-/* ================= LUNA — apresentadora ================= */
+/* ================= LUMA — apresentadora ================= */
 .presenter { position: fixed; z-index: 90; right: max(12px, env(safe-area-inset-right, 0px)); bottom: 0; display: flex; align-items: flex-end; gap: 0; pointer-events: none; transition: opacity 0.5s var(--ease), transform 0.6s var(--ease); }
 .presenter > * { pointer-events: auto; }
-.presenter.is-hidden { opacity: 0; transform: translateY(40px); pointer-events: none; }
-.presenter.is-hidden > * { pointer-events: none; }
-.presenter__figure { position: relative; border: 0; padding: 0; background: none; cursor: pointer; height: var(--fig-h, 250px); aspect-ratio: 565 / 1031; transition: height 0.9s var(--ease); flex: none; margin-bottom: calc(env(safe-area-inset-bottom, 0px) * -1); }
-.presenter__figure img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: drop-shadow(0 18px 30px rgba(8, 42, 43, 0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; -webkit-mask: linear-gradient(#000 80%, transparent); mask: linear-gradient(#000 80%, transparent); }
-.presenter.is-hero { --fig-h: min(64vh, 600px); }
+.presenter.is-hidden, .presenter.at-end { opacity: 0; transform: translateY(40px); pointer-events: none; }
+.presenter.is-hidden > *, .presenter.at-end > * { pointer-events: none; }
+.presenter__figure { position: relative; border: 0; padding: 0; background: none; cursor: pointer; height: var(--fig-h, 250px); aspect-ratio: 647 / 1236; transition: height 0.9s var(--ease); flex: none; margin-bottom: calc(env(safe-area-inset-bottom, 0px) * -1); }
+.presenter__figure img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 18px 30px rgba(8, 42, 43, 0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; }
+.presenter.is-hero { --fig-h: min(calc(100vh - var(--header-h, 80px) - 40px), 640px); }
 .presenter.is-talking .presenter__figure img { animation: breathe 5s ease-in-out infinite, talk 0.9s ease-in-out infinite; }
 @keyframes breathe { 50% { transform: translateY(-3px) scale(1.006); } }
 @keyframes talk { 50% { translate: 0 -1.5px; } }
@@ -20,6 +20,13 @@
 .presenter.is-hero .presenter__speech::after { bottom: auto; top: 54px; }
 .presenter.speech-open .presenter__speech { opacity: 1; transform: none; visibility: visible; }
 .presenter__speech::after { content: ""; position: absolute; right: -8px; bottom: 32px; width: 16px; height: 16px; background: inherit; transform: rotate(45deg); }
+/* Fora do topo: Luma menor e balão acima dela, para não cobrir o conteúdo */
+@media (min-width: 641px) {
+  .presenter:not(.is-hero) { --fig-h: 210px; flex-direction: column; align-items: flex-end; }
+  .presenter:not(.is-hero) .presenter__speech { width: 300px; margin: 0 8px 10px 0; padding: 16px 18px 14px; gap: 10px; }
+  .presenter:not(.is-hero) .presenter__speech::after { right: 56px; bottom: -7px; top: auto; }
+  .presenter:not(.is-hero) .speech__text { font-size: 0.92rem; min-height: 0; }
+}
 .speech__who { display: flex; align-items: center; gap: 10px; font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); }
 .speech__who strong { font-family: var(--font-display); font-weight: 400; font-size: 1.05rem; letter-spacing: 0.02em; text-transform: none; color: var(--teal-deep); }
 .speech__tools { margin-left: auto; display: flex; gap: 2px; }
@@ -47,7 +54,7 @@
 .lstage.is-open .lstage__box { transform: none; }
 .lstage__set { position: relative; overflow: hidden; background: url(assets/img/dunas-aereo-sm.webp) center / cover; }
 .lstage__set::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,59,60,0.35), rgba(12,59,60,0.78)); }
-.lstage__set img { position: absolute; left: 50%; bottom: 0; height: 96%; width: auto; max-width: none; transform: translateX(-50%); object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; -webkit-mask: linear-gradient(#000 82%, transparent); mask: linear-gradient(#000 82%, transparent); }
+.lstage__set img { position: absolute; left: 0; right: 0; margin-inline: auto; bottom: 12px; height: calc(100% - 96px); width: auto; max-width: 92%; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35)); transform-origin: 50% 100%; animation: breathe 5s ease-in-out infinite; }
 .lstage.is-talking .lstage__set img { animation: breathe 5s ease-in-out infinite, talk 0.9s ease-in-out infinite; }
 .lstage__tag { position: absolute; left: 24px; top: 24px; z-index: 1; color: var(--shell); display: grid; gap: 4px; }
 .lstage__tag strong { font-family: var(--font-display); font-weight: 400; font-size: 2rem; line-height: 1; }
@@ -96,7 +103,7 @@
 @media (max-width: 860px) {
   .lstage { padding: 0; }
   .lstage__box { width: 100%; height: 100%; grid-template-columns: 1fr; grid-template-rows: 30svh 1fr; }
-  .lstage__set img { height: 118%; bottom: -24%; }
+  .lstage__set img { height: calc(100% - 60px); bottom: 0; left: auto; right: 20px; margin: 0; }
   .lstage__tag { top: calc(16px + env(safe-area-inset-top, 0px)); left: 20px; }
   .lstage__tag strong { font-size: 1.6rem; }
   .lstage__bar { position: absolute; top: calc(-30svh + 8px + env(safe-area-inset-top, 0px)); right: 8px; left: auto; padding: 0; color: var(--shell); }

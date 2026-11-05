@@ -7,14 +7,14 @@ window.Lumoa = window.Lumoa || {};
 window.Lumoa.config = {
   // Número oficial do WhatsApp comercial, só dígitos com DDI e DDD.
   // Ex.: '5598999999999'. Vazio = botões de WhatsApp ficam ocultos e o
-  // atendimento segue pelo formulário e pela Luna.
+  // atendimento segue pelo formulário e pela Luma.
   whatsapp: '',
 
   // Endpoint que recebe os interessados (POST JSON). Ex.: '/api/leads'
   // (ver server/leads-endpoint.js) ou um serviço de formulários.
   leadEndpoint: '',
 
-  // Endpoint seguro da IA da Luna (ver server/luna-proxy.js).
+  // Endpoint seguro da IA da Luma (ver server/luna-proxy.js).
   // A chave da API fica SOMENTE no servidor, em variável de ambiente.
   lunaAiEndpoint: '',
 

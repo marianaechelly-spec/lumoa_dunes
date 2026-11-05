@@ -1,6 +1,6 @@
 /* =========================================================================
    Endpoint de interessados (exemplo para Vercel / Node 18+)
-   Recebe o POST do formulário e da Luna e encaminha para onde a equipe
+   Recebe o POST do formulário e da Luma e encaminha para onde a equipe
    trabalha. Aqui: um webhook configurável (CRM, planilha, e-mail via Zapier/Make).
    Defina LEADS_WEBHOOK_URL nas variáveis de ambiente.
    No site: config.leadEndpoint = '/api/leads'.
