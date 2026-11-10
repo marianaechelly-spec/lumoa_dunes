@@ -1,8 +1,8 @@
 /* Galeria com filtros + lightbox com ampliação, arraste e teclado */
 (function (L) {
   const { $, $$, h } = L.ui;
-  // Padrão de mosaico: posições que ocupam 2 colunas / 2 linhas
-  const SHAPE = { 0: 'w2 h2', 3: 'h2', 6: 'w2', 10: 'w2', 13: 'h2', 17: 'w2', 21: 'w2', 24: 'w2' };
+  // Mosaico pelo formato da foto: vertical ocupa 2 linhas, panorâmica ocupa 2 colunas
+  const SHAPE = { v: 'h2', w: 'w2' };
 
   L.gallery = {
     cat: 'todas',
@@ -25,13 +25,13 @@
     render() {
       const items = L.data.galeria.filter((g) => this.cat === 'todas' || g.cat === this.cat);
       this.grid.replaceChildren(...items.map((g, i) => {
-        const shape = this.cat === 'todas' ? SHAPE[i] || '' : (i === 0 ? 'w2 h2' : '');
+        const shape = SHAPE[g.forma] || '';
         const b = h('button', { class: 'g-item ' + shape, type: 'button', 'aria-label': 'Ampliar: ' + g.legenda, style: `animation-delay:${Math.min(i, 10) * 0.04}s` },
           h('img', { src: L.img(g.src, !shape.includes('w2')), alt: g.legenda, loading: 'lazy' }), h('span', null, g.legenda));
         b.addEventListener('click', () => L.lightbox.open(items, i));
         return b;
       }));
-      $('#galleryCount').textContent = `${items.length} ${items.length === 1 ? 'imagem' : 'imagens'} do catálogo oficial`;
+      $('#galleryCount').textContent = `${items.length} ${items.length === 1 ? 'imagem' : 'imagens'} · perspectivas ilustrativas`;
     },
   };
 

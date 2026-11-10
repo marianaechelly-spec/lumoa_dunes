@@ -1,9 +1,9 @@
-/* Lazer: trilho horizontal com os espaços fotografados no catálogo
-   + lista da infraestrutura (todos os 13 itens numerados da implantação) */
+/* Lazer: trilho horizontal com os espaços que têm perspectiva ilustrada
+   + lista dos demais itens numerados da implantação */
 (function (L) {
   const { $, h, scrollToId } = L.ui;
-  const RAIL = ['piscina', 'rooftop', 'beach-tennis', 'playground', 'petplay', 'redario', 'guarderia', 'portaria'];
-  const LIST = ['gazebo', 'churrasqueira', 'recarga', 'area-tecnica', 'estacionamento'];
+  const RAIL = ['piscina', 'rooftop', 'churrasqueira', 'gazebo', 'beach-tennis', 'playground', 'petplay', 'redario', 'portaria', 'recarga', 'guarderia'];
+  const LIST = ['area-tecnica', 'estacionamento'];
 
   L.amenities = {
     init() {
@@ -12,7 +12,7 @@
       RAIL.forEach((id, i) => {
         const it = L.findLazer(id);
         const card = h('article', { class: 'slide', id: 'lazer-' + id },
-          h('div', { class: 'slide__img' }, h('img', { src: L.img(it.img), alt: it.nome, loading: 'lazy' }), h('span', { class: 'slide__n' }, String(it.n).padStart(2, '0'))),
+          h('div', { class: 'slide__img' }, h('img', { src: L.img(it.img), alt: it.nome, loading: 'lazy', style: it.foco ? 'object-position:' + it.foco : null }), h('span', { class: 'slide__n' }, String(it.n).padStart(2, '0'))),
           h('div', { class: 'slide__body' }, h('h3', null, it.nome), h('p', null, it.desc),
             h('div', { class: 'slide__links' },
               h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.plan.select(id); scrollToId('implantacao'); } }, 'Ver na maquete'),

@@ -40,7 +40,7 @@
         `O **Lumoa Dunes** fica em **Santo Amaro, no Maranhão**, o portal mais autêntico dos Lençóis Maranhenses. ${T.conceito}`,
         `É **${T.primeiro.charAt(0).toLowerCase() + T.primeiro.slice(1)}** São 10.840 m² de área total, com 6.400 m² de área loteada, lazer completo e dois projetos de casas para você escolher.`,
       ],
-      cards: [{ img: 'condominio-aereo', title: 'Lumoa Dunes', text: 'Vista aérea do condomínio' }],
+      cards: [{ img: 'aereo-condominio', title: 'Lumoa Dunes', text: 'Vista aérea do condomínio' }],
       actions: [{ label: 'Ver o empreendimento', act: 'goto', to: 'empreendimento' }],
       quick: ['lotes', 'lazer', 'casas', 'localizacao'],
     }),
@@ -114,7 +114,7 @@
     kw: ['mirante', 'rooftop', 'vista', 'contemplacao', 'sala de contemplacao', 'panoramico', 'por do sol', 'terraco'],
     r: () => ({
       say: [T.mirante, T.rooftop],
-      cards: [{ img: 'rooftop-mirante', title: 'Rooftop com mirante', text: 'Nº 11 na implantação' }],
+      cards: [{ img: 'nucleo-lazer-panorama', title: 'Rooftop com mirante', text: 'Nº 11 na implantação' }],
       actions: [{ label: 'Ver na implantação', act: 'plan', id: 'rooftop' }],
       quick: ['lazer', 'amenity:piscina', 'casas'],
     }),

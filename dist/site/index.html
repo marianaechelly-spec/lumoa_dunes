@@ -805,9 +805,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 <section class="hero" id="inicio" aria-label="Lumoa Dunes">
   <div class="hero__slides" id="heroSlides">
     <figure class="hero__slide is-on"><img src="assets/img/dunas-aereo.webp" alt="Dunas e lagoas dos Lençóis Maranhenses vistas do alto" fetchpriority="high"></figure>
-    <figure class="hero__slide"><img src="assets/img/condominio-aereo.webp" alt="Vista aérea do condomínio Lumoa Dunes" loading="lazy"></figure>
-    <figure class="hero__slide"><img src="assets/img/piscina-bar.webp" alt="Piscina com bar molhado do Lumoa Dunes" loading="lazy"></figure>
-    <figure class="hero__slide"><img src="assets/img/rooftop-mirante.webp" alt="Rooftop com mirante panorâmico" loading="lazy"></figure>
+    <figure class="hero__slide"><img src="assets/img/aereo-condominio.webp" alt="Vista aérea do condomínio Lumoa Dunes ao pôr do sol, com os Lençóis ao fundo" loading="lazy" style="object-position:50% 45%"></figure>
+    <figure class="hero__slide"><img src="assets/img/piscina-bar-molhado.webp" alt="Piscina com bar molhado, prainha e deck do Lumoa Dunes" loading="lazy"></figure>
+    <figure class="hero__slide"><img src="assets/img/nucleo-lazer-torre.webp" alt="Núcleo de lazer com a torre do mirante panorâmico" loading="lazy"></figure>
   </div>
   <div class="hero__shade"></div>
   <div class="wrap hero__content">
@@ -845,7 +845,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <p class="body" data-reveal><span data-text="conceito"></span> <span data-text="localizacao"></span></p>
         <p class="quote" data-reveal data-text="localizacaoUnica"></p>
       </div>
-      <figure class="intro-grid__img" data-reveal="wipe"><img src="assets/img/dunas-lagoas.webp" alt="Lagoas cristalinas entre as dunas" loading="lazy" data-parallax="0.06"></figure>
+      <figure class="intro-grid__img" data-reveal="wipe"><img src="assets/img/por-do-sol-lencois.webp" alt="Pôr do sol sobre as dunas e lagoas dos Lençóis Maranhenses" loading="lazy" data-parallax="0.06" style="object-position:50% 38%"></figure>
     </div>
     <div class="facts" id="condominio">
       <div class="facts__lead" data-reveal><p class="eyebrow">O condomínio</p><p class="facts__text" data-text="primeiro"></p></div>
@@ -917,7 +917,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 </section>
 
 <section class="feature" aria-label="Mirante Panorâmico">
-  <div class="feature__img"><img src="assets/img/mirante.webp" alt="Vista aérea do núcleo de lazer com o mirante panorâmico" loading="lazy" data-parallax="0.12"></div>
+  <div class="feature__img"><img src="assets/img/nucleo-lazer-panorama.webp" alt="Núcleo de lazer com o mirante panorâmico ao pôr do sol" loading="lazy" data-parallax="0.12" style="object-position:60% 50%"></div>
   <div class="wrap feature__in">
     <div class="feature__box" data-reveal>
       <p class="eyebrow">Exclusividade Lumoa</p>
@@ -1004,7 +1004,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 <!-- ================= CONTATO ================= -->
 <section class="contact" id="contato" aria-labelledby="t-contato">
-  <div class="contact__img"><img src="assets/img/piscina-deck.webp" alt="Deck da piscina do Lumoa Dunes" loading="lazy" data-parallax="0.08"></div>
+  <div class="contact__img"><img src="assets/img/piscina-deck-bar.webp" alt="Deck da piscina e bar molhado do Lumoa Dunes ao pôr do sol" loading="lazy" data-parallax="0.08"></div>
   <div class="contact__side">
     <div class="contact__head">
       <p class="eyebrow" data-reveal>Contato</p>
@@ -1050,7 +1050,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     </div>
     <div class="footer__bottom">
       <span>© <span id="year"></span> Lumoa Dunes · Fogaça Empreendimentos</span>
-      <span>Imagens do catálogo oficial; perspectivas e maquete ilustrativas. Valores, condições e disponibilidade somente com a equipe comercial.</span>
+      <span>Imagens do catálogo oficial; perspectivas, implantação humanizada e maquete ilustrativas. Valores, condições e disponibilidade somente com a equipe comercial.</span>
     </div>
   </div>
 </footer>
@@ -1187,29 +1187,29 @@ window.Lumoa = window.Lumoa || {};
     // Itens numerados exatamente como na planta de implantação do catálogo.
     // pos = posição do marcador na imagem da implantação (% x, % y).
     lazer: [
-      { n: 1, id: 'portaria', nome: 'Portaria', grupo: 'infra', pos: [73.8, 88.1], img: 'portaria',
+      { n: 1, id: 'portaria', nome: 'Portaria', grupo: 'infra', pos: [73.8, 88.1], img: 'portaria-fachada',
         desc: 'Portaria na entrada do condomínio, com arquitetura em madeira, cobogós e a identidade visual do Lumoa Dunes.' },
       { n: 2, id: 'guarderia', nome: 'Guarderia', grupo: 'infra', pos: [80.3, 80.6], img: 'guarderia',
         desc: 'Área coberta por pergolados para a guarda de veículos, logo após a portaria.' },
-      { n: 3, id: 'beach-tennis', nome: 'Quadra de Beach Tennis', grupo: 'lazer', pos: [89.5, 80.6], img: 'beach-tennis',
+      { n: 3, id: 'beach-tennis', nome: 'Quadra de Beach Tennis', grupo: 'lazer', pos: [89.5, 80.6], img: 'beach-tennis-quadra',
         desc: 'Quadra de areia para beach tennis, cercada por palmeiras, dentro do condomínio.' },
-      { n: 4, id: 'recarga', nome: 'Estação de recarga', grupo: 'infra', pos: [56.6, 84.2], img: null,
+      { n: 4, id: 'recarga', nome: 'Estação de recarga', grupo: 'infra', pos: [56.6, 84.2], img: 'rua-recarga',
         desc: 'Estação de recarga prevista na implantação, junto à via de acesso do condomínio.' },
-      { n: 5, id: 'petplay', nome: 'Espaço Pet — Petplay', grupo: 'lazer', pos: [17.6, 79.2], img: 'petplay',
+      { n: 5, id: 'petplay', nome: 'Espaço Pet — Petplay', grupo: 'lazer', pos: [17.6, 79.2], img: 'espaco-pet',
         desc: 'Espaço gramado com brinquedos e circuito para os pets se divertirem com segurança.' },
       { n: 6, id: 'area-tecnica', nome: 'Área técnica', grupo: 'infra', pos: [7.1, 77.9], img: null,
         desc: 'Área destinada aos equipamentos técnicos do condomínio.' },
-      { n: 7, id: 'playground', nome: 'Playground infantil', grupo: 'lazer', pos: [81.1, 14.0], img: 'playground',
+      { n: 7, id: 'playground', nome: 'Playground infantil', grupo: 'lazer', pos: [81.1, 14.0], img: 'playground-kids',
         desc: 'Espaço Kids com brinquedos de madeira sobre piso de areia, cercado de verde.' },
-      { n: 8, id: 'redario', nome: 'Redário', grupo: 'lazer', pos: [40.9, 13.9], img: 'redario',
+      { n: 8, id: 'redario', nome: 'Redário', grupo: 'lazer', pos: [40.9, 13.9], img: 'redario-redes',
         desc: 'Área de redes à sombra das árvores, para descansar em meio à natureza.' },
-      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [19.2, 5.2], img: 'piscina-bar',
+      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [19.2, 5.2], img: 'piscina-bar-molhado',
         desc: 'Piscina com bar molhado, prainha e hidromassagem.' },
-      { n: 10, id: 'gazebo', nome: 'Gazebo', grupo: 'lazer', pos: [7.8, 2.6], img: null,
+      { n: 10, id: 'gazebo', nome: 'Gazebo', grupo: 'lazer', pos: [7.8, 2.6], img: 'piscina-gazebo', foco: '30% 50%',
         desc: 'Gazebo integrado ao núcleo de lazer, ao lado da piscina.' },
-      { n: 11, id: 'rooftop', nome: 'Rooftop com mirante', grupo: 'lazer', pos: [7.8, 9.2], img: 'rooftop-mirante',
+      { n: 11, id: 'rooftop', nome: 'Rooftop com mirante', grupo: 'lazer', pos: [7.8, 9.2], img: 'rooftop-musica',
         desc: 'Rooftop, Sala de Contemplação e Mirante Panorâmico, com vista privilegiada das dunas.' },
-      { n: 12, id: 'churrasqueira', nome: 'Churrasqueira', grupo: 'lazer', pos: [12.1, 14.5], img: null,
+      { n: 12, id: 'churrasqueira', nome: 'Churrasqueira', grupo: 'lazer', pos: [12.1, 14.5], img: 'churrasqueira', foco: '20% 50%',
         desc: 'Churrasqueira no núcleo de lazer, para celebrar em família e entre amigos.' },
       { n: 13, id: 'estacionamento', nome: 'Estacionamento externo privativo', grupo: 'infra', pos: [88.1, 90.0], img: null,
         desc: 'Estacionamento externo e privativo, junto à portaria.' },
@@ -1289,37 +1289,57 @@ window.Lumoa = window.Lumoa || {};
       { src: 'int-suite', legenda: 'Suíte' },
     ],
 
+    // Galeria organizada por categoria. forma: 'v' = vertical (ocupa 2 linhas), 'w' = panorâmica (ocupa 2 colunas)
     galeria: [
-      { src: 'dunas-aereo', cat: 'dunas', legenda: 'Dunas e lagoas dos Lençóis Maranhenses' },
-      { src: 'condominio-aereo', cat: 'aereas', legenda: 'Vista aérea do condomínio' },
-      { src: 'hero-lagoa', cat: 'dunas', legenda: 'Lagoa e dunas dos Lençóis Maranhenses' },
-      { src: 'mirante', cat: 'aereas', legenda: 'Vista aérea com o mirante panorâmico' },
-      { src: 'portaria', cat: 'fachadas', legenda: 'Portaria do Lumoa Dunes' },
+      // Lençóis Maranhenses
+      { src: 'por-do-sol-lencois', cat: 'dunas', forma: 'v', legenda: 'Pôr do sol sobre as dunas e lagoas dos Lençóis' },
+      { src: 'dunas-aereo', cat: 'dunas', forma: 'w', legenda: 'Dunas e lagoas dos Lençóis Maranhenses' },
+      { src: 'hero-lagoa', cat: 'dunas', forma: 'v', legenda: 'Lagoa e dunas dos Lençóis Maranhenses' },
       { src: 'dunas-lagoas', cat: 'dunas', legenda: 'Lagoas entre as dunas' },
-      { src: 'piscina-bar', cat: 'piscina', legenda: 'Piscina com bar molhado, prainha e hidromassagem' },
-      { src: 'rooftop-mirante', cat: 'rooftop', legenda: 'Rooftop, sala de contemplação e mirante panorâmico' },
-      { src: 'piscina-deck', cat: 'piscina', legenda: 'Deck da piscina' },
-      { src: 'lazer-rooftop', cat: 'rooftop', legenda: 'Núcleo de lazer com rooftop' },
-      { src: 'casa-fachada', cat: 'fachadas', legenda: 'Fachada das casas' },
+      // Vistas aéreas
+      { src: 'aereo-condominio', cat: 'aereas', forma: 'v', legenda: 'Vista aérea do condomínio com as casas e os Lençóis ao fundo' },
+      { src: 'aereo-lotes', cat: 'aereas', forma: 'w', legenda: 'Vista aérea dos lotes, vias internas e portaria' },
+      { src: 'implantacao-humanizada', cat: 'aereas', forma: 'v', legenda: 'Implantação humanizada — estudo conceitual' },
+      { src: 'nucleo-lazer-aereo', cat: 'aereas', forma: 'w', legenda: 'Núcleo de lazer visto do alto: piscinas, deck, gazebo e mirante' },
+      // Portaria e vias
+      { src: 'portaria-fachada', cat: 'acessos', forma: 'v', legenda: 'Portaria do Lumoa Dunes' },
+      { src: 'portaria-entrada', cat: 'acessos', forma: 'v', legenda: 'Chegada pela portaria' },
+      { src: 'rua-recarga', cat: 'acessos', forma: 'v', legenda: 'Via interna com estação de recarga' },
+      { src: 'casas-via-interna', cat: 'acessos', forma: 'w', legenda: 'Casas ao longo da via interna' },
+      // Casas
+      { src: 'casa-fachada-01', cat: 'casas', forma: 'w', legenda: 'Fachada das casas' },
+      { src: 'casa-aerea-piscina', cat: 'casas', forma: 'w', legenda: 'Casa com varanda, rooftop e piscina privativa' },
       { src: 'dunas-1', cat: 'casas', legenda: 'Casa Dunas' },
       { src: 'estrela-1', cat: 'casas', legenda: 'Casa Estrela' },
       { src: 'int-estar', cat: 'casas', legenda: 'Estar e jantar integrados' },
       { src: 'int-cozinha', cat: 'casas', legenda: 'Cozinha' },
       { src: 'int-suite', cat: 'casas', legenda: 'Suíte' },
       { src: 'int-sala', cat: 'casas', legenda: 'Sala' },
-      { src: 'beach-tennis', cat: 'lazer', legenda: 'Quadra de Beach Tennis' },
-      { src: 'playground', cat: 'lazer', legenda: 'Espaço Kids — Playground' },
-      { src: 'petplay', cat: 'lazer', legenda: 'Espaço Pet — Petplay' },
-      { src: 'redario', cat: 'lazer', legenda: 'Redário' },
+      { src: 'int-jardim', cat: 'casas', legenda: 'Jardim interno' },
+      // Piscina
+      { src: 'piscina-bar-molhado', cat: 'piscina', forma: 'w', legenda: 'Piscina com bar molhado, prainha e deck' },
+      { src: 'piscina-cascata', cat: 'piscina', legenda: 'Piscina com cascata junto ao mirante' },
+      { src: 'piscina-deck-bar', cat: 'piscina', forma: 'w', legenda: 'Deck da piscina e bar molhado ao pôr do sol' },
+      { src: 'piscina-gazebo', cat: 'piscina', forma: 'w', legenda: 'Piscina, gazebo e bar molhado' },
+      // Rooftop e mirante
+      { src: 'nucleo-lazer-panorama', cat: 'rooftop', forma: 'w', legenda: 'Núcleo de lazer com o Mirante Panorâmico' },
+      { src: 'nucleo-lazer-torre', cat: 'rooftop', legenda: 'Torre do mirante e área de convivência' },
+      { src: 'rooftop-musica', cat: 'rooftop', forma: 'w', legenda: 'Rooftop e sala de contemplação ao entardecer' },
+      // Áreas de lazer
+      { src: 'churrasqueira', cat: 'lazer', forma: 'w', legenda: 'Churrasqueira do núcleo de lazer' },
+      { src: 'area-gourmet', cat: 'lazer', legenda: 'Encontros com amigos sob o pergolado' },
+      { src: 'beach-tennis-quadra', cat: 'lazer', forma: 'v', legenda: 'Quadra de Beach Tennis' },
+      { src: 'beach-tennis-lounge', cat: 'lazer', legenda: 'Beach Tennis com lounge sob pergolado' },
+      { src: 'playground-kids', cat: 'lazer', legenda: 'Espaço Kids — Playground' },
+      { src: 'espaco-pet', cat: 'lazer', legenda: 'Espaço Pet — Petplay' },
+      { src: 'redario-redes', cat: 'lazer', legenda: 'Redário entre as árvores' },
+      { src: 'redario-alameda', cat: 'lazer', forma: 'w', legenda: 'Redário junto à alameda arborizada' },
       { src: 'guarderia', cat: 'lazer', legenda: 'Guarderia' },
-      { src: 'rua-interna', cat: 'paisagismo', legenda: 'Via interna arborizada' },
-      { src: 'int-jardim', cat: 'paisagismo', legenda: 'Jardim interno' },
-      { src: 'familia-piscina', cat: 'piscina', legenda: 'Momentos em família' },
     ],
 
     categoriasGaleria: [
-      ['todas', 'Todas'], ['aereas', 'Aéreas'], ['dunas', 'Dunas e lagoas'], ['fachadas', 'Fachadas'],
-      ['casas', 'Casas'], ['piscina', 'Piscina'], ['rooftop', 'Rooftop'], ['lazer', 'Áreas de lazer'], ['paisagismo', 'Paisagismo'],
+      ['todas', 'Todas'], ['dunas', 'Lençóis Maranhenses'], ['aereas', 'Vistas aéreas'], ['acessos', 'Portaria e vias'],
+      ['casas', 'Casas'], ['piscina', 'Piscina'], ['rooftop', 'Rooftop e mirante'], ['lazer', 'Áreas de lazer'],
     ],
   };
 
@@ -1681,7 +1701,7 @@ ${knowledge()}`;
         `O **Lumoa Dunes** fica em **Santo Amaro, no Maranhão**, o portal mais autêntico dos Lençóis Maranhenses. ${T.conceito}`,
         `É **${T.primeiro.charAt(0).toLowerCase() + T.primeiro.slice(1)}** São 10.840 m² de área total, com 6.400 m² de área loteada, lazer completo e dois projetos de casas para você escolher.`,
       ],
-      cards: [{ img: 'condominio-aereo', title: 'Lumoa Dunes', text: 'Vista aérea do condomínio' }],
+      cards: [{ img: 'aereo-condominio', title: 'Lumoa Dunes', text: 'Vista aérea do condomínio' }],
       actions: [{ label: 'Ver o empreendimento', act: 'goto', to: 'empreendimento' }],
       quick: ['lotes', 'lazer', 'casas', 'localizacao'],
     }),
@@ -1755,7 +1775,7 @@ ${knowledge()}`;
     kw: ['mirante', 'rooftop', 'vista', 'contemplacao', 'sala de contemplacao', 'panoramico', 'por do sol', 'terraco'],
     r: () => ({
       say: [T.mirante, T.rooftop],
-      cards: [{ img: 'rooftop-mirante', title: 'Rooftop com mirante', text: 'Nº 11 na implantação' }],
+      cards: [{ img: 'nucleo-lazer-panorama', title: 'Rooftop com mirante', text: 'Nº 11 na implantação' }],
       actions: [{ label: 'Ver na implantação', act: 'plan', id: 'rooftop' }],
       quick: ['lazer', 'amenity:piscina', 'casas'],
     }),
@@ -3375,12 +3395,12 @@ ${knowledge()}`;
 })(window.Lumoa);
 
 /* components/lazer.js */
-/* Lazer: trilho horizontal com os espaços fotografados no catálogo
-   + lista da infraestrutura (todos os 13 itens numerados da implantação) */
+/* Lazer: trilho horizontal com os espaços que têm perspectiva ilustrada
+   + lista dos demais itens numerados da implantação */
 (function (L) {
   const { $, h, scrollToId } = L.ui;
-  const RAIL = ['piscina', 'rooftop', 'beach-tennis', 'playground', 'petplay', 'redario', 'guarderia', 'portaria'];
-  const LIST = ['gazebo', 'churrasqueira', 'recarga', 'area-tecnica', 'estacionamento'];
+  const RAIL = ['piscina', 'rooftop', 'churrasqueira', 'gazebo', 'beach-tennis', 'playground', 'petplay', 'redario', 'portaria', 'recarga', 'guarderia'];
+  const LIST = ['area-tecnica', 'estacionamento'];
 
   L.amenities = {
     init() {
@@ -3389,7 +3409,7 @@ ${knowledge()}`;
       RAIL.forEach((id, i) => {
         const it = L.findLazer(id);
         const card = h('article', { class: 'slide', id: 'lazer-' + id },
-          h('div', { class: 'slide__img' }, h('img', { src: L.img(it.img), alt: it.nome, loading: 'lazy' }), h('span', { class: 'slide__n' }, String(it.n).padStart(2, '0'))),
+          h('div', { class: 'slide__img' }, h('img', { src: L.img(it.img), alt: it.nome, loading: 'lazy', style: it.foco ? 'object-position:' + it.foco : null }), h('span', { class: 'slide__n' }, String(it.n).padStart(2, '0'))),
           h('div', { class: 'slide__body' }, h('h3', null, it.nome), h('p', null, it.desc),
             h('div', { class: 'slide__links' },
               h('button', { type: 'button', onclick: (e) => { e.stopPropagation(); L.plan.select(id); scrollToId('implantacao'); } }, 'Ver na maquete'),
@@ -3531,8 +3551,8 @@ ${knowledge()}`;
 /* Galeria com filtros + lightbox com ampliação, arraste e teclado */
 (function (L) {
   const { $, $$, h } = L.ui;
-  // Padrão de mosaico: posições que ocupam 2 colunas / 2 linhas
-  const SHAPE = { 0: 'w2 h2', 3: 'h2', 6: 'w2', 10: 'w2', 13: 'h2', 17: 'w2', 21: 'w2', 24: 'w2' };
+  // Mosaico pelo formato da foto: vertical ocupa 2 linhas, panorâmica ocupa 2 colunas
+  const SHAPE = { v: 'h2', w: 'w2' };
 
   L.gallery = {
     cat: 'todas',
@@ -3555,13 +3575,13 @@ ${knowledge()}`;
     render() {
       const items = L.data.galeria.filter((g) => this.cat === 'todas' || g.cat === this.cat);
       this.grid.replaceChildren(...items.map((g, i) => {
-        const shape = this.cat === 'todas' ? SHAPE[i] || '' : (i === 0 ? 'w2 h2' : '');
+        const shape = SHAPE[g.forma] || '';
         const b = h('button', { class: 'g-item ' + shape, type: 'button', 'aria-label': 'Ampliar: ' + g.legenda, style: `animation-delay:${Math.min(i, 10) * 0.04}s` },
           h('img', { src: L.img(g.src, !shape.includes('w2')), alt: g.legenda, loading: 'lazy' }), h('span', null, g.legenda));
         b.addEventListener('click', () => L.lightbox.open(items, i));
         return b;
       }));
-      $('#galleryCount').textContent = `${items.length} ${items.length === 1 ? 'imagem' : 'imagens'} do catálogo oficial`;
+      $('#galleryCount').textContent = `${items.length} ${items.length === 1 ? 'imagem' : 'imagens'} · perspectivas ilustrativas`;
     },
   };
 
