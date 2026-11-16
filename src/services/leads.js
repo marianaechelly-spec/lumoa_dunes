@@ -33,6 +33,7 @@
       `Telefone: ${lead.telefone}`,
       lead.email ? `E-mail: ${lead.email}` : null,
       lead.interesse ? `Interesse: ${lead.interesse}` : null,
+      lead.lote ? `Lote: ${lead.lote}` : null,
       lead.mensagem ? `Mensagem: ${lead.mensagem}` : null,
     ].filter(Boolean).join('\n');
   }
@@ -89,6 +90,7 @@
         telefone: String(raw.telefone || '').trim(),
         email: String(raw.email || '').trim(),
         interesse: raw.interesse || '',
+        lote: String(raw.lote || '').trim().slice(0, 120),
         mensagem: String(raw.mensagem || '').trim().slice(0, 1200),
         origem: raw.origem || 'formulario',
         consentimento: !!raw.consentimento,

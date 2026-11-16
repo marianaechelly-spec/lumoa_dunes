@@ -15,7 +15,7 @@
   --gold-soft: #d6bd92;
   --ink: #1d2a29;
   --ink-2: #44524f;
-  --muted: #6d7a76;
+  --muted: #5a6763;          /* escurecido para contraste AA em textos pequenos */
   --line: rgba(29, 42, 41, 0.12);
   --line-light: rgba(251, 248, 242, 0.18);
   --line-strong: rgba(29, 42, 41, 0.22);

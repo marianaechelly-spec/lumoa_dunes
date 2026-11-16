@@ -13,6 +13,7 @@ module.exports = async function handler(req, res) {
     telefone: String(b.telefone || '').replace(/[^\d()+\s-]/g, '').slice(0, 30),
     email: String(b.email || '').slice(0, 160).trim(),
     interesse: String(b.interesse || '').slice(0, 80),
+    lote: String(b.lote || '').slice(0, 120),
     mensagem: String(b.mensagem || '').slice(0, 1200),
     origem: b.origem === 'luna' ? 'luna' : 'formulario',
     consentimento: b.consentimento === true,

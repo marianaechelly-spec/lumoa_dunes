@@ -18,10 +18,15 @@ window.Lumoa.config = {
   // A chave da API fica SOMENTE no servidor, em variável de ambiente.
   lunaAiEndpoint: '',
 
-  // Coordenadas confirmadas do empreendimento. Enquanto estiver null,
-  // o mapa mostra a região do catálogo e o link abre a cidade.
+  // Coordenadas confirmadas da ENTRADA do condomínio. Enquanto estiver null,
+  // o mapa mostra a região do catálogo e o botão pede a localização à equipe
+  // (não pesquisa mais o bairro Olho D'Água no Google Maps).
   coordenadas: null, // ex.: { lat: -2.5, lng: -43.2 }
 
   // E-mail comercial oficial (opcional). Exibido como texto selecionável.
   email: '',
+
+  // Página oficial da política de privacidade (opcional). Vazio = o link
+  // "Política de privacidade" abre o resumo embutido no site (revisar com o jurídico).
+  politicaPrivacidadeUrl: '',
 };

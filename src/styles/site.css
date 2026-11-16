@@ -261,3 +261,48 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .lead-row { background: var(--white); padding: 16px; display: grid; gap: 4px; font-size: 0.9rem; border-left: 2px solid var(--gold); }
 .lead-row strong { color: var(--teal-deep); } .lead-row small { color: var(--muted); }
 .empty { color: var(--muted); font-size: 0.92rem; padding: 18px; border: 1px dashed var(--sand-3); }
+
+/* ================= MELHORIAS 16/11/2026 ================= */
+/* Contraste da abertura: textos menores e botões sobre a imagem */
+.hero__shade { background: linear-gradient(180deg, rgba(8,42,43,0.6) 0%, rgba(8,42,43,0.1) 28%, rgba(8,42,43,0.15) 45%, rgba(8,42,43,0.9) 100%), linear-gradient(90deg, rgba(8,42,43,0.72), rgba(8,42,43,0) 70%); }
+.hero__kicker { color: #e8d6b4; text-shadow: 0 1px 8px rgba(0,0,0,0.35); }
+.hero__sub { color: var(--shell); text-shadow: 0 1px 10px rgba(0,0,0,0.35); }
+.hero .btn--glass { --b-bg: rgba(8,42,43,0.45); --b-bd: rgba(251,248,242,0.8); }
+.hero__dots button { color: rgba(251,248,242,0.82); }
+.btn--wa-glass { --b-bg: rgba(31,143,90,0.85); --b-bd: #1f8f5a; --b-hover: #187448; --b-hfg: var(--shell); }
+.drawer .btn + .btn { margin-top: 10px; }
+
+/* Produto (lote x casa) */
+.facts__note { margin-top: 14px; font-size: 0.92rem; color: var(--ink-2); line-height: 1.6; max-width: 46ch; }
+.note { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-top: 10px; }
+
+/* Acesso verificado */
+.location__access { margin-top: 18px; }
+
+/* Etiqueta de identificação das imagens da galeria (sempre visível) */
+.g-tag { position: absolute; top: 10px; left: 10px; z-index: 2; font-style: normal; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--shell); background: rgba(8,42,43,0.72); padding: 4px 8px; pointer-events: none; }
+.g-tag--foto { background: rgba(43,122,82,0.9); }
+
+/* Dúvidas frequentes */
+.faq { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.faq__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.faq__list { border-top: 1px solid var(--line-strong); }
+.faq__list details { border-bottom: 1px solid var(--line); }
+.faq__list summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; color: var(--teal-deep); font-size: 1.02rem; }
+.faq__list summary::-webkit-details-marker { display: none; }
+.faq__list summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: var(--gold); transition: transform 0.3s var(--ease); }
+.faq__list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq__list summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.faq__list p { margin: 0 0 18px; color: var(--ink-2); line-height: 1.65; max-width: 62ch; }
+.faq__list a { color: var(--teal); text-decoration: underline; }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } }
+
+/* Lote levado ao formulário */
+.lote-tag { margin: 0; font-size: 0.86rem; color: var(--teal-deep); background: var(--sand); padding: 10px 14px; border-left: 2px solid var(--gold); }
+.lote-tag span { font-weight: 500; }
+
+/* Privacidade */
+.consent a { color: var(--teal); text-decoration: underline; }
+.privacy__body { display: grid; gap: 14px; color: var(--ink-2); line-height: 1.65; font-size: 0.95rem; }
+.privacy__body strong { color: var(--teal-deep); font-weight: 500; }
+.footer nav a[data-privacy] { opacity: 0.85; }

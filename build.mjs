@@ -18,7 +18,6 @@ const SCRIPTS = [
   'luna/engine.js',
   'luna/widget.js',
   'components/layout.js',
-  'components/maquete-gl.js',
   'components/maquete.js',
   'components/lazer.js',
   'components/casas.js',

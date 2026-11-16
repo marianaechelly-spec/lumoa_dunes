@@ -13,7 +13,7 @@
     sobre: 'Conhecer o empreendimento', lotes: 'Ver os lotes', casas: 'Conhecer as casas', lazer: 'Ver a área de lazer',
     localizacao: 'Onde fica o Lumoa Dunes?', consultor: 'Quero falar com um consultor', 'casa-dunas': 'Casa Dunas',
     'casa-estrela': 'Casa Estrela', comparar: 'Comparar as casas', plantas: 'Ver as plantas', infraestrutura: 'Infraestrutura',
-    mirante: 'Rooftop e mirante', implantacao: 'Ver a maquete 3D', galeria: 'Ver a galeria', precos: 'Valores e condições',
+    mirante: 'Rooftop e mirante', implantacao: 'Ver a maquete', galeria: 'Ver a galeria', precos: 'Valores e condições',
     visita: 'Agendar uma visita', menu: 'Outros assuntos', 'amenity:piscina': 'Piscina', 'amenity:beach-tennis': 'Beach Tennis',
     'amenity:playground': 'Playground', 'amenity:petplay': 'Espaço Pet', 'amenity:redario': 'Redário', interiores: 'Interiores',
   };
@@ -38,7 +38,8 @@
     r: () => ({
       say: [
         `O **Lumoa Dunes** fica em **Santo Amaro, no Maranhão**, o portal mais autêntico dos Lençóis Maranhenses. ${T.conceito}`,
-        `É **${T.primeiro.charAt(0).toLowerCase() + T.primeiro.slice(1)}** São 10.840 m² de área total, com 6.400 m² de área loteada, lazer completo e dois projetos de casas para você escolher.`,
+        `É um **condomínio fechado com apenas 32 lotes de 200 m²**, em 10.840 m² de área total (6.400 m² de área loteada), com lazer completo.`,
+        T.produto,
       ],
       cards: [{ img: 'aereo-condominio', title: 'Lumoa Dunes', text: 'Vista aérea do condomínio' }],
       actions: [{ label: 'Ver o empreendimento', act: 'goto', to: 'empreendimento' }],
@@ -52,7 +53,7 @@
       say: [
         `O Lumoa Dunes está em **Santo Amaro — MA**, no **bairro Olho D’Água**. ${T.santoAmaro}`,
         `${T.localizacao} ${T.localizacaoUnica}`,
-        'Para o endereço completo e a melhor rota até lá, nossa equipe comercial orienta você pessoalmente.',
+        'A localização exata da entrada e a melhor rota até lá são enviadas pela nossa equipe comercial.',
       ],
       cards: [{ img: 'dunas-lagoas', title: 'Lençóis Maranhenses', text: 'Dunas e lagoas cristalinas' }],
       actions: [{ label: 'Ver no mapa', act: 'goto', to: 'localizacao' }],
@@ -66,9 +67,10 @@
       say: [
         'O condomínio tem **apenas 32 lotes**, e **cada lote possui 200 m²**.',
         'A **área total é de 10.840 m²**, com **6.400 m² de área loteada**. Os lotes ficam organizados ao redor da via interna, com o núcleo de lazer e o rooftop com mirante.',
+        'Na maquete, toque em um lote ou abra a lista **Lotes** para ver posição, área e situação. Em **Consultar este lote**, a equipe já recebe qual lote você escolheu.',
       ],
       cards: [{ img: 'implantacao', title: 'Implantação', text: '32 lotes de 200 m² e 13 espaços numerados' }],
-      actions: [{ label: 'Explorar em 3D', act: 'goto', to: 'implantacao' }],
+      actions: [{ label: 'Explorar a maquete', act: 'goto', to: 'implantacao' }],
       quick: ['disponibilidade', 'casas', 'lazer', 'consultor'],
     }),
   };
@@ -80,9 +82,9 @@
       say: [
         'Na implantação você vê os 32 lotes e os 13 espaços numerados do condomínio:',
         '<ul>' + D.lazer.map((x) => `<li>${x.n}. ${x.nome}</li>`).join('') + '</ul>',
-        'Na maquete 3D do site, é só tocar em cada número para ver o espaço.',
+        'Na maquete do site, é só tocar em cada número para ver o espaço.',
       ],
-      actions: [{ label: 'Abrir a maquete 3D', act: 'goto', to: 'implantacao' }],
+      actions: [{ label: 'Abrir a maquete', act: 'goto', to: 'implantacao' }],
       quick: ['lazer', 'infraestrutura', 'lotes'],
     }),
   };
@@ -230,7 +232,7 @@
   I.valorizacao = {
     kw: ['valorizacao', 'valoriza', 'investir', 'investimento', 'retorno', 'rentabilidade', 'aluguel', 'alugar', 'temporada', 'renda'],
     r: () => ({
-      say: [`${T.localizacaoUnica} A arquitetura também foi pensada para valorizar seu investimento, e o Mirante Panorâmico diferencia o empreendimento na região.`, 'Projeções de retorno, rentabilidade ou uso para locação não fazem parte do catálogo. Um consultor pode conversar com você sobre o seu objetivo.'],
+      say: [`Posso contar o que é concreto: são apenas 32 lotes de 200 m², com lazer completo e Mirante Panorâmico. ${T.localizacaoUnica}`, 'Valorização futura, retorno, rentabilidade ou uso para locação não podem ser garantidos e não fazem parte do catálogo. Um consultor pode conversar com você sobre o seu objetivo.'],
       quick: ['consultor', 'mirante', 'lotes'],
     }),
   };

@@ -1,6 +1,6 @@
 <title>Lumoa Dunes</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Lumoa Dunes — condomínio de alto padrão em Santo Amaro (MA), nos Lençóis Maranhenses. 32 lotes de 200 m², lazer completo e dois projetos de casas.">
+<meta name="description" content="Lumoa Dunes — condomínio fechado de 32 lotes de 200 m² em Santo Amaro (MA), nos Lençóis Maranhenses. Lazer completo e projetos de casa opcionais.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Marcellus&display=swap">
@@ -35,12 +35,12 @@
     <a class="header__brand" href="#inicio" aria-label="Lumoa Dunes — início"><span class="logo" role="img" aria-label="Lumoa Dunes"></span></a>
     <nav class="nav" aria-label="Principal">
       <a href="#empreendimento">Empreendimento</a>
-      <a href="#implantacao">Maquete 3D</a>
-      <a href="#lazer">Lazer</a>
-      <a href="#casas">Casas</a>
+      <a href="#implantacao">Lotes</a>
       <a href="#localizacao">Localização</a>
-      <a href="#galeria">Galeria</a>
+      <a href="#lazer">Lazer</a>
+      <a href="#faq">Dúvidas</a>
       <a href="#contato">Contato</a>
+      <a href="#casas">Casas</a>
     </nav>
     <button class="btn btn--line btn--sm header__cta" type="button" data-luna-open>Fale com a Luma</button>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
@@ -48,12 +48,14 @@
 </header>
 <nav class="drawer" id="drawer" aria-label="Menu">
   <a href="#empreendimento" style="--i:1">Empreendimento</a>
-  <a href="#implantacao" style="--i:2">Maquete 3D</a>
-  <a href="#lazer" style="--i:3">Lazer</a>
-  <a href="#casas" style="--i:4">Casas</a>
-  <a href="#localizacao" style="--i:5">Localização</a>
-  <a href="#galeria" style="--i:6">Galeria</a>
+  <a href="#implantacao" style="--i:2">Lotes e maquete</a>
+  <a href="#localizacao" style="--i:3">Localização</a>
+  <a href="#lazer" style="--i:4">Lazer</a>
+  <a href="#galeria" style="--i:5">Galeria</a>
+  <a href="#faq" style="--i:6">Dúvidas frequentes</a>
   <a href="#contato" style="--i:7">Contato</a>
+  <a href="#casas" style="--i:8">Projetos de casa</a>
+  <a class="btn btn--wa" href="#" data-wa target="_blank" rel="noopener" hidden><svg><use href="#i-wa"/></svg>Falar com um consultor</a>
   <button class="btn btn--gold" type="button" data-luna-open>Fale com a Luma</button>
 </nav>
 
@@ -64,7 +66,7 @@
     <figure class="hero__slide is-on"><img src="assets/img/dunas-aereo.webp" alt="Dunas e lagoas dos Lençóis Maranhenses vistas do alto" fetchpriority="high"></figure>
     <figure class="hero__slide"><img src="assets/img/aereo-condominio.webp" alt="Vista aérea do condomínio Lumoa Dunes ao pôr do sol, com os Lençóis ao fundo" loading="lazy" style="object-position:50% 45%"></figure>
     <figure class="hero__slide"><img src="assets/img/piscina-bar-molhado.webp" alt="Piscina com bar molhado, prainha e deck do Lumoa Dunes" loading="lazy"></figure>
-    <figure class="hero__slide"><img src="assets/img/nucleo-lazer-torre.webp" alt="Núcleo de lazer com a torre do mirante panorâmico" loading="lazy"></figure>
+    <figure class="hero__slide"><img src="assets/img/rooftop-musica.webp" alt="Rooftop com mirante ao entardecer, com música ao vivo" loading="lazy" style="object-position:45% 50%"></figure>
   </div>
   <div class="hero__shade"></div>
   <div class="wrap hero__content">
@@ -73,11 +75,12 @@
       <span class="reveal-line"><span>Onde a exclusividade</span></span>
       <span class="reveal-line"><span>encontra a natureza</span></span>
     </h1>
-    <p class="hero__sub reveal-line"><span>O primeiro condomínio de alto padrão da região, com apenas 32 lotes.</span></p>
+    <p class="hero__sub reveal-line"><span>Condomínio fechado de 32 lotes de 200 m² em Santo Amaro (MA). Projetos de casa opcionais.</span></p>
     <div class="hero__actions">
-      <a class="btn btn--gold" href="#empreendimento">Conheça o empreendimento</a>
+      <a class="btn btn--gold" href="#implantacao" data-lots-go>Consultar lotes</a>
+      <a class="btn btn--glass btn--wa-glass" href="#" data-wa target="_blank" rel="noopener" hidden><svg><use href="#i-wa"/></svg>Falar com um consultor</a>
+      <button class="btn btn--glass" type="button" data-visit>Agendar visita</button>
       <button class="btn btn--glass" type="button" data-luna-open>Fale com a Luma</button>
-      <a class="btn btn--glass btn--3d" href="#implantacao"><svg><use href="#i-cube"/></svg>Maquete 3D</a>
     </div>
   </div>
   <div class="wrap hero__bar">
@@ -102,43 +105,42 @@
         <p class="body" data-reveal><span data-text="conceito"></span> <span data-text="localizacao"></span></p>
         <p class="quote" data-reveal data-text="localizacaoUnica"></p>
       </div>
-      <figure class="intro-grid__img" data-reveal="wipe"><img src="assets/img/por-do-sol-lencois.webp" alt="Pôr do sol sobre as dunas e lagoas dos Lençóis Maranhenses" loading="lazy" data-parallax="0.06" style="object-position:50% 38%"></figure>
+      <figure class="intro-grid__img" data-reveal="wipe"><img src="assets/img/aereo-condominio.webp" alt="Vista aérea do condomínio Lumoa Dunes ao pôr do sol, com os Lençóis ao fundo" loading="lazy" data-parallax="0.06" style="object-position:50% 45%"></figure>
     </div>
     <div class="facts" id="condominio">
-      <div class="facts__lead" data-reveal><p class="eyebrow">O condomínio</p><p class="facts__text" data-text="primeiro"></p></div>
+      <div class="facts__lead" data-reveal><p class="eyebrow">O condomínio</p><p class="facts__text" data-text="primeiro"></p><p class="facts__note" data-text="produto"></p></div>
       <dl class="facts__nums" id="numbers"></dl>
     </div>
   </div>
 </section>
 
-<!-- ================= MAQUETE 3D ================= -->
+<!-- ================= MAQUETE (implantação humanizada) ================= -->
 <section class="section section--deep maquete-sec" id="implantacao" aria-labelledby="t-3d">
   <div class="wrap maquete-head">
     <div>
-      <p class="eyebrow" data-reveal>Maquete interativa</p>
-      <h2 class="display" id="t-3d" data-reveal>Explore o condomínio em 3D</h2>
+      <p class="eyebrow" data-reveal>Lotes e maquete interativa</p>
+      <h2 class="display" id="t-3d" data-reveal>Escolha o seu lote</h2>
     </div>
-    <p class="body" data-reveal>Gire, aproxime e toque nos números para conhecer cada espaço. Maquete ilustrativa construída sobre a planta de implantação oficial.</p>
+    <p class="body" data-reveal>Toque em um lote para ver posição, área e situação, ou abra a lista em “Lotes”. Use “Consultar este lote” para falar com a equipe já com o lote identificado. Implantação humanizada ilustrativa (estudo conceitual); confira a planta oficial; valores e condições vigentes são informados pela equipe comercial.</p>
   </div>
   <div class="wrap">
     <div class="maquete" id="maquete" data-reveal="fade">
-      <div class="maquete__viewport" id="m3dView" tabindex="0" aria-label="Maquete 3D do condomínio. Arraste para girar, use a roda do mouse para aproximar.">
+      <div class="maquete__viewport" id="m3dView" tabindex="0" aria-label="Implantação humanizada do condomínio. Arraste para mover, use a roda do mouse ou os botões para aproximar.">
         <div class="maquete__camera" id="m3dCam"><div class="maquete__world" id="m3dWorld"></div></div>
-        <p class="maquete__hint" id="m3dHint"><svg><use href="#i-rotate"/></svg>Arraste para girar · role para aproximar</p>
+        <p class="maquete__hint" id="m3dHint"><svg><use href="#i-plus"/></svg>Arraste para mover · role para aproximar</p>
       </div>
       <div class="maquete__tools" role="group" aria-label="Controles da maquete">
-        <button class="tool" type="button" data-m3d="left" aria-label="Girar para a esquerda"><svg><use href="#i-arrow-l"/></svg></button>
-        <button class="tool" type="button" data-m3d="right" aria-label="Girar para a direita"><svg><use href="#i-arrow"/></svg></button>
         <button class="tool" type="button" data-m3d="in" aria-label="Aproximar"><svg><use href="#i-plus"/></svg></button>
         <button class="tool" type="button" data-m3d="out" aria-label="Afastar"><svg><use href="#i-minus"/></svg></button>
         <button class="tool tool--txt tool--accent" type="button" data-m3d="tour"><svg><use href="#i-sound"/></svg>Tour guiado</button>
-        <button class="tool tool--txt" type="button" data-m3d="top"><svg><use href="#i-plan"/></svg>Vista de cima</button>
-        <button class="tool tool--txt" type="button" data-m3d="reset"><svg><use href="#i-cube"/></svg>Vista 3D</button>
+        <button class="tool tool--txt" type="button" data-m3d="reset"><svg><use href="#i-plan"/></svg>Ver tudo</button>
+        <button class="tool tool--txt" type="button" data-m3d="full"><svg><use href="#i-expand"/></svg>Tela cheia</button>
         <button class="tool tool--txt" type="button" data-m3d="plan"><svg><use href="#i-expand"/></svg>Planta oficial</button>
       </div>
       <aside class="maquete__panel" aria-label="Espaços do condomínio">
         <div class="maquete__filters" role="group" aria-label="Filtrar espaços">
-          <button type="button" class="is-on" data-m3d-filter="todos">Todos</button>
+          <button type="button" data-m3d-filter="lotes">Lotes</button>
+          <button type="button" class="is-on" data-m3d-filter="todos">Espaços</button>
           <button type="button" data-m3d-filter="lazer">Lazer</button>
           <button type="button" data-m3d-filter="infra">Infraestrutura</button>
         </div>
@@ -146,6 +148,38 @@
       </aside>
       <div class="maquete__card" id="m3dCard" aria-live="polite"></div>
     </div>
+  </div>
+</section>
+
+<!-- ================= LOCALIZAÇÃO ================= -->
+<section class="section section--sand" id="localizacao" aria-labelledby="t-loc">
+  <div class="wrap section-top location__top">
+    <div>
+      <p class="eyebrow" data-reveal>Localização</p>
+      <h2 class="display" id="t-loc" data-reveal>O portal mais autêntico dos Lençóis Maranhenses</h2>
+    </div>
+  </div>
+  <div class="wrap location">
+    <div class="location__text">
+      <dl class="location__list" data-reveal>
+        <div><dt>Cidade</dt><dd>Santo Amaro — Maranhão</dd></div>
+        <div><dt>Bairro</dt><dd>Olho D’Água</dd></div>
+        <div><dt>Vizinhança</dt><dd>Parque Nacional dos Lençóis Maranhenses</dd></div>
+        <div id="accessGeneric"><dt>Acesso</dt><dd>A poucos minutos das principais rotas turísticas</dd></div>
+      </dl>
+      <dl class="location__list location__access" id="accessList" aria-label="Distâncias e tempos a partir da entrada" hidden></dl>
+      <div class="location__actions" data-reveal>
+        <a class="btn btn--dark" id="mapLink" href="#contato">Pedir a localização exata</a>
+        <button class="btn btn--line" type="button" data-luna-intent="localizacao">Perguntar à Luma</button>
+      </div>
+    </div>
+    <figure class="map" id="map" data-reveal="wipe">
+      <img src="assets/img/mapa-santo-amaro.webp" alt="Mapa de satélite da região de Santo Amaro e do Parque Nacional dos Lençóis Maranhenses com a localização do Lumoa Dunes" loading="lazy">
+      <span class="map__pin"><b>Lumoa Dunes</b><i></i></span>
+      <span class="map__park">Parque Nacional dos<br>Lençóis Maranhenses</span>
+      <button class="tool map__zoom" type="button" id="mapZoom" aria-label="Aproximar o mapa" aria-pressed="false"><svg><use href="#i-plus"/></svg></button>
+      <figcaption id="mapNote">Mapa da região reproduzido do catálogo oficial; a marcação é aproximada. A localização exata da entrada é enviada pela equipe comercial.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -180,67 +214,8 @@
       <p class="eyebrow">Exclusividade Lumoa</p>
       <h2 class="display">Mirante Panorâmico</h2>
       <p class="body" data-text="mirante"></p>
-      <button class="btn btn--glass btn--sm" type="button" data-plan-go="rooftop">Ver na maquete 3D</button>
+      <button class="btn btn--glass btn--sm" type="button" data-plan-go="rooftop">Ver na maquete</button>
     </div>
-  </div>
-</section>
-
-<!-- ================= CASAS ================= -->
-<section class="section section--sand" id="casas" aria-labelledby="t-casas">
-  <div class="wrap section-top">
-    <div>
-      <p class="eyebrow" data-reveal>Casas e projetos</p>
-      <h2 class="display" id="t-casas" data-reveal>A sua casa</h2>
-    </div>
-    <p class="body section-top__side" data-reveal>Duas opções de projeto para você escolher. <span data-text="materiais"></span></p>
-  </div>
-  <div class="wrap">
-    <div class="models" role="tablist" aria-label="Modelos de casa" id="modelPicker" data-reveal></div>
-    <div class="house" id="house"></div>
-    <div class="compare" data-reveal>
-      <table>
-        <caption class="sr-only">Comparativo entre Casa Dunas e Casa Estrela</caption>
-        <thead><tr><th scope="col"><span class="sr-only">Característica</span></th><th scope="col">Casa Dunas</th><th scope="col">Casa Estrela</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Tipologia</th><td>Térrea com rooftop</td><td>Dois pavimentos</td></tr>
-          <tr><th scope="row">Suítes</th><td>2</td><td>4</td></tr>
-          <tr><th scope="row">Área</th><td>104,94 m²</td><td>116,55 m²</td></tr>
-          <tr><th scope="row">Térreo</th><td colspan="2">Suítes 01 e 02, jantar, cozinha, hall, lavabo, lavanderia, piscina, deck, duas áreas livres e estacionamento</td></tr>
-          <tr><th scope="row">Pavimento superior</th><td>—</td><td>Suítes 03 e 04, sala TV/hall e varanda</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LOCALIZAÇÃO ================= -->
-<section class="section" id="localizacao" aria-labelledby="t-loc">
-  <div class="wrap section-top location__top">
-    <div>
-      <p class="eyebrow" data-reveal>Localização</p>
-      <h2 class="display" id="t-loc" data-reveal>O portal mais autêntico dos Lençóis Maranhenses</h2>
-    </div>
-  </div>
-  <div class="wrap location">
-    <div class="location__text">
-      <dl class="location__list" data-reveal>
-        <div><dt>Cidade</dt><dd>Santo Amaro — Maranhão</dd></div>
-        <div><dt>Bairro</dt><dd>Olho D’Água</dd></div>
-        <div><dt>Vizinhança</dt><dd>Parque Nacional dos Lençóis Maranhenses</dd></div>
-        <div><dt>Acesso</dt><dd>A poucos minutos das principais rotas turísticas</dd></div>
-      </dl>
-      <div class="location__actions" data-reveal>
-        <a class="btn btn--dark" id="mapLink" href="#" target="_blank" rel="noopener">Ver a região no Google Maps</a>
-        <button class="btn btn--line" type="button" data-luna-intent="localizacao">Perguntar à Luma</button>
-      </div>
-    </div>
-    <figure class="map" id="map" data-reveal="wipe">
-      <img src="assets/img/mapa-santo-amaro.webp" alt="Mapa de satélite da região de Santo Amaro e do Parque Nacional dos Lençóis Maranhenses com a localização do Lumoa Dunes" loading="lazy">
-      <span class="map__pin"><b>Lumoa Dunes</b><i></i></span>
-      <span class="map__park">Parque Nacional dos<br>Lençóis Maranhenses</span>
-      <button class="tool map__zoom" type="button" id="mapZoom" aria-label="Aproximar o mapa" aria-pressed="false"><svg><use href="#i-plus"/></svg></button>
-      <figcaption id="mapNote">Mapa da região reproduzido do catálogo oficial. O endereço completo é informado pela equipe comercial.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -256,6 +231,33 @@
     </div>
     <div class="gallery" id="gallery"></div>
     <p class="gallery-count" id="galleryCount" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- ================= DÚVIDAS FREQUENTES ================= -->
+<!-- PENDENTE (engenharia e gestão): criar a seção "Obra e documentação" com fotos reais datadas,
+     etapas executadas, previsão atualizada e documentos verificáveis, depois de validados.
+     Ela entra entre Galeria e Dúvidas frequentes. -->
+<section class="section" id="faq" aria-labelledby="t-faq">
+  <div class="wrap faq">
+    <div>
+      <p class="eyebrow" data-reveal>Dúvidas frequentes</p>
+      <h2 class="display" id="t-faq" data-reveal>Antes de escolher o seu lote</h2>
+      <div class="faq__cta" data-reveal>
+        <a class="btn btn--wa btn--sm" href="#" data-wa target="_blank" rel="noopener" hidden><svg><use href="#i-wa"/></svg>Falar com um consultor</a>
+        <button class="btn btn--line btn--sm" type="button" data-visit>Agendar visita</button>
+      </div>
+    </div>
+    <div class="faq__list" data-reveal>
+      <details><summary>O que é vendido no Lumoa Dunes?</summary><p>Lotes de 200 m² em um condomínio fechado com 32 lotes, em Santo Amaro (MA). Os projetos de casa são opcionais.</p></details>
+      <details><summary>Preciso construir um dos projetos de casa?</summary><p>Os projetos Dunas e Estrela são opcionais. A forma de contratação, o que está incluído e os custos são apresentados pela equipe comercial.</p></details>
+      <details><summary>Quais lotes estão disponíveis?</summary><p>Na <a href="#implantacao" data-lots-go>maquete</a>, abra a lista “Lotes” ou toque em um lote para ver a posição, a área e a situação. Em “Consultar este lote”, a equipe recebe o lote escolhido e confirma a situação atual.</p></details>
+      <details><summary>Qual é o valor e quais são as condições de pagamento?</summary><p>Preço, entrada e parcelamento vigentes, com validade e condições, são informados pela equipe comercial no atendimento.</p></details>
+      <details><summary>Onde fica o condomínio?</summary><p>No bairro Olho D’Água, em Santo Amaro do Maranhão, na região dos Lençóis Maranhenses. A localização exata da entrada e as orientações de acesso são enviadas pela equipe comercial.</p></details>
+      <details><summary>Como estão a obra e a documentação?</summary><p>A equipe comercial apresenta a situação atual da obra, a previsão de entrega e a documentação do empreendimento.</p></details>
+      <details><summary>Posso visitar o local?</summary><p>Use “Agendar visita” e informe o melhor dia e horário. A equipe entra em contato para confirmar.</p></details>
+      <details><summary>Quem é o responsável pelo empreendimento?</summary><p>O Lumoa Dunes é uma realização da Fogaça Empreendimentos.</p></details>
+    </div>
   </div>
 </section>
 
@@ -279,8 +281,10 @@
           <option>Conhecer o empreendimento</option><option>Lotes</option><option>Casa Dunas</option><option>Casa Estrela</option><option>Agendar uma visita</option>
         </select>
       </div>
+      <input type="hidden" id="f-lote" name="lote" value="">
+      <p class="lote-tag" id="loteTag" hidden>Lote escolhido: <span></span> <button type="button" class="link" data-lot-clear>remover</button></p>
       <div class="field"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="3" placeholder="Conte o que você gostaria de saber"></textarea></div>
-      <label class="consent" id="consentWrap"><input type="checkbox" id="f-consent" name="consentimento"><span>Autorizo o Lumoa Dunes a usar meus dados apenas para entrar em contato sobre o empreendimento, conforme a LGPD.</span></label>
+      <label class="consent" id="consentWrap"><input type="checkbox" id="f-consent" name="consentimento"><span>Autorizo o Lumoa Dunes a usar meus dados apenas para entrar em contato sobre o empreendimento, conforme a LGPD. <a href="#privacidade" data-privacy>Política de privacidade</a></span></label>
       <div class="form__foot">
         <button class="btn btn--dark" type="submit" id="formSubmit">Enviar</button>
         <span class="form__status" id="formStatus" role="status"></span>
@@ -289,6 +293,38 @@
     <div class="contact__direct" id="contactDirect"></div>
   </div>
 </section>
+<!-- ================= CASAS ================= -->
+<section class="section section--sand" id="casas" aria-labelledby="t-casas">
+  <div class="wrap section-top">
+    <div>
+      <p class="eyebrow" data-reveal>Projetos opcionais de casa</p>
+      <h2 class="display" id="t-casas" data-reveal>Se quiser construir, dois projetos prontos</h2>
+    </div>
+    <div class="section-top__side">
+      <p class="body" data-reveal>O que se compra no Lumoa Dunes é o lote. Os projetos Dunas e Estrela são opcionais: a forma de contratação, o que está incluído e os custos são apresentados pela equipe comercial. <span data-text="materiais"></span></p>
+      <!-- PENDENTE (engenharia): informar o critério das áreas 104,94 m² e 116,55 m² (construída, coberta, piscina, deck, áreas livres) e atualizar este texto. -->
+      <p class="note" data-reveal>Áreas e ambientes conforme o catálogo oficial. A equipe comercial detalha o que cada metragem inclui.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="models" role="tablist" aria-label="Modelos de casa" id="modelPicker" data-reveal></div>
+    <div class="house" id="house"></div>
+    <div class="compare" data-reveal>
+      <table>
+        <caption class="sr-only">Comparativo entre Casa Dunas e Casa Estrela</caption>
+        <thead><tr><th scope="col"><span class="sr-only">Característica</span></th><th scope="col">Casa Dunas</th><th scope="col">Casa Estrela</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Tipologia</th><td>Térrea com rooftop</td><td>Dois pavimentos</td></tr>
+          <tr><th scope="row">Suítes</th><td>2</td><td>4</td></tr>
+          <tr><th scope="row">Área do projeto (catálogo)</th><td>104,94 m²</td><td>116,55 m²</td></tr>
+          <tr><th scope="row">Térreo</th><td colspan="2">Suítes 01 e 02, jantar, cozinha, hall, lavabo, lavanderia, piscina, deck, duas áreas livres e estacionamento</td></tr>
+          <tr><th scope="row">Pavimento superior</th><td>—</td><td>Suítes 03 e 04, sala TV/hall e varanda</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="footer">
@@ -296,8 +332,9 @@
     <div class="footer__top">
       <div><span class="logo" role="img" aria-label="Lumoa Dunes"></span><p class="footer__tag">Exclusividade, Natureza e Valorização em um só destino</p></div>
       <nav aria-label="Rodapé">
-        <a href="#empreendimento">Empreendimento</a><a href="#implantacao">Maquete 3D</a><a href="#lazer">Lazer</a>
-        <a href="#casas">Casas</a><a href="#localizacao">Localização</a><a href="#galeria">Galeria</a><a href="#contato">Contato</a>
+        <a href="#empreendimento">Empreendimento</a><a href="#implantacao">Lotes</a><a href="#localizacao">Localização</a>
+        <a href="#lazer">Lazer</a><a href="#galeria">Galeria</a><a href="#faq">Dúvidas</a><a href="#contato">Contato</a><a href="#casas">Casas</a>
+        <a href="#privacidade" data-privacy>Política de privacidade</a>
       </nav>
       <div class="footer__info">
         <p>Bairro Olho D’Água<br>Santo Amaro — MA · Lençóis Maranhenses</p>
@@ -307,7 +344,7 @@
     </div>
     <div class="footer__bottom">
       <span>© <span id="year"></span> Lumoa Dunes · Fogaça Empreendimentos</span>
-      <span>Imagens do catálogo oficial; perspectivas, implantação humanizada e maquete ilustrativas. Valores, condições e disponibilidade somente com a equipe comercial.</span>
+      <span>Imagens do catálogo oficial: cada imagem indica se é perspectiva ilustrativa, imagem da região ou foto real. Implantação humanizada e maquete são ilustrativas. Valores, condições e disponibilidade vigentes somente com a equipe comercial.</span>
     </div>
   </div>
 </footer>
@@ -333,6 +370,22 @@
     <div class="panel__head"><h3 id="t-panel">Interessados</h3><button class="tool" type="button" id="teamPanelClose" aria-label="Fechar painel"><svg><use href="#i-close"/></svg></button></div>
     <p class="body">Contatos enviados pelo formulário e pela Luma. Visível somente para a equipe.</p>
     <div id="teamPanelList" class="panel__list"></div>
+  </div>
+</div>
+
+<!-- Política de privacidade (resumo). Descreve o que o site faz hoje com os dados.
+     REVISAR com o jurídico antes da publicação; se houver página oficial, preencha
+     config.politicaPrivacidadeUrl e os links passam a abri-la. -->
+<div class="panel" id="privacy" aria-hidden="true">
+  <div class="panel__box privacy" role="dialog" aria-modal="true" aria-labelledby="t-privacy">
+    <div class="panel__head"><h3 id="t-privacy">Política de privacidade</h3><button class="tool" type="button" id="privacyClose" aria-label="Fechar"><svg><use href="#i-close"/></svg></button></div>
+    <div class="privacy__body">
+      <p><strong>Quem trata os dados.</strong> Lumoa Dunes, empreendimento da Fogaça Empreendimentos.</p>
+      <p><strong>Quais dados.</strong> Nome, telefone, e-mail, interesse, lote escolhido e a mensagem que você enviar pelo formulário ou pela assistente Luma.</p>
+      <p><strong>Para quê.</strong> Somente para a equipe comercial entrar em contato sobre o empreendimento, com a sua autorização. Os dados não são vendidos nem usados para outras finalidades.</p>
+      <p><strong>Onde ficam.</strong> São enviados à equipe comercial. Se o envio falhar, uma cópia fica salva apenas neste navegador até você tentar de novo. As perguntas feitas à Luma que fogem do roteiro podem ser processadas por um serviço de inteligência artificial contratado para gerar a resposta.</p>
+      <p><strong>Seus direitos (LGPD).</strong> Você pode pedir acesso, correção ou exclusão dos seus dados e retirar a autorização a qualquer momento pelos canais da seção Contato.</p>
+    </div>
   </div>
 </div>
 

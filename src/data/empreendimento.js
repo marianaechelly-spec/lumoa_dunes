@@ -25,6 +25,10 @@ window.Lumoa = window.Lumoa || {};
       bairro: 'Olho D’Água',
       regiao: 'Lençóis Maranhenses',
       parque: 'Parque Nacional dos Lençóis Maranhenses',
+      // Distâncias e tempos VERIFICADOS a partir da entrada do condomínio.
+      // Preencher só depois de conferir. Ex.: { destino: 'Centro de Santo Amaro', distancia: '2 km', tempo: '5 min de carro' }
+      // Vazio = a seção mostra apenas o texto geral de acesso.
+      acesso: [],
     },
 
     // Textos reproduzidos do catálogo oficial
@@ -34,12 +38,16 @@ window.Lumoa = window.Lumoa || {};
       localizacao:
         'Localizado no bairro Olho D’Água, o Lumoa Dunes oferece o privilégio de viver a poucos minutos das principais rotas turísticas, sem abrir mão do conforto.',
       localizacaoUnica:
-        'Uma localização única, que une tranquilidade, exclusividade e alto potencial de valorização do investimento.',
+        'Uma localização que une a tranquilidade de Santo Amaro ao acesso às rotas turísticas dos Lençóis Maranhenses.',
       conceito:
         'O Lumoa Dunes nasce projetado para unir sofisticação, natureza e privacidade.',
-      primeiro: 'O primeiro condomínio de alto padrão da região, com apenas 32 lotes.',
+      // Revisado (melhorias de 16/11/2026): sem alegações que dependam de comprovação
+      // ("primeiro da região") nem valorização futura apresentada como certeza.
+      primeiro: 'Condomínio fechado com apenas 32 lotes de 200 m², em 10.840 m² de área total.',
+      produto:
+        'O Lumoa Dunes comercializa lotes de 200 m². Os projetos de casa Dunas e Estrela são opcionais: a forma de contratação e o que está incluído no custo são apresentados pela equipe comercial.',
       mirante:
-        'O Mirante Panorâmico é uma exclusividade que oferece uma vista privilegiada das dunas. Um espaço que valoriza o seu investimento, diferencia o empreendimento na região e garante um estilo de vida incomparável.',
+        'O Mirante Panorâmico, no núcleo de lazer do condomínio, oferece vista elevada para as dunas dos Lençóis Maranhenses.',
       lazer:
         'Cada detalhe da área de lazer foi pensado para transformar momentos em experiências inesquecíveis, com exclusividade e conforto à altura do cenário dos Lençóis Maranhenses.',
       areasComuns:
@@ -47,7 +55,7 @@ window.Lumoa = window.Lumoa || {};
       rooftop:
         'Rooftop, Sala de Contemplação e Mirante Panorâmico — ambientes pensados para elevar seus momentos de lazer e oferecer vistas privilegiadas dos Lençóis Maranhenses.',
       arquitetura:
-        'Arquitetura pensada para valorizar seu investimento, com linhas modernas e integração inteligente aos espaços. O Lumoa Dunes se diferencia pelo design contemporâneo que dialoga com a natureza.',
+        'Arquitetura com linhas modernas e integração inteligente aos espaços, em um design contemporâneo que dialoga com a natureza.',
       materiais:
         'Linhas modernas, integração com áreas verdes e materiais que traduzem sofisticação e autenticidade resultam em um ambiente exclusivo, elegante e atemporal.',
     },
@@ -59,7 +67,7 @@ window.Lumoa = window.Lumoa || {};
       { icone: 'pin', texto: 'Localização privilegiada' },
       { icone: 'leaf', texto: 'Infraestrutura sustentável' },
       { icone: 'umbrella', texto: 'Lazer completo' },
-      { icone: 'chart', texto: 'Alto potencial de valorização' },
+      { icone: 'chart', texto: 'Apenas 32 lotes' },
       { icone: 'heart', texto: 'Qualidade de vida o ano todo' },
     ],
 
@@ -70,34 +78,50 @@ window.Lumoa = window.Lumoa || {};
       { valor: '200', unidade: 'm²', rotulo: 'Cada lote' },
     ],
 
+    // ---------------------------------------------------------------------
+    // LOTES — estoque exibido na maquete.
+    // Responsável pela atualização: equipe comercial (definir o nome antes de publicar).
+    // Chave = posição do lote na maquete: quadra A, B, C ou D (da esquerda para a
+    // direita na planta de implantação) + fileira 1 a 8 (de cima para baixo).
+    // Preencha cada lote SOMENTE com dados confirmados:
+    //   numero:   número oficial do lote na planta aprovada (ex.: '17')
+    //   area:     área confirmada em m² (ex.: '200')
+    //   situacao: 'disponivel' | 'reservado' | 'vendido'
+    // Exemplo:  A1: { numero: '01', area: '200', situacao: 'disponivel' },
+    // Lote ausente daqui = o site mostra a posição na maquete, a área de
+    // referência do catálogo (200 m²) e "situação sob consulta".
+    // ---------------------------------------------------------------------
+    lotes: {},
+    situacoesLote: { disponivel: 'Disponível', reservado: 'Reservado', vendido: 'Vendido' },
+
     // Itens numerados exatamente como na planta de implantação do catálogo.
-    // pos = posição do marcador na imagem da implantação (% x, % y).
+    // pos = posição do marcador na implantação humanizada (implantacao-humanizada.webp), em % x, % y.
     lazer: [
-      { n: 1, id: 'portaria', nome: 'Portaria', grupo: 'infra', pos: [73.8, 88.1], img: 'portaria-fachada',
+      { n: 1, id: 'portaria', nome: 'Portaria', grupo: 'infra', pos: [74.2, 83.0], img: 'portaria-fachada',
         desc: 'Portaria na entrada do condomínio, com arquitetura em madeira, cobogós e a identidade visual do Lumoa Dunes.' },
-      { n: 2, id: 'guarderia', nome: 'Guarderia', grupo: 'infra', pos: [80.3, 80.6], img: 'guarderia',
+      { n: 2, id: 'guarderia', nome: 'Guarderia', grupo: 'infra', pos: [79.5, 74.8], img: 'guarderia',
         desc: 'Área coberta por pergolados para a guarda de veículos, logo após a portaria.' },
-      { n: 3, id: 'beach-tennis', nome: 'Quadra de Beach Tennis', grupo: 'lazer', pos: [89.5, 80.6], img: 'beach-tennis-quadra',
+      { n: 3, id: 'beach-tennis', nome: 'Quadra de Beach Tennis', grupo: 'lazer', pos: [87.5, 81.5], img: 'beach-tennis-quadra',
         desc: 'Quadra de areia para beach tennis, cercada por palmeiras, dentro do condomínio.' },
-      { n: 4, id: 'recarga', nome: 'Estação de recarga', grupo: 'infra', pos: [56.6, 84.2], img: 'rua-recarga',
+      { n: 4, id: 'recarga', nome: 'Estação de recarga', grupo: 'infra', pos: [56.6, 81.0], img: 'rua-recarga',
         desc: 'Estação de recarga prevista na implantação, junto à via de acesso do condomínio.' },
-      { n: 5, id: 'petplay', nome: 'Espaço Pet — Petplay', grupo: 'lazer', pos: [17.6, 79.2], img: 'espaco-pet',
+      { n: 5, id: 'petplay', nome: 'Espaço Pet — Petplay', grupo: 'lazer', pos: [47.0, 81.5], img: 'espaco-pet',
         desc: 'Espaço gramado com brinquedos e circuito para os pets se divertirem com segurança.' },
-      { n: 6, id: 'area-tecnica', nome: 'Área técnica', grupo: 'infra', pos: [7.1, 77.9], img: null,
+      { n: 6, id: 'area-tecnica', nome: 'Área técnica', grupo: 'infra', pos: [10.5, 75.5], img: null,
         desc: 'Área destinada aos equipamentos técnicos do condomínio.' },
-      { n: 7, id: 'playground', nome: 'Playground infantil', grupo: 'lazer', pos: [81.1, 14.0], img: 'playground-kids',
+      { n: 7, id: 'playground', nome: 'Playground infantil', grupo: 'lazer', pos: [80.0, 19.5], img: 'playground-kids',
         desc: 'Espaço Kids com brinquedos de madeira sobre piso de areia, cercado de verde.' },
-      { n: 8, id: 'redario', nome: 'Redário', grupo: 'lazer', pos: [40.9, 13.9], img: 'redario-redes',
+      { n: 8, id: 'redario', nome: 'Redário', grupo: 'lazer', pos: [47.0, 17.5], img: 'redario-redes',
         desc: 'Área de redes à sombra das árvores, para descansar em meio à natureza.' },
-      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [19.2, 5.2], img: 'piscina-bar-molhado',
+      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [24.0, 8.2], img: 'piscina-bar-molhado',
         desc: 'Piscina com bar molhado, prainha e hidromassagem.' },
-      { n: 10, id: 'gazebo', nome: 'Gazebo', grupo: 'lazer', pos: [7.8, 2.6], img: 'piscina-gazebo', foco: '30% 50%',
+      { n: 10, id: 'gazebo', nome: 'Gazebo', grupo: 'lazer', pos: [10.2, 4.8], img: 'piscina-gazebo', foco: '30% 50%',
         desc: 'Gazebo integrado ao núcleo de lazer, ao lado da piscina.' },
-      { n: 11, id: 'rooftop', nome: 'Rooftop com mirante', grupo: 'lazer', pos: [7.8, 9.2], img: 'rooftop-musica',
+      { n: 11, id: 'rooftop', nome: 'Rooftop com mirante', grupo: 'lazer', pos: [14.5, 15.0], img: 'rooftop-musica',
         desc: 'Rooftop, Sala de Contemplação e Mirante Panorâmico, com vista privilegiada das dunas.' },
-      { n: 12, id: 'churrasqueira', nome: 'Churrasqueira', grupo: 'lazer', pos: [12.1, 14.5], img: 'churrasqueira', foco: '20% 50%',
+      { n: 12, id: 'churrasqueira', nome: 'Churrasqueira', grupo: 'lazer', pos: [9.2, 12.0], img: 'churrasqueira', foco: '20% 50%',
         desc: 'Churrasqueira no núcleo de lazer, para celebrar em família e entre amigos.' },
-      { n: 13, id: 'estacionamento', nome: 'Estacionamento externo privativo', grupo: 'infra', pos: [88.1, 90.0], img: null,
+      { n: 13, id: 'estacionamento', nome: 'Estacionamento externo privativo', grupo: 'infra', pos: [85.0, 89.0], img: null,
         desc: 'Estacionamento externo e privativo, junto à portaria.' },
     ],
 
@@ -175,6 +199,9 @@ window.Lumoa = window.Lumoa || {};
       { src: 'int-suite', legenda: 'Suíte' },
     ],
 
+    // Identificação das imagens: a categoria 'dunas' traz imagens da região; as demais
+    // são perspectivas ilustrativas. Para foto real do terreno ou da obra, informe
+    // tipo: 'foto' e data: 'mm/aaaa' (ex.: { src: 'obra-2026-11', cat: 'aereas', tipo: 'foto', data: '11/2026', legenda: '...' }).
     // Galeria organizada por categoria. forma: 'v' = vertical (ocupa 2 linhas), 'w' = panorâmica (ocupa 2 colunas)
     galeria: [
       // Lençóis Maranhenses
@@ -195,13 +222,7 @@ window.Lumoa = window.Lumoa || {};
       // Casas
       { src: 'casa-fachada-01', cat: 'casas', forma: 'w', legenda: 'Fachada das casas' },
       { src: 'casa-aerea-piscina', cat: 'casas', forma: 'w', legenda: 'Casa com varanda, rooftop e piscina privativa' },
-      { src: 'dunas-1', cat: 'casas', legenda: 'Casa Dunas' },
-      { src: 'estrela-1', cat: 'casas', legenda: 'Casa Estrela' },
-      { src: 'int-estar', cat: 'casas', legenda: 'Estar e jantar integrados' },
-      { src: 'int-cozinha', cat: 'casas', legenda: 'Cozinha' },
-      { src: 'int-suite', cat: 'casas', legenda: 'Suíte' },
-      { src: 'int-sala', cat: 'casas', legenda: 'Sala' },
-      { src: 'int-jardim', cat: 'casas', legenda: 'Jardim interno' },
+      // Fachadas e interiores de cada modelo ficam só na seção Casas (evita repetição).
       // Piscina
       { src: 'piscina-bar-molhado', cat: 'piscina', forma: 'w', legenda: 'Piscina com bar molhado, prainha e deck' },
       { src: 'piscina-cascata', cat: 'piscina', legenda: 'Piscina com cascata junto ao mirante' },
@@ -232,4 +253,31 @@ window.Lumoa = window.Lumoa || {};
   L.img = (name, small) => IMG + name + (small ? '-sm' : '') + '.webp';
   L.findLazer = (id) => L.data.lazer.find((x) => x.id === id || String(x.n) === String(id));
   L.findCasa = (id) => L.data.casas.find((c) => c.id === id);
+
+  // Lote pela posição na maquete (q = 0..3 → A..D, r = 0..7 → 1..8).
+  // Junta os dados confirmados de L.data.lotes com a referência do catálogo.
+  L.lote = (q, r) => {
+    const pos = 'ABCD'[q] + (r + 1);
+    const conf = L.data.lotes[pos] || {};
+    const situacao = L.data.situacoesLote[conf.situacao] ? conf.situacao : null;
+    return {
+      pos, q, r,
+      numero: conf.numero || null,
+      area: conf.area || '200',
+      areaConfirmada: !!conf.area,
+      situacao,
+      situacaoTexto: situacao ? L.data.situacoesLote[situacao] : 'Situação sob consulta',
+      // Texto que identifica o lote no atendimento (formulário, WhatsApp e Luma)
+      ref: conf.numero ? `Lote ${conf.numero} (posição ${pos} da maquete)` : `Lote na posição ${pos} da maquete`,
+      titulo: conf.numero ? `Lote ${conf.numero}` : `Lote ${pos}`,
+      posicao: `Quadra ${'ABCD'[q]} · fileira ${r + 1} de 8, contada do fundo do condomínio para a portaria`,
+    };
+  };
+
+  // Rótulo de identificação de cada imagem (perspectiva, região ou foto datada)
+  L.imgTipo = (g) => {
+    if (g.tipo === 'foto') return g.data ? `Foto real · ${g.data}` : 'Foto real';
+    if (g.cat === 'dunas') return 'Imagem da região';
+    return 'Perspectiva ilustrativa';
+  };
 })(window.Lumoa);

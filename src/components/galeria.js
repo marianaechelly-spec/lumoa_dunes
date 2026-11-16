@@ -27,11 +27,14 @@
       this.grid.replaceChildren(...items.map((g, i) => {
         const shape = SHAPE[g.forma] || '';
         const b = h('button', { class: 'g-item ' + shape, type: 'button', 'aria-label': 'Ampliar: ' + g.legenda, style: `animation-delay:${Math.min(i, 10) * 0.04}s` },
-          h('img', { src: L.img(g.src, !shape.includes('w2')), alt: g.legenda, loading: 'lazy' }), h('span', null, g.legenda));
-        b.addEventListener('click', () => L.lightbox.open(items, i));
+          h('img', { src: L.img(g.src, !shape.includes('w2')), alt: g.legenda, loading: 'lazy' }),
+          h('em', { class: 'g-tag' + (g.tipo === 'foto' ? ' g-tag--foto' : '') }, L.imgTipo(g)),
+          h('span', null, g.legenda));
+        b.addEventListener('click', () => L.lightbox.open(lb, i));
         return b;
       }));
-      $('#galleryCount').textContent = `${items.length} ${items.length === 1 ? 'imagem' : 'imagens'} · perspectivas ilustrativas`;
+      const lb = items.map((g) => ({ ...g, legenda: `${g.legenda} · ${L.imgTipo(g)}` }));
+      $('#galleryCount').textContent = `${items.length} ${items.length === 1 ? 'imagem' : 'imagens'} · cada imagem indica se é perspectiva ilustrativa, imagem da região ou foto real`;
     },
   };
 

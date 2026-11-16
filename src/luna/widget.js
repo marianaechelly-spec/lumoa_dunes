@@ -18,8 +18,8 @@
 
   // Falas da Luma ao chegar em cada seção (uma vez por visita)
   const CUES = {
-    empreendimento: { text: 'São apenas **32 lotes de 200 m²**, em uma área total de 10.840 m², no bairro Olho D’Água.', opts: [['Ver a maquete 3D', 'goto:implantacao'], ['Me conte mais', 'intent:sobre']] },
-    implantacao: { text: 'Esta é a **maquete 3D** do condomínio. Arraste para girar e toque nos números para conhecer cada espaço.', opts: [['Mostrar o rooftop', 'plan:rooftop'], ['Mostrar a piscina', 'plan:piscina']] },
+    empreendimento: { text: 'São apenas **32 lotes de 200 m²**, em uma área total de 10.840 m², no bairro Olho D’Água.', opts: [['Ver a maquete', 'goto:implantacao'], ['Me conte mais', 'intent:sobre']] },
+    implantacao: { text: 'Esta é a **implantação humanizada** do condomínio. Arraste para mover, aproxime e toque nos números para conhecer cada espaço.', opts: [['Mostrar o rooftop', 'plan:rooftop'], ['Mostrar a piscina', 'plan:piscina']] },
     lazer: { text: 'A piscina tem **bar molhado, prainha e hidromassagem**. E o rooftop tem mirante com vista para as dunas.', opts: [['Quero saber mais', 'intent:lazer']] },
     casas: { text: 'São dois projetos: a **Casa Dunas**, térrea com rooftop, e a **Casa Estrela**, com 4 suítes. Quer que eu compare?', opts: [['Comparar as casas', 'intent:comparar']] },
     localizacao: { text: 'Santo Amaro é o portal mais autêntico dos **Lençóis Maranhenses**, com dunas imponentes e lagoas cristalinas.', opts: [['Onde fica exatamente?', 'intent:localizacao']] },

@@ -364,16 +364,21 @@
       if (!(t > 0)) return;
       const x = a[0] + (b[0] - a[0]) * t, z = a[2] + (b[2] - a[2]) * t;
       const px = x / W * 100, py = z / H * 100;
-      for (const [c0, c1] of COLS) {
+      for (let q = 0; q < COLS.length; q++) {
+        const [c0, c1] = COLS[q];
         if (px >= c0 && px <= c1 && py >= ROW0 && py <= ROW0 + 8 * ROWH) {
-          const r_ = Math.floor((py - ROW0) / ROWH);
-          const [x0, z0] = PX(c0, ROW0 + r_ * ROWH), [x1, z1] = PX(c1, ROW0 + (r_ + 1) * ROWH);
-          this.pins.forEach((p) => p.el.classList.remove('is-on'));
-          this.hl = { mesh: 'cube', m: m4.trs((x0 + x1) / 2, 0.2, (z0 + z1) / 2, 0, 0, x1 - x0 - 2, 0.6, z1 - z0 - 2), nm: new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]), c: C.gold, mode: 0 };
-          this.M.showLot(null);
+          const r_ = Math.min(7, Math.floor((py - ROW0) / ROWH));
+          this.M.showLot(q, r_);
           return;
         }
       }
+    },
+    // Destaca o lote (quadra q, fileira r) com uma placa dourada
+    highlightLot(q, r) {
+      const [c0, c1] = COLS[q];
+      const [x0, z0] = PX(c0, ROW0 + r * ROWH), [x1, z1] = PX(c1, ROW0 + (r + 1) * ROWH);
+      this.pins.forEach((p) => p.el.classList.remove('is-on'));
+      this.hl = { mesh: 'cube', m: m4.trs((x0 + x1) / 2, 0.2, (z0 + z1) / 2, 0, 0, x1 - x0 - 2, 0.6, z1 - z0 - 2), nm: new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]), c: C.gold, mode: 0 };
     },
   };
 

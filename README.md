@@ -8,7 +8,8 @@ disponibilidade de lotes é exibido ou respondido pela Luma.
 
 ```
 src/
-  index.html              marcação das seções (Início, Empreendimento, Maquete 3D, Lazer, Mirante, Casas, Localização, Galeria, Contato)
+  index.html              marcação das seções, na ordem: Início, Empreendimento, Lotes e maquete 3D, Localização,
+                          Lazer e Mirante, Galeria, Dúvidas frequentes, Contato, Projetos opcionais de casa
   config.js               WhatsApp oficial, endpoints e coordenadas (preencher antes de publicar)
   data/empreendimento.js  ÚNICA fonte de dados do empreendimento (textos, números, lazer, casas, plantas, galeria)
   styles/                 tokens.css · base.css · sections.css · luna.css · responsive.css
@@ -38,8 +39,19 @@ Nenhuma dependência nova foi adicionada; as fontes vêm do Google Fonts (Marcel
 | `whatsapp` | Número oficial (ex.: `5598999999999`). Ativa os botões de WhatsApp no site e na Luma. |
 | `leadEndpoint` | URL que recebe os interessados (ex.: `/api/leads` com `server/leads-endpoint.js`). |
 | `lunaAiEndpoint` | URL do proxy de IA (ex.: `/api/luna` com `server/luna-proxy.js` e `ANTHROPIC_API_KEY` no servidor). |
-| `coordenadas` | Latitude/longitude confirmadas: o botão do mapa passa a abrir o ponto exato. |
+| `coordenadas` | Latitude/longitude da **entrada** do condomínio. Sem elas, o botão do mapa pede a localização à equipe (não pesquisa o bairro). |
 | `email` | E-mail comercial exibido na seção de contato. |
+| `politicaPrivacidadeUrl` | Página oficial da política de privacidade. Vazio = abre o resumo embutido (revisar com o jurídico). |
+
+## Dados que a equipe atualiza (`src/data/empreendimento.js`)
+
+| Campo | Quem | Para quê |
+|---|---|---|
+| `lotes` | Comercial | Número oficial, área confirmada e situação (`disponivel`, `reservado`, `vendido`) de cada lote, pela posição na maquete (A1 a D8). Lote sem cadastro aparece como "situação sob consulta". |
+| `local.acesso` | Gestão | Distâncias e tempos verificados a partir da entrada. |
+| `galeria` (`tipo: 'foto'`, `data`) | Engenharia | Fotos reais do terreno ou da obra, identificadas com mês e ano. |
+
+O botão **Consultar este lote** leva a identificação do lote ao formulário (campo `lote`), ao WhatsApp e ao painel da equipe.
 
 ## Como a Luma funciona
 

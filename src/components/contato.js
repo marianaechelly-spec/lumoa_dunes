@@ -11,7 +11,57 @@
       this.form.addEventListener('submit', (e) => { e.preventDefault(); this.submit(); });
       $$('input, textarea', this.form).forEach((el) => el.addEventListener('input', () => el.closest('.field, .consent')?.classList.remove('has-error')));
       $('#f-consent').addEventListener('change', () => $('#consentWrap').classList.remove('has-error'));
+      $('#f-interesse').addEventListener('change', () => { if ($('#f-interesse').value !== 'Lotes') this.setLot(null); });
+      // Seção que o visitante está vendo: vai junto na mensagem do WhatsApp
+      L.bus.addEventListener('section', (e) => { this.section = e.detail; });
+      this.globalButtons();
       this.direct();
+    },
+
+    /** Mensagem pronta do WhatsApp, com o lote ou a seção de origem */
+    whatsappUrl({ lote, secao } = {}) {
+      const SECOES = { inicio: 'a página inicial', empreendimento: 'o empreendimento', implantacao: 'os lotes na maquete', localizacao: 'a localização',
+        lazer: 'o lazer', galeria: 'a galeria', faq: 'as dúvidas frequentes', contato: 'o contato', casas: 'os projetos de casa' };
+      const s = secao || this.section;
+      let text = 'Olá! Gostaria de falar com um consultor sobre o Lumoa Dunes.';
+      if (lote) text = `Olá! Tenho interesse no ${lote.ref} do Lumoa Dunes. Pode me passar valores, condições e a situação atual desse lote?`;
+      else if (s && SECOES[s]) text += ` Estava vendo ${SECOES[s]} no site.`;
+      return L.leads.whatsappUrl(text);
+    },
+
+    /** Botões espalhados pela página: WhatsApp [data-wa], Agendar visita [data-visit], Política de privacidade [data-privacy] */
+    globalButtons() {
+      const wa = L.leads.hasWhatsapp();
+      $$('[data-wa]').forEach((a) => { a.hidden = !wa; });
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('[data-wa]');
+        if (a) { a.href = this.whatsappUrl(); return; } // atualiza o contexto no momento do clique
+        if (e.target.closest('[data-visit]')) { e.preventDefault(); this.scheduleVisit(); return; }
+        if (e.target.closest('[data-privacy]')) { e.preventDefault(); L.privacy.open(); return; }
+        if (e.target.closest('[data-lot-clear]')) { this.setLot(null); $('#f-msg').value = ''; }
+      });
+    },
+
+    scheduleVisit() {
+      this.setLot(null);
+      this.prefill('Agendar uma visita', 'Gostaria de agendar uma visita ao Lumoa Dunes. Melhor dia e horário para mim: ');
+      L.ui.scrollToId('contato');
+    },
+
+    /** "Consultar este lote": leva a identificação do lote ao formulário */
+    consultLot(lote) {
+      this.setLot(lote);
+      this.prefill('Lotes', `Tenho interesse no ${lote.ref}. Gostaria de saber valores, condições e a situação atual desse lote.`);
+      L.ui.scrollToId('contato');
+      L.bus.dispatchEvent(new CustomEvent('lot-consult', { detail: lote.pos }));
+    },
+
+    setLot(lote) {
+      const inp = $('#f-lote'), tag = $('#loteTag');
+      if (!inp) return;
+      inp.value = lote ? lote.ref : '';
+      tag.hidden = !lote;
+      if (lote) tag.querySelector('span').textContent = lote.ref;
     },
 
     direct() {
@@ -19,7 +69,10 @@
       const cfg = L.config;
       const parts = [];
       if (L.leads.hasWhatsapp()) {
-        parts.push(h('a', { class: 'btn btn--wa', href: L.leads.whatsappUrl('Olá! Gostaria de saber mais sobre o Lumoa Dunes.'), target: '_blank', rel: 'noopener', html: '<svg><use href="#i-wa"/></svg>Falar no WhatsApp' }));
+        parts.push(h('a', { class: 'btn btn--wa', href: this.whatsappUrl({ secao: 'contato' }), 'data-wa': '', target: '_blank', rel: 'noopener', html: '<svg><use href="#i-wa"/></svg>Falar com um consultor no WhatsApp' }));
+      }
+      parts.push(h('button', { class: 'btn btn--line', type: 'button', 'data-visit': '' }, 'Agendar visita'));
+      if (L.leads.hasWhatsapp()) {
         const num = cfg.whatsapp.replace(/\D/g, '');
         parts.push(h('span', { class: 'copy-line', style: { color: 'var(--muted)', fontSize: '.9rem' } }, 'WhatsApp oficial: ', h('strong', null, '+' + num)));
       }
@@ -30,7 +83,8 @@
 
     prefill(interesse, msg) {
       const sel = $('#f-interesse');
-      if (sel && interesse) [...sel.options].forEach((o) => { if (o.text === interesse) sel.value = o.text; });
+      if (!sel) return; // formulário já enviado
+      if (interesse) [...sel.options].forEach((o) => { if (o.text === interesse) sel.value = o.text; });
       if (msg) $('#f-msg').value = msg;
       setTimeout(() => $('#f-nome').focus({ preventScroll: true }), 700);
     },
@@ -88,12 +142,30 @@
     init() {
       const cfg = L.config;
       const link = $('#mapLink');
+      // Só abre o Google Maps com o ponto exato da entrada (config.coordenadas).
+      // Sem coordenadas, o botão pede a localização à equipe em vez de pesquisar o bairro.
       if (link) {
-        link.href = cfg.coordenadas
-          ? `https://www.google.com/maps/search/?api=1&query=${cfg.coordenadas.lat},${cfg.coordenadas.lng}`
-          : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Olho D\'Água, Santo Amaro do Maranhão - MA');
-        if (cfg.coordenadas) $('#mapNote').textContent = 'Localização confirmada do Lumoa Dunes.';
-        
+        if (cfg.coordenadas) {
+          link.href = `https://www.google.com/maps/search/?api=1&query=${cfg.coordenadas.lat},${cfg.coordenadas.lng}`;
+          link.textContent = 'Abrir a entrada no Google Maps';
+          $('#mapNote').textContent = 'Ponto marcado: entrada do Lumoa Dunes.';
+        } else {
+          link.removeAttribute('target');
+          link.href = '#contato';
+          link.textContent = 'Pedir a localização exata';
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.askLocation();
+          });
+        }
+      }
+      // Distâncias e tempos verificados (data.local.acesso)
+      const acesso = L.data.local.acesso || [];
+      const list = $('#accessList');
+      if (list && acesso.length) {
+        list.replaceChildren(...acesso.map((a) => h('div', null, h('dt', null, a.destino), h('dd', null, [a.distancia, a.tempo].filter(Boolean).join(' · ')))));
+        list.hidden = false;
+        $('#accessGeneric').hidden = true;
       }
       const map = $('#map'), z = $('#mapZoom');
       if (z) z.addEventListener('click', () => {
@@ -101,6 +173,39 @@
         z.setAttribute('aria-pressed', String(on)); z.setAttribute('aria-label', on ? 'Afastar o mapa' : 'Aproximar o mapa');
         z.innerHTML = `<svg><use href="#i-${on ? 'minus' : 'plus'}"/></svg>`;
       });
+    },
+    askLocation() {
+      const wa = L.leads.whatsappUrl('Olá! Pode me enviar a localização exata da entrada do Lumoa Dunes e como chegar?');
+      if (wa) { window.open(wa, '_blank', 'noopener'); return; }
+      L.contact.setLot(null);
+      L.contact.prefill('Conhecer o empreendimento', 'Gostaria de receber a localização exata da entrada e as orientações de acesso.');
+      L.ui.scrollToId('contato');
+    },
+  };
+
+  /* Política de privacidade (diálogo). Se config.politicaPrivacidadeUrl estiver
+     preenchido, os links abrem a página oficial no lugar do texto resumido. */
+  L.privacy = {
+    open() {
+      const url = L.config.politicaPrivacidadeUrl;
+      if (url) { window.open(url, '_blank', 'noopener'); return; }
+      const d = $('#privacy');
+      if (!d) return;
+      this.last = document.activeElement;
+      d.classList.add('is-open'); d.setAttribute('aria-hidden', 'false'); document.body.classList.add('no-scroll');
+      $('#privacyClose').focus();
+      if (!this.bound) {
+        this.bound = true;
+        const close = () => this.close();
+        $('#privacyClose').addEventListener('click', close);
+        d.addEventListener('click', (e) => { if (e.target === d) close(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.classList.contains('is-open')) close(); });
+      }
+    },
+    close() {
+      const d = $('#privacy');
+      d.classList.remove('is-open'); d.setAttribute('aria-hidden', 'true'); document.body.classList.remove('no-scroll');
+      if (this.last && this.last.focus) this.last.focus();
     },
   };
 
@@ -128,7 +233,7 @@
         list.replaceChildren(...rows.map((r) => h('div', { class: 'lead-row' },
           h('strong', null, r.nome || 'Sem nome'),
           h('span', null, [r.telefone, r.email].filter(Boolean).join(' · ')),
-          h('small', null, `${r.interesse || 'Interesse não informado'} · via ${r.origem === 'luna' ? 'Luma' : 'formulário'} · ${new Date(r.atualizadoEm).toLocaleString('pt-BR')}`),
+          h('small', null, `${r.interesse || 'Interesse não informado'}${r.lote ? ' · ' + r.lote : ''} · via ${r.origem === 'luna' ? 'Luma' : 'formulário'} · ${new Date(r.atualizadoEm).toLocaleString('pt-BR')}`),
           r.mensagem ? h('p', null, r.mensagem) : null)));
       } catch (e) {
         list.replaceChildren(h('p', { class: 'empty' }, 'Não foi possível carregar os contatos agora. Feche e abra o painel para tentar de novo.'));
