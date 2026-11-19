@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES" id="UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+	<SimpleField name="descriptio" type="string"></SimpleField>
+	<SimpleField name="timestamp" type="string"></SimpleField>
+	<SimpleField name="begin" type="string"></SimpleField>
+	<SimpleField name="end" type="string"></SimpleField>
+	<SimpleField name="altitudeMo" type="string"></SimpleField>
+	<SimpleField name="tessellate" type="float"></SimpleField>
+	<SimpleField name="extrude" type="float"></SimpleField>
+	<SimpleField name="visibility" type="float"></SimpleField>
+	<SimpleField name="drawOrder" type="float"></SimpleField>
+	<SimpleField name="icon" type="string"></SimpleField>
+	<SimpleField name="descript_1" type="string"></SimpleField>
+	<SimpleField name="altitude_1" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="handle" type="float"></SimpleField>
+	<SimpleField name="block" type="float"></SimpleField>
+	<SimpleField name="etype" type="float"></SimpleField>
+	<SimpleField name="space" type="float"></SimpleField>
+	<SimpleField name="layer" type="string"></SimpleField>
+	<SimpleField name="olinetype" type="string"></SimpleField>
+	<SimpleField name="linetype" type="string"></SimpleField>
+	<SimpleField name="color" type="string"></SimpleField>
+	<SimpleField name="ocolor" type="float"></SimpleField>
+	<SimpleField name="color24" type="float"></SimpleField>
+	<SimpleField name="transparen" type="float"></SimpleField>
+	<SimpleField name="lweight" type="float"></SimpleField>
+	<SimpleField name="linewidth" type="float"></SimpleField>
+	<SimpleField name="ltscale" type="float"></SimpleField>
+	<SimpleField name="visible" type="float"></SimpleField>
+	<SimpleField name="width" type="float"></SimpleField>
+	<SimpleField name="thickness" type="float"></SimpleField>
+	<SimpleField name="ext" type="string"></SimpleField>
+</Schema>
+<Folder><name>UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES</name>
+  <Placemark>
+	<name>LOTE 1</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">127.000000000000000</SimpleData>
+		<SimpleData name="handle">197855.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2526400199806,-2.51808946002315,7.02269675383003 -43.2527991917684,-2.51817361239932,7.02269675383003 -43.2528410272165,-2.51809356853208,7.02269675383003 -43.2526818554287,-2.51800941616587,7.02269675383003 -43.2526400199806,-2.51808946002315,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 16</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">140.000000000000000</SimpleData>
+		<SimpleData name="handle">198007.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2531645475405,-2.51765164035578,7.02269675383003 -43.2533237193729,-2.51773579265438,7.02269675383003 -43.2533655547682,-2.51765574873742,7.02269675383003 -43.2532063829357,-2.51757159644878,7.02269675383003 -43.2531645475405,-2.51765164035578,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 17</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">141.000000000000000</SimpleData>
+		<SimpleData name="handle">198008.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2534828912355,-2.51781994494767,7.02269675383003 -43.2535247266309,-2.51773990102074,7.02269675383003 -43.2533655547682,-2.51765574873742,7.02269675383003 -43.2533237193729,-2.51773579265438,7.02269675383003 -43.2534828912355,-2.51781994494767,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 12</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">142.000000000000000</SimpleData>
+		<SimpleData name="handle">198009.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2530808767274,-2.51781172815468,7.02269675383003 -43.2532400485596,-2.51789588047322,7.02269675383003 -43.25328188397,-2.51781583656633,7.02269675383003 -43.2531227121377,-2.51773168425773,7.02269675383003 -43.2530808767274,-2.51781172815468,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 14</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">143.000000000000000</SimpleData>
+		<SimpleData name="handle">198010.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2531227121377,-2.51773168425773,7.02269675383003 -43.25328188397,-2.51781583656633,7.02269675383003 -43.2533237193729,-2.51773579265438,7.02269675383003 -43.2531645475405,-2.51765164035578,7.02269675383003 -43.2531227121377,-2.51773168425773,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 8</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">144.000000000000000</SimpleData>
+		<SimpleData name="handle">198011.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.252997205884,-2.51797181593348,7.02269675383003 -43.2531563777161,-2.518055968272,7.02269675383003 -43.2531982131416,-2.51797592437512,7.02269675383003 -43.2530390413095,-2.51789177204658,7.02269675383003 -43.252997205884,-2.51797181593348,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 10</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">145.000000000000000</SimpleData>
+		<SimpleData name="handle">198012.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2530390413095,-2.51789177204658,7.02269675383003 -43.2531982131416,-2.51797592437512,7.02269675383003 -43.2532400485596,-2.51789588047322,7.02269675383003 -43.2530808767274,-2.51781172815468,7.02269675383003 -43.2530390413095,-2.51789177204658,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 4</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">146.000000000000000</SimpleData>
+		<SimpleData name="handle">198013.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2529135350104,-2.51813190369219,7.02269675383003 -43.2530727068423,-2.51821605605064,7.02269675383003 -43.253114542283,-2.51813601216383,7.02269675383003 -43.252955370451,-2.51805185981535,7.02269675383003 -43.2529135350104,-2.51813190369219,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 6</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">147.000000000000000</SimpleData>
+		<SimpleData name="handle">198014.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.252955370451,-2.51805185981535,7.02269675383003 -43.253114542283,-2.51813601216383,7.02269675383003 -43.2531563777161,-2.518055968272,7.02269675383003 -43.252997205884,-2.51797181593348,7.02269675383003 -43.252955370451,-2.51805185981535,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 2</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">148.000000000000000</SimpleData>
+		<SimpleData name="handle">198015.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2528716995623,-2.51821194756397,7.02269675383003 -43.2530308713941,-2.5182960999324,7.02269675383003 -43.2530727068423,-2.51821605605064,7.02269675383003 -43.2529135350104,-2.51813190369219,7.02269675383003 -43.2528716995623,-2.51821194756397,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 21</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">149.000000000000000</SimpleData>
+		<SimpleData name="handle">198016.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2533992204221,-2.51798003278647,7.02269675383003 -43.2534410558326,-2.51789998886957,7.02269675383003 -43.25328188397,-2.51781583656633,7.02269675383003 -43.2532400485596,-2.51789588047322,7.02269675383003 -43.2533992204221,-2.51798003278647,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 19</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">150.000000000000000</SimpleData>
+		<SimpleData name="handle">198017.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2534410558326,-2.51789998886957,7.02269675383003 -43.2534828912355,-2.51781994494767,7.02269675383003 -43.2533237193729,-2.51773579265438,7.02269675383003 -43.25328188397,-2.51781583656633,7.02269675383003 -43.2534410558326,-2.51789998886957,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 25</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">151.000000000000000</SimpleData>
+		<SimpleData name="handle">198018.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2533155495784,-2.51814012060514,7.02269675383003 -43.253357385004,-2.5180600766983,7.02269675383003 -43.2531982131416,-2.51797592437512,7.02269675383003 -43.2531563777161,-2.518055968272,7.02269675383003 -43.2533155495784,-2.51814012060514,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 23</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">152.000000000000000</SimpleData>
+		<SimpleData name="handle">198019.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.253357385004,-2.5180600766983,7.02269675383003 -43.2533992204221,-2.51798003278647,7.02269675383003 -43.2532400485596,-2.51789588047322,7.02269675383003 -43.2531982131416,-2.51797592437512,7.02269675383003 -43.253357385004,-2.5180600766983,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 29</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">153.000000000000000</SimpleData>
+		<SimpleData name="handle">198020.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2532318787044,-2.51830020840375,7.02269675383003 -43.2532737141452,-2.51822016450696,7.02269675383003 -43.253114542283,-2.51813601216383,7.02269675383003 -43.2530727068423,-2.51821605605064,7.02269675383003 -43.2532318787044,-2.51830020840375,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 27</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">154.000000000000000</SimpleData>
+		<SimpleData name="handle">198021.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2532737141452,-2.51822016450696,7.02269675383003 -43.2533155495784,-2.51814012060514,7.02269675383003 -43.2531563777161,-2.518055968272,7.02269675383003 -43.253114542283,-2.51813601216383,7.02269675383003 -43.2532737141452,-2.51822016450696,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 31</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">155.000000000000000</SimpleData>
+		<SimpleData name="handle">198022.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2531900432561,-2.51838025229549,7.02269675383003 -43.2532318787044,-2.51830020840375,7.02269675383003 -43.2530727068423,-2.51821605605064,7.02269675383003 -43.2530308713941,-2.5182960999324,7.02269675383003 -43.2531900432561,-2.51838025229549,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 20</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">156.000000000000000</SimpleData>
+		<SimpleData name="handle">198023.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2536727355671,-2.51802247629647,7.02269675383003 -43.2537145709702,-2.51794243236005,7.02269675383003 -43.2535553990635,-2.51785828007455,7.02269675383003 -43.2535135636605,-2.517938324001,7.02269675383003 -43.2536727355671,-2.51802247629647,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 18</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">157.000000000000000</SimpleData>
+		<SimpleData name="handle">198024.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2537145709702,-2.51794243236005,7.02269675383003 -43.2537564063657,-2.51786238841858,7.02269675383003 -43.2535972344589,-2.51777823614306,7.02269675383003 -43.2535553990635,-2.51785828007455,7.02269675383003 -43.2537145709702,-2.51794243236005,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 24</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">158.000000000000000</SimpleData>
+		<SimpleData name="handle">198025.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2535890647383,-2.51818256415423,7.02269675383003 -43.2536309001565,-2.5181025202279,7.02269675383003 -43.25347172825,-2.51801836792243,7.02269675383003 -43.2534298928319,-2.51809841183883,7.02269675383003 -43.2535890647383,-2.51818256415423,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 22</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">159.000000000000000</SimpleData>
+		<SimpleData name="handle">198026.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2536309001565,-2.5181025202279,7.02269675383003 -43.2536727355671,-2.51802247629647,7.02269675383003 -43.2535135636605,-2.517938324001,7.02269675383003 -43.25347172825,-2.51801836792243,7.02269675383003 -43.2536309001565,-2.5181025202279,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 28</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">160.000000000000000</SimpleData>
+		<SimpleData name="handle">198027.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2535053938792,-2.51834265199192,7.02269675383003 -43.2535472293125,-2.51826260807558,7.02269675383003 -43.2533880574062,-2.5181784557502,7.02269675383003 -43.253346221973,-2.51825849965654,7.02269675383003 -43.2535053938792,-2.51834265199192,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 26</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">161.000000000000000</SimpleData>
+		<SimpleData name="handle">198028.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2535472293125,-2.51826260807558,7.02269675383003 -43.2535890647383,-2.51818256415423,7.02269675383003 -43.2534298928319,-2.51809841183883,7.02269675383003 -43.2533880574062,-2.5181784557502,7.02269675383003 -43.2535472293125,-2.51826260807558,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 30</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">162.000000000000000</SimpleData>
+		<SimpleData name="handle">198029.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2534635584383,-2.51842269590322,7.02269675383003 -43.2535053938792,-2.51834265199192,7.02269675383003 -43.253346221973,-2.51825849965654,7.02269675383003 -43.2533043865322,-2.51833854355785,7.02269675383003 -43.2534635584383,-2.51842269590322,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 32</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">163.000000000000000</SimpleData>
+		<SimpleData name="handle">198030.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2534217229899,-2.51850273980948,7.02269675383003 -43.2534635584383,-2.51842269590322,7.02269675383003 -43.2533043865322,-2.51833854355785,7.02269675383003 -43.2532625510838,-2.51841858745417,7.02269675383003 -43.2534217229899,-2.51850273980948,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 15</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">165.000000000000000</SimpleData>
+		<SimpleData name="handle">198060.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2529328679579,-2.51752915291656,7.02269675383003 -43.2530920397463,-2.51761330522294,7.02269675383003 -43.2531338751415,-2.51753326132049,7.02269675383003 -43.252974703353,-2.51744910902411,7.02269675383003 -43.2529328679579,-2.51752915291656,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 11</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">166.000000000000000</SimpleData>
+		<SimpleData name="handle">198061.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2528491971451,-2.51768924068644,7.02269675383003 -43.2530083689333,-2.51777339301274,7.02269675383003 -43.2530502043436,-2.51769334912035,7.02269675383003 -43.2528910325553,-2.51760919680402,7.02269675383003 -43.2528491971451,-2.51768924068644,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 13</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">167.000000000000000</SimpleData>
+		<SimpleData name="handle">198062.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2528910325553,-2.51760919680402,7.02269675383003 -43.2530502043436,-2.51769334912035,7.02269675383003 -43.2530920397463,-2.51761330522294,7.02269675383003 -43.2529328679579,-2.51752915291656,7.02269675383003 -43.2528910325553,-2.51760919680402,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 7</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">168.000000000000000</SimpleData>
+		<SimpleData name="handle">198063.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.252765526302,-2.51784932843621,7.02269675383003 -43.25292469809,-2.51793348078248,7.02269675383003 -43.2529665335154,-2.51785343690012,7.02269675383003 -43.2528073617273,-2.51776928456387,7.02269675383003 -43.252765526302,-2.51784932843621,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 9</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">169.000000000000000</SimpleData>
+		<SimpleData name="handle">198064.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2528073617273,-2.51776928456387,7.02269675383003 -43.2529665335154,-2.51785343690012,7.02269675383003 -43.2530083689333,-2.51777339301274,7.02269675383003 -43.2528491971451,-2.51768924068644,7.02269675383003 -43.2528073617273,-2.51776928456387,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 3</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">170.000000000000000</SimpleData>
+		<SimpleData name="handle">198065.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2526818554287,-2.51800941616587,7.02269675383003 -43.2528410272165,-2.51809356853208,7.02269675383003 -43.252882862657,-2.5180135246598,7.02269675383003 -43.2527236908691,-2.51792937230356,7.02269675383003 -43.2526818554287,-2.51800941616587,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>LOTE 5</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">171.000000000000000</SimpleData>
+		<SimpleData name="handle">198066.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2527236908691,-2.51792937230356,7.02269675383003 -43.252882862657,-2.5180135246598,7.02269675383003 -43.25292469809,-2.51793348078248,7.02269675383003 -43.252765526302,-2.51784932843621,7.02269675383003 -43.2527236908691,-2.51792937230356,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">197.000000000000000</SimpleData>
+		<SimpleData name="handle">200024.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">LIMITE_LOTEAMENTO</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.000000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.253858922915,-2.51766578517719,7.081237239102 -43.2529980866538,-2.51740475092485,7.081237239102 -43.2525371520301,-2.5182857512172,7.081237239102 -43.2533969401644,-2.51855027725717,7.081237239102 -43.253858922915,-2.51766578517719,7.081237239102</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">126.000000000000000</SimpleData>
+		<SimpleData name="handle">197854.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.252813520808,-2.51835435678075,7.02269675383003 -43.2528174965749,-2.51834674993937,7.02269675383003 -43.2528189893566,-2.51834410165883,7.02269675383003 -43.252820660124,-2.51834156190894,7.02269675383003 -43.2528225010192,-2.51833914263237,7.02269675383003 -43.2528245033845,-2.51833685520501,7.02269675383003 -43.2528266578047,-2.51833471038287,7.02269675383003 -43.2528289541497,-2.51833271825149,7.02269675383003 -43.2528313816219,-2.51833088817842,7.02269675383003 -43.2528339288074,-2.51832922876895,7.02269675383003 -43.2528365837261,-2.51832774782611,7.02269675383003 -43.252839333898,-2.51832645231377,7.02269675383003 -43.2528421663865,-2.51832534832362,7.02269675383003 -43.2528450678747,-2.51832444104685,7.02269675383003 -43.2528480247201,-2.51832373474974,7.02269675383003 -43.2528510230186,-2.51832323275357,7.02269675383003 -43.252854048671,-2.5183229374187,7.02269675383003 -43.2528570874474,-2.51832285013404,7.02269675383003 -43.2528601250633,-2.51832297130988,7.02269675383003 -43.2528631472323,-2.51832330037644,7.02269675383003 -43.2528661397446,-2.5183238357863,7.02269675383003 -43.2528690885265,-2.51832457502201,7.02269675383003 -43.252871979714,-2.51832551460739,7.02269675383003 -43.2528747997114,-2.51832665012431,7.02269675383003 -43.2528775352608,-2.51832797623326,7.02269675383003 -43.2531442331825,-2.51846897643836,7.02269675383003 -43.2531492429042,-2.51847140499434,7.02269675383003 -43.2531544072805,-2.5184734845115,7.02269675383003 -43.2531597020315,-2.5184752052113,7.02269675383003 -43.2531651022564,-2.51847655900258,7.02269675383003 -43.253170582564,-2.51847753951938,7.02269675383003 -43.2531761171831,-2.51847814215125,7.02269675383003 -43.2531816800911,-2.51847836406445,7.02269675383003 -43.2531872451273,-2.51847820421541,7.02269675383003 -43.2531927861255,-2.51847766335584,7.02269675383003 -43.2531982770288,-2.51847674402893,7.02269675383003 -43.2532036920184,-2.51847545055773,7.02269675383003 -43.253209005632,-2.51847378902426,7.02269675383003 -43.2532141928841,-2.51847176724152,7.02269675383003 -43.253219229382,-2.51846939471648,7.02269675383003 -43.2532240914425,-2.51846668260533,7.02269675383003 -43.2532287562044,-2.518463643661,7.02269675383003 -43.2532332017308,-2.51846029217336,7.02269675383003 -43.2532374071197,-2.51845664390203,7.02269675383003 -43.2532413525969,-2.518452716002,7.02269675383003 -43.2532450196086,-2.51844852694319,7.02269675383003 -43.2532483909105,-2.51844409642359,7.02269675383003 -43.253251450651,-2.51843944527651,7.02269675383003 -43.2532541844426,-2.51843459537303,7.02269675383003 -43.2536037164462,-2.51776583411331,7.02269675383003 -43.2536081092517,-2.51775668794409,7.02269675383003 -43.2536118485855,-2.51774725573598,7.02269675383003 -43.2536149159641,-2.51773758410935,7.02269675383003 -43.2536172962227,-2.51772772086825,7.02269675383003 -43.2536189776001,-2.51771771476353,7.02269675383003 -43.2536199517854,-2.51770761525244,7.02269675383003 -43.2536202139636,-2.51769747225364,7.02269675383003 -43.253619762836,-2.51768733590085,7.02269675383003 -43.2536186006364,-2.51767725629508,7.02269675383003 -43.2536167331073,-2.51766728325673,7.02269675383003 -43.2536141694782,-2.51765746607941,7.02269675383003 -43.253610922422,-2.51764785328645,7.02269675383003 -43.2536070079877,-2.51763849239091,7.02269675383003 -43.2536024455221,-2.51762942966082,7.02269675383003 -43.2535972575788,-2.51762070989058,7.02269675383003 -43.2535914697964,-2.51761237617928,7.02269675383003 -43.2535851107841,-2.51760446971787,7.02269675383003 -43.2535782119739,-2.51759702958555,7.02269675383003 -43.2535708074629,-2.51759009255671,7.02269675383003 -43.2535629338472,-2.51758369291895,7.02269675383003 -43.2535546300478,-2.51757786230371,7.02269675383003 -43.2535459371065,-2.5175726295298,7.02269675383003 -43.2535368979875,-2.5175680204614,7.02269675383003 -43.2535275573705,-2.51756405787975,7.02269675383003 -43.2535179614254,-2.51756076137045,7.02269675383003 -43.2532511544937,-2.51748051036611,7.02269675383003 -43.2532449127453,-2.517478862121,7.02269675383003 -43.2532385760845,-2.51747762807287,7.02269675383003 -43.2532321719682,-2.51747681356824,7.02269675383003 -43.25322572814,-2.51747642213604,7.02269675383003 -43.2532192725193,-2.51747645547232,7.02269675383003 -43.2532128330786,-2.51747691343269,7.02269675383003 -43.2532064377137,-2.51747779403274,7.02269675383003 -43.2532001141353,-2.51747909345738,7.02269675383003 -43.2531938897428,-2.51748080607648,7.02269675383003 -43.2531877915007,-2.51748292447019,7.02269675383003 -43.2531818458337,-2.51748543945996,7.02269675383003 -43.2531760784986,-2.51748834014961,7.02269675383003 -43.2531705144865,-2.51749161397116,7.02269675383003 -43.2531651779027,-2.51749524674074,7.02269675383003 -43.2531600918701,-2.51749922271857,7.02269675383003 -43.2531552784221,-2.51750352467843,7.02269675383003 -43.2531507584135,-2.51750813398144,7.02269675383003 -43.2531465514312,-2.51751303065725,7.02269675383003 -43.2531426756981,-2.51751819349015,7.02269675383003 -43.2531391480102,-2.51752360011195,7.02269675383003 -43.2531359836506,-2.5175292270973,7.02269675383003 -43.2527830686344,-2.51820446082669,7.02269675383003 -43.252813520808,-2.51835435678075,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">134.000000000000000</SimpleData>
+		<SimpleData name="handle">197968.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2531996696092,-2.51756393065049,7.02269675383003 -43.252863300507,-2.51820750707673,7.02269675383003 -43.2528624988275,-2.5182091741279,7.02269675383003 -43.2528618122799,-2.51821089180196,7.02269675383003 -43.2528612440437,-2.51821265215847,7.02269675383003 -43.2528607967397,-2.51821444705922,7.02269675383003 -43.2528604724393,-2.51821626820673,7.02269675383003 -43.2528602726379,-2.51821810718196,7.02269675383003 -43.2528601982631,-2.51821995548335,7.02269675383003 -43.2528602496586,-2.51822180456635,7.02269675383003 -43.2528604265844,-2.51822364588303,7.02269675383003 -43.2528607282238,-2.51822547092093,7.02269675383003 -43.2528611531816,-2.51822727124319,7.02269675383003 -43.252861699495,-2.51822903852691,7.02269675383003 -43.2528623646358,-2.51823076460209,7.02269675383003 -43.2528631455334,-2.51823244148943,7.02269675383003 -43.2528640385735,-2.51823406143672,7.02269675383003 -43.2528650396289,-2.51823561695495,7.02269675383003 -43.252866144072,-2.5182371008533,7.02269675383003 -43.2528673467968,-2.5182385062717,7.02269675383003 -43.2528686422447,-2.51823982671294,7.02269675383003 -43.2528700244256,-2.51824105607295,7.02269675383003 -43.252871486948,-2.51824218866823,7.02269675383003 -43.2528730230563,-2.5182432192632,7.02269675383003 -43.2528746256437,-2.51824414309326,7.02269675383003 -43.2531620158972,-2.51839608309432,7.02269675383003 -43.2531636755992,-2.51839688766519,7.02269675383003 -43.2531653865369,-2.51839757660099,7.02269675383003 -43.2531671406668,-2.51839814666198,7.02269675383003 -43.2531689297393,-2.5183985951677,7.02269675383003 -43.2531707453436,-2.51839892000895,7.02269675383003 -43.2531725789413,-2.5183991196584,7.02269675383003 -43.2531744219104,-2.5183991931773,7.02269675383003 -43.2531762655853,-2.51839914021991,7.02269675383003 -43.2531781012949,-2.51839896103525,7.02269675383003 -43.2531799204098,-2.51839865646582,7.02269675383003 -43.2531817143754,-2.51839822794386,7.02269675383003 -43.2531834747551,-2.51839767748424,7.02269675383003 -43.2531851932708,-2.51839700767561,7.02269675383003 -43.2531868618425,-2.51839622166744,7.02269675383003 -43.2531884726231,-2.51839532315568,7.02269675383003 -43.2531900180402,-2.51839431636539,7.02269675383003 -43.2531914908268,-2.51839320603075,7.02269675383003 -43.2531928840544,-2.51839199737287,7.02269675383003 -43.2531941911766,-2.51839069607502,7.02269675383003 -43.2531954060414,-2.51838930825635,7.02269675383003 -43.2531965229406,-2.51838784044271,7.02269675383003 -43.2531975366217,-2.51838629953604,7.02269675383003 -43.2531984423146,-2.51838469278215,7.02269675383003 -43.2535396072274,-2.51773194033378,7.02269675383003 -43.2535417790594,-2.51772741840985,7.02269675383003 -43.25354362781,-2.51772275506648,7.02269675383003 -43.25354514434,-2.5177179733531,7.02269675383003 -43.253546321157,-2.51771309690434,7.02269675383003 -43.2535471524407,-2.51770814982285,7.02269675383003 -43.2535476340836,-2.51770315656052,7.02269675383003 -43.2535477637066,-2.51769814179772,7.02269675383003 -43.2535475406657,-2.5176931303207,7.02269675383003 -43.253546966067,-2.51768814689967,7.02269675383003 -43.2535460427498,-2.51768321616634,7.02269675383003 -43.2535447752743,-2.51767836249166,7.02269675383003 -43.2535431699107,-2.51767360986581,7.02269675383003 -43.2535412345896,-2.51766898177971,7.02269675383003 -43.2535389788773,-2.51766450110847,7.02269675383003 -43.2535364139258,-2.51766018999877,7.02269675383003 -43.2535335524099,-2.51765606975891,7.02269675383003 -43.253530408474,-2.51765216075421,7.02269675383003 -43.2535269976579,-2.51764848230561,7.02269675383003 -43.2535233368217,-2.5176450525945,7.02269675383003 -43.253519444057,-2.51764188857295,7.02269675383003 -43.2535153386052,-2.51763900587969,7.02269675383003 -43.2535110407607,-2.51763641876301,7.02269675383003 -43.2535065717616,-2.51763414001023,7.02269675383003 -43.2535019537016,-2.51763218088451,7.02269675383003 -43.2534972094057,-2.51763055106935,7.02269675383003 -43.2532312739266,-2.51755056217216,7.02269675383003 -43.2532295611131,-2.51755010987308,7.02269675383003 -43.2532278222537,-2.51754977123477,7.02269675383003 -43.2532260648859,-2.51754954772445,7.02269675383003 -43.253224296619,-2.51754944031052,7.02269675383003 -43.2532225251161,-2.51754944945833,7.02269675383003 -43.2532207580516,-2.51754957512833,7.02269675383003 -43.2532190030852,-2.51754981677585,7.02269675383003 -43.2532172678166,-2.51755017335416,7.02269675383003 -43.2532155597637,-2.51755064331825,7.02269675383003 -43.2532138863316,-2.5175512246318,7.02269675383003 -43.2532122547655,-2.51755191477639,7.02269675383003 -43.2532106721373,-2.51755271076182,7.02269675383003 -43.2532091453031,-2.51755360913933,7.02269675383003 -43.2532076808766,-2.51755460601657,7.02269675383003 -43.253206285206,-2.5175556970745,7.02269675383003 -43.253204964336,-2.517556877586,7.02269675383003 -43.2532037239889,-2.5175581424362,7.02269675383003 -43.25320256954,-2.51755948614516,7.02269675383003 -43.2532015059899,-2.51756090289092,7.02269675383003 -43.2532005379494,-2.51756238653543,7.02269675383003 -43.2531996696092,-2.51756393065049,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">135.000000000000000</SimpleData>
+		<SimpleData name="handle">197969.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2532080686645,-2.51756837113348,7.02269675383003 -43.2528716995623,-2.51821194756397,7.02269675383003 -43.2528711798999,-2.51821302817729,7.02269675383003 -43.2528707348668,-2.51821414160548,7.02269675383003 -43.2528703665248,-2.51821528270113,7.02269675383003 -43.2528700765742,-2.51821644618905,7.02269675383003 -43.2528698663573,-2.51821762669044,7.02269675383003 -43.2528697368416,-2.51821881874821,7.02269675383003 -43.2528696886311,-2.5182200168514,7.02269675383003 -43.2528697219459,-2.51822121546116,7.02269675383003 -43.2528698366332,-2.51822240903664,7.02269675383003 -43.25287003216,-2.51822359206005,7.02269675383003 -43.2528703076259,-2.51822475906216,7.02269675383003 -43.2528706617577,-2.51822590464815,7.02269675383003 -43.2528710929146,-2.51822702352207,7.02269675383003 -43.2528715991048,-2.51822811051146,7.02269675383003 -43.2528721779909,-2.51822916059121,7.02269675383003 -43.2528728268935,-2.51823016890694,7.02269675383003 -43.2528735428132,-2.51823113079717,7.02269675383003 -43.2528743224429,-2.51823204181538,7.02269675383003 -43.2528751621758,-2.51823289774983,7.02269675383003 -43.2528760581317,-2.51823369464376,7.02269675383003 -43.2528770061656,-2.51823442881295,7.02269675383003 -43.2528780018996,-2.51823509686366,7.02269675383003 -43.2528790407254,-2.51823569570733,7.02269675383003 -43.2531664309789,-2.51838763570648,7.02269675383003 -43.2531675068274,-2.51838815724421,7.02269675383003 -43.2531686158888,-2.51838860382514,7.02269675383003 -43.2531697529484,-2.51838897334926,7.02269675383003 -43.2531709126597,-2.51838926407879,7.02269675383003 -43.2531720895677,-2.51838947464695,7.02269675383003 -43.253173278139,-2.51838960406349,7.02269675383003 -43.2531744727858,-2.51838965171977,7.02269675383003 -43.2531756678909,-2.51838961739178,7.02269675383003 -43.2531768578319,-2.5183895012409,7.02269675383003 -43.2531780370155,-2.51838930381335,7.02269675383003 -43.2531791998972,-2.51838902603754,7.02269675383003 -43.2531803410075,-2.51838866921945,7.02269675383003 -43.2531814549802,-2.51838823503715,7.02269675383003 -43.2531825365804,-2.51838772553208,7.02269675383003 -43.2531835807185,-2.51838714310008,7.02269675383003 -43.2531845824869,-2.51838649048012,7.02269675383003 -43.2531855371726,-2.51838577074068,7.02269675383003 -43.2531864402899,-2.51838498726625,7.02269675383003 -43.2531872875897,-2.51838414374095,7.02269675383003 -43.2531880750885,-2.5183832441312,7.02269675383003 -43.2531887990824,-2.51838229266723,7.02269675383003 -43.2531894561687,-2.51838129382306,7.02269675383003 -43.2531900432561,-2.51838025229549,7.02269675383003 -43.2535312081688,-2.51772749985145,7.02269675383003 -43.2535330890267,-2.51772358375783,7.02269675383003 -43.2535346900891,-2.5177195451916,7.02269675383003 -43.2535360034417,-2.51771540411414,7.02269675383003 -43.2535370225905,-2.5177111809935,7.02269675383003 -43.2535377425029,-2.51770689670332,7.02269675383003 -43.2535381596172,-2.51770257241947,7.02269675383003 -43.2535382718743,-2.51769822951564,7.02269675383003 -43.2535380787158,-2.51769388945741,7.02269675383003 -43.2535375811003,-2.51768957369632,7.02269675383003 -43.2535367814835,-2.517685303564,7.02269675383003 -43.2535356838216,-2.51768110016621,7.02269675383003 -43.2535342935371,-2.51767698427933,7.02269675383003 -43.2535326175039,-2.51767297624668,7.02269675383003 -43.2535306640038,-2.51766909587889,7.02269675383003 -43.253528442694,-2.51766536235526,7.02269675383003 -43.2535259645538,-2.51766179412971,7.02269675383003 -43.2535232418304,-2.51765840883867,7.02269675383003 -43.2535202879826,-2.51765522321466,7.02269675383003 -43.2535171176114,-2.51765225300323,7.02269675383003 -43.2535137463838,-2.51764951288532,7.02269675383003 -43.2535101909652,-2.51764701640434,7.02269675383003 -43.2535064689291,-2.51764477589983,7.02269675383003 -43.2535025986704,-2.51764280244565,7.02269675383003 -43.2534985993214,-2.51764110579627,7.02269675383003 -43.2534944906476,-2.51763969433756,7.02269675383003 -43.2532285551675,-2.51755970543864,7.02269675383003 -43.2532274448899,-2.51755941225005,7.02269675383003 -43.2532263177294,-2.51755919273836,7.02269675383003 -43.2532251785706,-2.51755904785489,7.02269675383003 -43.2532240323471,-2.51755897822716,7.02269675383003 -43.2532228840264,-2.51755898415694,7.02269675383003 -43.2532217385833,-2.51755906561858,7.02269675383003 -43.2532206009819,-2.51755922225891,7.02269675383003 -43.2532194761479,-2.5175594533996,7.02269675383003 -43.2532183689582,-2.51755975803893,7.02269675383003 -43.2532172842075,-2.51756013485715,7.02269675383003 -43.2532162265961,-2.51756058222168,7.02269675383003 -43.2532152007061,-2.51756109819416,7.02269675383003 -43.2532142109849,-2.51756168053908,7.02269675383003 -43.2532132617161,-2.51756232673335,7.02269675383003 -43.2532123570163,-2.51756303397724,7.02269675383003 -43.2532115008053,-2.51756379920665,7.02269675383003 -43.2532106967883,-2.51756461910599,7.02269675383003 -43.2532099484542,-2.51756549012293,7.02269675383003 -43.2532092590412,-2.51756640848379,7.02269675383003 -43.2532086315373,-2.51756737020952,7.02269675383003 -43.2532080686645,-2.51756837113348,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">164.000000000000000</SimpleData>
+		<SimpleData name="handle">198054.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.252802820802,-2.51835431870503,7.02269675383003 -43.2528090975196,-2.51834230945131,7.02269675383003 -43.2528109089073,-2.51833909594472,7.02269675383003 -43.2528129362693,-2.51833601413256,7.02269675383003 -43.2528151700681,-2.51833307850654,7.02269675383003 -43.2528175998013,-2.51833030287037,7.02269675383003 -43.252820214042,-2.51832770027602,7.02269675383003 -43.2528230004991,-2.51832528296131,7.02269675383003 -43.2528259460705,-2.51832306229323,7.02269675383003 -43.2528290369046,-2.51832104871379,7.02269675383003 -43.2528322584676,-2.51831925169143,7.02269675383003 -43.252835595611,-2.518317679676,7.02269675383003 -43.2528390326424,-2.51831634005975,7.02269675383003 -43.2528425534001,-2.51831523914165,7.02269675383003 -43.2528461413294,-2.51831438209865,7.02269675383003 -43.2528497795574,-2.51831377296071,7.02269675383003 -43.2528534509784,-2.51831341459218,7.02269675383003 -43.2528571383264,-2.5183133086781,7.02269675383003 -43.2528608242628,-2.51831345571667,7.02269675383003 -43.2528644914582,-2.51831385501635,7.02269675383003 -43.2528681226649,-2.51831450469944,7.02269675383003 -43.2528717008117,-2.51831540171121,7.02269675383003 -43.2528752090678,-2.51831654183349,7.02269675383003 -43.2528786309415,-2.5183179197054,7.02269675383003 -43.2528819503432,-2.51831952884754,7.02269675383003 -43.2531486482648,-2.51846052905086,7.02269675383003 -43.2531530741343,-2.51846267457359,7.02269675383003 -43.2531576366343,-2.51846451173589,7.02269675383003 -43.253162314315,-2.5184660318987,7.02269675383003 -43.2531670851767,-2.51846722791389,7.02269675383003 -43.2531719267881,-2.51846809415747,7.02269675383003 -43.2531768163826,-2.51846862655635,7.02269675383003 -43.2531817309664,-2.51846882260691,7.02269675383003 -43.2531866474328,-2.51846868138728,7.02269675383003 -43.2531915426607,-2.51846820356149,7.02269675383003 -43.2531963936344,-2.51846739137649,7.02269675383003 -43.2532011775402,-2.51846624865128,7.02269675383003 -43.2532058718843,-2.51846478075925,7.02269675383003 -43.2532104545935,-2.51846299460283,7.02269675383003 -43.2532149041199,-2.51846089858101,7.02269675383003 -43.253219199536,-2.51845850254961,7.02269675383003 -43.2532233206493,-2.51845581777559,7.02269675383003 -43.2532272480785,-2.5184528568832,7.02269675383003 -43.2532309633552,-2.5184496337954,7.02269675383003 -43.25323444901,-2.51844616366781,7.02269675383003 -43.2532376886538,-2.51844246281802,7.02269675383003 -43.2532406670522,-2.51843854864812,7.02269675383003 -43.253243370198,-2.51843443956353,7.02269675383003 -43.2532457853835,-2.51843015488641,7.02269675383003 -43.253595317387,-2.51776139363106,7.02269675383003 -43.253599419219,-2.51775285329218,7.02269675383003 -43.2536029108647,-2.5177440458612,7.02269675383003 -43.253605775064,-2.5177350148706,7.02269675383003 -43.253607997658,-2.51772580495777,7.02269675383003 -43.2536095676623,-2.51771646164435,7.02269675383003 -43.2536104773189,-2.51770703111163,7.02269675383003 -43.2536107221294,-2.5176975599719,7.02269675383003 -43.2536103008861,-2.5176880950379,7.02269675383003 -43.2536092156679,-2.51767868309207,7.02269675383003 -43.2536074718409,-2.51766937065474,7.02269675383003 -43.2536050780236,-2.51766020375442,7.02269675383003 -43.2536020460484,-2.51765122770031,7.02269675383003 -43.253598390902,-2.51764248685821,7.02269675383003 -43.2535941306487,-2.51763402443157,7.02269675383003 -43.253589286347,-2.51762588224756,7.02269675383003 -43.2535838819404,-2.51761810055042,7.02269675383003 -43.2535779441405,-2.51761071780265,7.02269675383003 -43.2535715022986,-2.51760377049504,7.02269675383003 -43.2535645882526,-2.5175972929659,7.02269675383003 -43.2535572361758,-2.5175913172318,7.02269675383003 -43.2535494824096,-2.51758587282882,7.02269675383003 -43.2535413652768,-2.51758098666699,7.02269675383003 -43.2535329248981,-2.51757668289719,7.02269675383003 -43.2535242029904,-2.51757298279172,7.02269675383003 -43.2535152426679,-2.51756990463891,7.02269675383003 -43.2532484357352,-2.51748965363284,7.02269675383003 -43.2532427965221,-2.51748816449818,7.02269675383003 -43.2532370715602,-2.51748704957658,7.02269675383003 -43.2532312856547,-2.51748631369867,7.02269675383003 -43.25322546387,-2.51748596005268,7.02269675383003 -43.2532196314314,-2.51748599017094,7.02269675383003 -43.2532138136103,-2.51748640392282,7.02269675383003 -43.2532080356104,-2.5174871995157,7.02269675383003 -43.2532023224685,-2.5174883735026,7.02269675383003 -43.2531966989354,-2.51748992079706,7.02269675383003 -43.2531911893766,-2.51749183469531,7.02269675383003 -43.2531858176626,-2.51749410690513,7.02269675383003 -43.2531806070692,-2.51749672758171,7.02269675383003 -43.2531755801683,-2.51749968537081,7.02269675383003 -43.2531707587423,-2.51750296745729,7.02269675383003 -43.2531661636804,-2.51750655962121,7.02269675383003 -43.2531618148896,-2.51751044629896,7.02269675383003 -43.2531577312129,-2.51751461065111,7.02269675383003 -43.2531539303436,-2.5175190346349,7.02269675383003 -43.2531504287475,-2.51752369908303,7.02269675383003 -43.2531472415999,-2.51752858378604,7.02269675383003 -43.2531443827052,-2.51753366758039,7.02269675383003 -43.2527956512344,-2.51820089692785,7.02269675383003 -43.2527953493366,-2.51820143251225,7.02269675383003 -43.2527950114433,-2.51820194614761,7.02269675383003 -43.2527946391438,-2.51820243541874,7.02269675383003 -43.2527942341894,-2.5182028980247,7.02269675383003 -43.2527937984814,-2.51820333179046,7.02269675383003 -43.2527933340734,-2.51820373467626,7.02269675383003 -43.2527928431446,-2.51820410478763,7.02269675383003 -43.2527923280049,-2.51820444038424,7.02269675383003 -43.2527917910775,-2.51820473988801,7.02269675383003 -43.2527912348887,-2.51820500189058,7.02269675383003 -43.2527906620489,-2.51820522515993,7.02269675383003 -43.2527900752557,-2.51820540864629,7.02269675383003 -43.2527894772684,-2.51820555148686,7.02269675383003 -43.2527888708973,-2.51820565300976,7.02269675383003 -43.2527882589929,-2.51820571273788,7.02269675383003 -43.2527876444365,-2.51820573039026,7.02269675383003 -43.2527870301128,-2.51820570588393,7.02269675383003 -43.2527864189142,-2.51820563933393,7.02269675383003 -43.2527858137128,-2.51820553105347,7.02269675383003 -43.2527852173553,-2.51820538155141,7.02269675383003 -43.2527846326445,-2.51820519153108,7.02269675383003 -43.2527840623328,-2.51820496188567,7.02269675383003 -43.2527835090988,-2.51820469369536,7.02269675383003 -43.2527830686344,-2.51820446082669,7.02269675383003 -43.252802820802,-2.51835431870503,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">180.000000000000000</SimpleData>
+		<SimpleData name="handle">198518.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.252546184404,-2.51828800424654,7.02269675383003 -43.252728760134,-2.51830750150682,7.02269675383003 -43.25257772775,-2.51822765232853,7.02269675383003 -43.252546184404,-2.51828800424654,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">185.000000000000000</SimpleData>
+		<SimpleData name="handle">198597.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2527743382025,-2.51834079269485,7.02269675383003 -43.25280219327,-2.51835551936292,7.02269675383003 -43.2528051217526,-2.51834991629267,7.02269675383003 -43.252777266685,-2.5183351896247,7.02269675383003 -43.2527743382025,-2.51834079269485,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#UNIFICAÇÃO_TODOS_OS_LOTES_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">186.000000000000000</SimpleData>
+		<SimpleData name="handle">198598.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 1</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,0,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.050000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2527670332157,-2.51830423884945,7.02269675383003 -43.2527365915916,-2.51828814469674,7.02269675383003 -43.2527340814638,-2.51829294732819,7.02269675383003 -43.2527597479336,-2.5183065169094,7.02269675383003 -43.2527670332157,-2.51830423884945,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>

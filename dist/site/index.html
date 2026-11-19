@@ -487,6 +487,43 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .privacy__body strong { color: var(--teal-deep); font-weight: 500; }
 .footer nav a[data-privacy] { opacity: 0.85; }
 
+/* Lotes no satélite (Localização) — Leaflet carregado sob demanda */
+.map__sat { position: absolute; top: 0; right: 0; z-index: 3; }
+.map__sat span { white-space: nowrap; }
+.map.is-sat { min-height: min(72vh, 600px); }
+.map.is-sat > img, .map.is-sat .map__pin, .map.is-sat .map__park, .map.is-sat .map__zoom, .map.is-sat figcaption { visibility: hidden; }
+.lotmap { position: absolute; inset: 0; z-index: 1; background: #2b3a2d; font-family: var(--font-body); }
+.lotmap[hidden] { display: none; }
+.lotmap .leaflet-control-zoom { margin: 56px 0 0 10px; border: 0; }
+.lotmap .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 40px; border-radius: 0; background: rgba(8, 42, 43, 0.7); color: var(--shell); border: 1px solid rgba(251, 248, 242, 0.3); }
+.lotmap .leaflet-control-zoom a:hover { background: var(--gold); }
+.lotmap .leaflet-control-attribution { font-size: 0.6rem; background: rgba(251, 248, 242, 0.75); }
+.lotmap path:focus-visible { outline: none; stroke: var(--gold); stroke-width: 4; }
+.lotmap__num.leaflet-tooltip { background: none; border: 0; box-shadow: none; padding: 0; color: var(--shell); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85); opacity: 0 !important; transition: opacity 0.3s; }
+.lotmap__num.leaflet-tooltip::before { display: none; }
+.lotmap.show-nums .lotmap__num.leaflet-tooltip { opacity: 1 !important; }
+.lotmap__reset { position: absolute; left: 10px; bottom: 28px; z-index: 800; width: 40px; height: 40px; }
+.lotmap__panel { position: absolute; right: 12px; top: 56px; z-index: 800; width: min(300px, calc(100% - 24px)); background: var(--shell); color: var(--ink); padding: 20px 20px 16px; box-shadow: var(--shadow-pop); cursor: auto; }
+.lotmap__panel[hidden] { display: none; }
+.lotmap__close { position: absolute; top: 6px; right: 6px; width: 36px; height: 36px; border: 0; background: none; font-size: 1.5rem; line-height: 1; color: var(--muted); cursor: pointer; }
+.lotmap__close:hover { color: var(--teal-deep); }
+.lotmap__eyebrow { margin: 0 0 4px; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.lotmap__title { margin: 0 0 12px; font-family: var(--font-display); font-weight: 400; font-size: 1.6rem; color: var(--teal-deep); }
+.lotmap__facts { margin: 0 0 14px; display: grid; border-top: 1px solid var(--line); }
+.lotmap__facts div { display: grid; grid-template-columns: 80px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.lotmap__facts dt { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.lotmap__facts dd { margin: 0; color: var(--teal-deep); }
+.lotmap__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.lotmap__note { margin: 12px 0 0; font-size: 0.68rem; line-height: 1.45; color: var(--muted); }
+@media (max-width: 640px) {
+  .map__sat span { font-size: 0.62rem; letter-spacing: 0.1em; }
+  .map.is-sat { min-height: 78vh; }
+  .lotmap__panel { left: 12px; right: 12px; top: auto; bottom: 22px; width: auto; }
+  .lotmap.has-panel .lotmap__reset { display: none; }
+}
+.lotmap__share { margin-top: 12px; padding: 0; border: 0; background: none; font: inherit; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--teal); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.lotmap__share:hover { color: var(--gold); }
+
 /* styles/maquete.css */
 /* ================= MAQUETE (implantação humanizada) ================= */
 .maquete-sec { padding-bottom: clamp(56px, 7vw, 100px); overflow: hidden; }
@@ -972,6 +1009,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <span class="map__pin"><b>Lumoa Dunes</b><i></i></span>
       <span class="map__park">Parque Nacional dos<br>Lençóis Maranhenses</span>
       <button class="tool map__zoom" type="button" id="mapZoom" aria-label="Aproximar o mapa" aria-pressed="false"><svg><use href="#i-plus"/></svg></button>
+      <button class="tool tool--txt map__sat" type="button" id="mapSat" aria-pressed="false" aria-controls="lotMap" hidden><svg><use href="#i-plan"/></svg><span>Ver os lotes no satélite</span></button>
+      <div class="lotmap" id="lotMap" aria-label="Mapa de satélite com os 32 lotes do Lumoa Dunes" hidden></div>
       <figcaption id="mapNote">Mapa da região reproduzido do catálogo oficial; a marcação é aproximada. A localização exata da entrada é enviada pela equipe comercial.</figcaption>
     </figure>
   </div>
@@ -1207,10 +1246,12 @@ window.Lumoa.config = {
   // A chave da API fica SOMENTE no servidor, em variável de ambiente.
   lunaAiEndpoint: '',
 
-  // Coordenadas confirmadas da ENTRADA do condomínio. Enquanto estiver null,
-  // o mapa mostra a região do catálogo e o botão pede a localização à equipe
-  // (não pesquisa mais o bairro Olho D'Água no Google Maps).
-  coordenadas: null, // ex.: { lat: -2.5, lng: -43.2 }
+  // Centro do condomínio: centroide do perímetro (camada LIMITE_LOTEAMENTO) dos
+  // KML georreferenciados da pasta kml/ — o mesmo valor que
+  // tools/kml-para-geojson.mjs imprime e grava em src/data/lotes.js.
+  // O botão "Abrir no Google Maps" da seção Localização usa este ponto.
+  // null = o botão pede a localização à equipe.
+  coordenadas: { lat: -2.51797678, lng: -43.25319801 },
 
   // E-mail comercial oficial (opcional). Exibido como texto selecionável.
   email: '',
@@ -1504,6 +1545,17 @@ window.Lumoa = window.Lumoa || {};
     return 'Perspectiva ilustrativa';
   };
 })(window.Lumoa);
+
+/* data/lotes.js */
+/* ARQUIVO GERADO por tools/kml-para-geojson.mjs a partir da pasta kml/ — não edite à mão.
+   Para atualizar: troque os KML em kml/ e rode  node tools/kml-para-geojson.mjs
+   32 lotes + perímetro (LIMITE_LOTEAMENTO) · coordenadas [longitude, latitude] (WGS 84)
+   Áreas calculadas a partir das coordenadas dos KML. */
+window.Lumoa = window.Lumoa || {};
+window.Lumoa.lotesGeo = {
+  centro: { lat: -2.51797678, lng: -43.25319801, origem: 'centroide do perímetro' },
+  geojson: {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"numero":1,"nome":"Lote 01","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25264002,-2.51808946],[-43.25268186,-2.51800942],[-43.25284103,-2.51809357],[-43.25279919,-2.51817361],[-43.25264002,-2.51808946]]]}},{"type":"Feature","properties":{"numero":2,"nome":"Lote 02","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.2528717,-2.51821195],[-43.25291354,-2.5181319],[-43.25307271,-2.51821606],[-43.25303087,-2.5182961],[-43.2528717,-2.51821195]]]}},{"type":"Feature","properties":{"numero":3,"nome":"Lote 03","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25268186,-2.51800942],[-43.25272369,-2.51792937],[-43.25288286,-2.51801352],[-43.25284103,-2.51809357],[-43.25268186,-2.51800942]]]}},{"type":"Feature","properties":{"numero":4,"nome":"Lote 04","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25291354,-2.5181319],[-43.25295537,-2.51805186],[-43.25311454,-2.51813601],[-43.25307271,-2.51821606],[-43.25291354,-2.5181319]]]}},{"type":"Feature","properties":{"numero":5,"nome":"Lote 05","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25272369,-2.51792937],[-43.25276553,-2.51784933],[-43.2529247,-2.51793348],[-43.25288286,-2.51801352],[-43.25272369,-2.51792937]]]}},{"type":"Feature","properties":{"numero":6,"nome":"Lote 06","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25295537,-2.51805186],[-43.25299721,-2.51797182],[-43.25315638,-2.51805597],[-43.25311454,-2.51813601],[-43.25295537,-2.51805186]]]}},{"type":"Feature","properties":{"numero":7,"nome":"Lote 07","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25276553,-2.51784933],[-43.25280736,-2.51776928],[-43.25296653,-2.51785344],[-43.2529247,-2.51793348],[-43.25276553,-2.51784933]]]}},{"type":"Feature","properties":{"numero":8,"nome":"Lote 08","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25299721,-2.51797182],[-43.25303904,-2.51789177],[-43.25319821,-2.51797592],[-43.25315638,-2.51805597],[-43.25299721,-2.51797182]]]}},{"type":"Feature","properties":{"numero":9,"nome":"Lote 09","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25280736,-2.51776928],[-43.2528492,-2.51768924],[-43.25300837,-2.51777339],[-43.25296653,-2.51785344],[-43.25280736,-2.51776928]]]}},{"type":"Feature","properties":{"numero":10,"nome":"Lote 10","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25303904,-2.51789177],[-43.25308088,-2.51781173],[-43.25324005,-2.51789588],[-43.25319821,-2.51797592],[-43.25303904,-2.51789177]]]}},{"type":"Feature","properties":{"numero":11,"nome":"Lote 11","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.2528492,-2.51768924],[-43.25289103,-2.5176092],[-43.2530502,-2.51769335],[-43.25300837,-2.51777339],[-43.2528492,-2.51768924]]]}},{"type":"Feature","properties":{"numero":12,"nome":"Lote 12","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25308088,-2.51781173],[-43.25312271,-2.51773168],[-43.25328188,-2.51781584],[-43.25324005,-2.51789588],[-43.25308088,-2.51781173]]]}},{"type":"Feature","properties":{"numero":13,"nome":"Lote 13","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25289103,-2.5176092],[-43.25293287,-2.51752915],[-43.25309204,-2.51761331],[-43.2530502,-2.51769335],[-43.25289103,-2.5176092]]]}},{"type":"Feature","properties":{"numero":14,"nome":"Lote 14","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25312271,-2.51773168],[-43.25316455,-2.51765164],[-43.25332372,-2.51773579],[-43.25328188,-2.51781584],[-43.25312271,-2.51773168]]]}},{"type":"Feature","properties":{"numero":15,"nome":"Lote 15","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25293287,-2.51752915],[-43.2529747,-2.51744911],[-43.25313388,-2.51753326],[-43.25309204,-2.51761331],[-43.25293287,-2.51752915]]]}},{"type":"Feature","properties":{"numero":16,"nome":"Lote 16","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25316455,-2.51765164],[-43.25320638,-2.5175716],[-43.25336555,-2.51765575],[-43.25332372,-2.51773579],[-43.25316455,-2.51765164]]]}},{"type":"Feature","properties":{"numero":17,"nome":"Lote 17","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25348289,-2.51781994],[-43.25332372,-2.51773579],[-43.25336555,-2.51765575],[-43.25352473,-2.5177399],[-43.25348289,-2.51781994]]]}},{"type":"Feature","properties":{"numero":18,"nome":"Lote 18","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25371457,-2.51794243],[-43.2535554,-2.51785828],[-43.25359723,-2.51777824],[-43.25375641,-2.51786239],[-43.25371457,-2.51794243]]]}},{"type":"Feature","properties":{"numero":19,"nome":"Lote 19","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25344106,-2.51789999],[-43.25328188,-2.51781584],[-43.25332372,-2.51773579],[-43.25348289,-2.51781994],[-43.25344106,-2.51789999]]]}},{"type":"Feature","properties":{"numero":20,"nome":"Lote 20","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25367274,-2.51802248],[-43.25351356,-2.51793832],[-43.2535554,-2.51785828],[-43.25371457,-2.51794243],[-43.25367274,-2.51802248]]]}},{"type":"Feature","properties":{"numero":21,"nome":"Lote 21","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25339922,-2.51798003],[-43.25324005,-2.51789588],[-43.25328188,-2.51781584],[-43.25344106,-2.51789999],[-43.25339922,-2.51798003]]]}},{"type":"Feature","properties":{"numero":22,"nome":"Lote 22","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.2536309,-2.51810252],[-43.25347173,-2.51801837],[-43.25351356,-2.51793832],[-43.25367274,-2.51802248],[-43.2536309,-2.51810252]]]}},{"type":"Feature","properties":{"numero":23,"nome":"Lote 23","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25335739,-2.51806008],[-43.25319821,-2.51797592],[-43.25324005,-2.51789588],[-43.25339922,-2.51798003],[-43.25335739,-2.51806008]]]}},{"type":"Feature","properties":{"numero":24,"nome":"Lote 24","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25358906,-2.51818256],[-43.25342989,-2.51809841],[-43.25347173,-2.51801837],[-43.2536309,-2.51810252],[-43.25358906,-2.51818256]]]}},{"type":"Feature","properties":{"numero":25,"nome":"Lote 25","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25331555,-2.51814012],[-43.25315638,-2.51805597],[-43.25319821,-2.51797592],[-43.25335739,-2.51806008],[-43.25331555,-2.51814012]]]}},{"type":"Feature","properties":{"numero":26,"nome":"Lote 26","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25354723,-2.51826261],[-43.25338806,-2.51817846],[-43.25342989,-2.51809841],[-43.25358906,-2.51818256],[-43.25354723,-2.51826261]]]}},{"type":"Feature","properties":{"numero":27,"nome":"Lote 27","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25327371,-2.51822016],[-43.25311454,-2.51813601],[-43.25315638,-2.51805597],[-43.25331555,-2.51814012],[-43.25327371,-2.51822016]]]}},{"type":"Feature","properties":{"numero":28,"nome":"Lote 28","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25350539,-2.51834265],[-43.25334622,-2.5182585],[-43.25338806,-2.51817846],[-43.25354723,-2.51826261],[-43.25350539,-2.51834265]]]}},{"type":"Feature","properties":{"numero":29,"nome":"Lote 29","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25323188,-2.51830021],[-43.25307271,-2.51821606],[-43.25311454,-2.51813601],[-43.25327371,-2.51822016],[-43.25323188,-2.51830021]]]}},{"type":"Feature","properties":{"numero":30,"nome":"Lote 30","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25346356,-2.5184227],[-43.25330439,-2.51833854],[-43.25334622,-2.5182585],[-43.25350539,-2.51834265],[-43.25346356,-2.5184227]]]}},{"type":"Feature","properties":{"numero":31,"nome":"Lote 31","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25319004,-2.51838025],[-43.25303087,-2.5182961],[-43.25307271,-2.51821606],[-43.25323188,-2.51830021],[-43.25319004,-2.51838025]]]}},{"type":"Feature","properties":{"numero":32,"nome":"Lote 32","area_m2":200.87},"geometry":{"type":"Polygon","coordinates":[[[-43.25342172,-2.51850274],[-43.25326255,-2.51841859],[-43.25330439,-2.51833854],[-43.25346356,-2.5184227],[-43.25342172,-2.51850274]]]}},{"type":"Feature","properties":{"nome":"Limite do loteamento","camada":"LIMITE_LOTEAMENTO","area_m2":10878.76},"geometry":{"type":"Polygon","coordinates":[[[-43.25385892,-2.51766579],[-43.25339694,-2.51855028],[-43.25253715,-2.51828575],[-43.25299809,-2.51740475],[-43.25385892,-2.51766579]]]}}]},
+};
 
 /* components/ui.js */
 /* Utilitários de interface compartilhados */
@@ -2404,7 +2456,7 @@ ${knowledge()}`;
       addEventListener('scroll', () => {
         if (this.pres.classList.contains('speech-open') && !this.pres.matches(':hover') && Math.abs(scrollY - this.sayY) > innerHeight * 0.45) this.hush();
       }, { passive: true });
-      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => isMobile() ? this.say('Olá! Eu sou a **Luma**, sua assistente no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
+      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => this.quiet_ ? null : isMobile() ? this.say('Olá! Eu sou a **Luma**, sua assistente no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
       if (document.documentElement.classList.contains('boot')) L.bus.addEventListener('ready', start, { once: true }); else setTimeout(start, 400);
     },
 
@@ -2468,12 +2520,14 @@ ${knowledge()}`;
       });
       this.hideT = setTimeout(() => this.hush(), ttl);
     },
+    /** Silencia os balões automáticos (ex.: enquanto o visitante usa o mapa de lotes). Conversa aberta pelo visitante não é afetada. */
+    setQuiet(on) { this.quiet_ = !!on; if (on) { clearTimeout(this.cueT); this.hush(); } },
     hush() { clearTimeout(this.hideT); this.pres.classList.remove('speech-open'); voice.stop(); this.talk(false); },
 
     cue(section) {
       const c = CUES[section];
       // No celular o balão ocuparia a tela toda: a Luma só fala quando a pessoa toca nela
-      if (!c || isMobile() || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
+      if (!c || isMobile() || this.quiet_ || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
       this.seen.add(section);
       clearTimeout(this.cueT);
       this.cueT = setTimeout(() => this.say(c.text, c.opts, isMobile() ? 6500 : 9000), 1200);
@@ -3580,13 +3634,14 @@ ${knowledge()}`;
     init() {
       const cfg = L.config;
       const link = $('#mapLink');
-      // Só abre o Google Maps com o ponto exato da entrada (config.coordenadas).
+      // Abre o Google Maps no centro do condomínio (config.coordenadas, calculado dos KML).
       // Sem coordenadas, o botão pede a localização à equipe em vez de pesquisar o bairro.
       if (link) {
         if (cfg.coordenadas) {
           link.href = `https://www.google.com/maps/search/?api=1&query=${cfg.coordenadas.lat},${cfg.coordenadas.lng}`;
-          link.textContent = 'Abrir a entrada no Google Maps';
-          $('#mapNote').textContent = 'Ponto marcado: entrada do Lumoa Dunes.';
+          link.target = '_blank'; link.rel = 'noopener';
+          link.textContent = 'Abrir no Google Maps';
+          $('#mapNote').textContent = 'Ponto marcado: centro do condomínio, a partir da planta georreferenciada. As orientações de acesso são enviadas pela equipe comercial.';
         } else {
           link.removeAttribute('target');
           link.href = '#contato';
@@ -3680,6 +3735,238 @@ ${knowledge()}`;
   };
 })(window.Lumoa);
 
+/* components/lotes-mapa.js */
+/* Lotes no satélite (seção Localização).
+   Desenha os 32 lotes e o perímetro dos KML georreferenciados (L.lotesGeo, gerado por
+   tools/kml-para-geojson.mjs) sobre imagem de satélite. O Leaflet só é baixado quando o
+   visitante abre a vista, então não pesa no carregamento da página. */
+(function (L) {
+  const { $, h, toast, copyText } = L.ui;
+  const LEAFLET = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/';
+  // Imagem Esri: nesta região só há foto real até o zoom 17; acima disso é ampliada.
+  const TILES = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+  const NATIVE_Z = 17;
+  const LABEL_Z = 19; // números dos lotes aparecem a partir deste zoom
+
+  const fmtArea = (m2) => m2.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtM = (m) => m.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const HASH = /^#lote-?(\d{1,2})$/i; // link direto: #lote-07
+
+  // Distância em metros entre dois pontos [lng, lat] (aproximação local, precisa para poucos metros)
+  const R = 6371008.8, rad = Math.PI / 180;
+  const dist = (a, b) => {
+    const x = (b[0] - a[0]) * rad * Math.cos(((a[1] + b[1]) / 2) * rad), y = (b[1] - a[1]) * rad;
+    return Math.hypot(x, y) * R;
+  };
+  // Frente × profundidade: lados do polígono do lote (4 vértices)
+  const dims = (ring) => {
+    const s = [dist(ring[0], ring[1]), dist(ring[1], ring[2])].sort((a, b) => a - b);
+    return { frente: s[0], fundo: s[1] };
+  };
+
+  function loadLeaflet() {
+    if (window.L && window.L.map && window.L.version) return Promise.resolve(window.L);
+    if (loadLeaflet.p) return loadLeaflet.p;
+    loadLeaflet.p = new Promise((resolve, reject) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = LEAFLET + 'leaflet.min.css';
+      document.head.append(css);
+      const s = document.createElement('script');
+      s.src = LEAFLET + 'leaflet.min.js';
+      s.onload = () => resolve(window.L);
+      s.onerror = () => { loadLeaflet.p = null; s.remove(); reject(new Error('Leaflet indisponível')); };
+      document.head.append(s);
+    });
+    return loadLeaflet.p;
+  }
+
+  L.lotMap = {
+    init() {
+      this.fig = $('#map');
+      this.btn = $('#mapSat');
+      this.box = $('#lotMap');
+      if (!this.fig || !this.btn || !this.box) return;
+      const geo = L.lotesGeo;
+      if (!geo || !geo.geojson || !geo.geojson.features.length) { this.btn.hidden = true; return; }
+      this.btn.hidden = false;
+      this.btn.addEventListener('click', () => this.toggle());
+      // Luma não abre balões automáticos enquanto o satélite está aberto e na tela
+      this.visible = false;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([e]) => { this.visible = e.isIntersecting; this.syncQuiet(); }, { threshold: 0.25 }).observe(this.fig);
+      }
+      // Link direto para um lote (#lote-07): abre o satélite já com o lote destacado
+      this.fromHash();
+      addEventListener('hashchange', () => this.fromHash());
+    },
+
+    fromHash() {
+      const m = location.hash.match(HASH);
+      if (!m) return;
+      const n = Number(m[1]);
+      if (!L.lotesGeo.geojson.features.some((f) => f.properties.numero === n)) return;
+      L.ui.scrollToId('localizacao');
+      this.toggle(true).then(() => { if (this.map) this.select(n); });
+    },
+
+    lotUrl(n) {
+      return location.href.replace(/#.*$/, '') + '#lote-' + String(n).padStart(2, '0');
+    },
+
+    syncQuiet() {
+      if (L.luna && L.luna.setQuiet) L.luna.setQuiet(this.fig.classList.contains('is-sat') && (this.visible || HASH.test(location.hash)));
+    },
+
+    async toggle(force) {
+      const on = typeof force === 'boolean' ? force : !this.fig.classList.contains('is-sat');
+      if (on && !this.map) {
+        this.btn.disabled = true;
+        this.btn.lastChild.textContent = 'Carregando…';
+        try { await this.build(); }
+        catch (e) {
+          console.error('[Lumoa] mapa de lotes', e);
+          toast('Não foi possível carregar o satélite agora. Verifique a conexão e tente de novo.', 'err');
+          this.btn.disabled = false; this.setLabel(false);
+          return;
+        }
+        this.btn.disabled = false;
+      }
+      this.fig.classList.toggle('is-sat', on);
+      this.box.hidden = !on;
+      this.btn.setAttribute('aria-pressed', String(on));
+      this.setLabel(on);
+      this.syncQuiet();
+      if (on) { this.map.invalidateSize(); if (!this.fitted) { this.fit(); this.fitted = true; } }
+      else this.close();
+    },
+
+    setLabel(on) {
+      this.btn.lastChild.textContent = on ? 'Ver a região' : 'Ver os lotes no satélite';
+    },
+
+    async build() {
+      const Lf = await loadLeaflet();
+      const feats = L.lotesGeo.geojson.features;
+      this.box.hidden = false; // Leaflet precisa medir o contêiner visível
+      const map = this.map = Lf.map(this.box, {
+        zoomSnap: 1, zoomDelta: 1, maxZoom: 20, minZoom: 14, scrollWheelZoom: false, attributionControl: true,
+        tap: true, zoomControl: true,
+      });
+      map.attributionControl.setPrefix(false);
+      Lf.tileLayer(TILES, {
+        maxNativeZoom: NATIVE_Z, maxZoom: 20,
+        attribution: 'Imagem de satélite © Esri, Maxar, Earthstar Geographics',
+      }).addTo(map);
+      // Roda do mouse só amplia depois de clicar no mapa (não prende a rolagem da página)
+      map.on('focus click', () => map.scrollWheelZoom.enable());
+      map.on('blur mouseout', () => map.scrollWheelZoom.disable());
+
+      const perim = feats.find((f) => f.properties.camada);
+      if (perim) {
+        this.perim = Lf.geoJSON(perim, { interactive: false, style: { color: '#d6bd92', weight: 2.5, dashArray: '6 5', fill: false } }).addTo(map);
+      }
+
+      const base = { color: '#fbf8f2', weight: 1.4, opacity: 0.95, fillColor: '#2aa39c', fillOpacity: 0.22 };
+      const hover = { color: '#ffffff', weight: 2.2, fillColor: '#2aa39c', fillOpacity: 0.42 };
+      const active = { color: '#b08a52', weight: 3, fillColor: '#b08a52', fillOpacity: 0.45 };
+      this.styles = { base, active };
+      this.layers = new Map();
+      this.lots = Lf.geoJSON({ type: 'FeatureCollection', features: feats.filter((f) => f.properties.numero) }, {
+        style: () => base,
+        onEachFeature: (f, layer) => {
+          const n = f.properties.numero;
+          this.layers.set(n, layer);
+          layer.bindTooltip(String(n).padStart(2, '0'), { permanent: true, direction: 'center', className: 'lotmap__num', interactive: false });
+          layer.on('mouseover', () => { if (this.sel !== n) layer.setStyle(hover); });
+          layer.on('mouseout', () => { if (this.sel !== n) layer.setStyle(base); });
+          layer.on('click', (e) => { Lf.DomEvent.stopPropagation(e); this.select(n); });
+          // Teclado: cada lote vira um item focável
+          layer.on('add', () => {
+            const el = layer.getElement();
+            if (!el) return;
+            el.setAttribute('tabindex', '0'); el.setAttribute('role', 'button');
+            el.setAttribute('aria-label', `${f.properties.nome}, ${fmtArea(f.properties.area_m2)} metros quadrados`);
+            el.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); this.select(n); } });
+          });
+        },
+      }).addTo(map);
+      map.on('click', () => this.close());
+      const syncLabels = () => this.box.classList.toggle('show-nums', map.getZoom() >= LABEL_Z - 0.01);
+      map.on('zoomend', syncLabels);
+
+      // Painel do lote selecionado
+      this.panel = h('div', { class: 'lotmap__panel', hidden: '', role: 'dialog', 'aria-live': 'polite' });
+      this.box.append(this.panel);
+      Lf.DomEvent.disableClickPropagation(this.panel);
+      Lf.DomEvent.disableScrollPropagation(this.panel);
+
+      // Volta ao enquadramento do condomínio
+      const reset = h('button', { class: 'tool lotmap__reset', type: 'button', 'aria-label': 'Centralizar o condomínio', title: 'Centralizar o condomínio', html: '<svg><use href="#i-pin"/></svg>' });
+      reset.addEventListener('click', (e) => { e.stopPropagation(); this.fit(); });
+      this.box.append(reset);
+      Lf.DomEvent.disableClickPropagation(reset);
+      if (!document.getElementById('i-pin')) reset.textContent = '⌖';
+
+      syncLabels();
+    },
+
+    fit() {
+      const b = (this.perim || this.lots).getBounds();
+      this.map.fitBounds(b, { padding: [16, 16], maxZoom: 19 });
+    },
+
+    select(n) {
+      const f = L.lotesGeo.geojson.features.find((x) => x.properties.numero === n);
+      if (!f) return;
+      if (this.sel && this.layers.get(this.sel)) this.layers.get(this.sel).setStyle(this.styles.base);
+      this.sel = n;
+      const layer = this.layers.get(n);
+      layer.setStyle(this.styles.active); layer.bringToFront();
+      const num = String(n).padStart(2, '0');
+      const d = dims(f.geometry.coordinates[0]);
+      if (!HASH.test(location.hash) || Number(location.hash.match(HASH)[1]) !== n) history.replaceState(null, '', '#lote-' + num);
+      const share = h('button', { class: 'lotmap__share', type: 'button' }, 'Copiar link deste lote');
+      share.addEventListener('click', () => copyText(this.lotUrl(n)));
+      const lote = { pos: null, numero: num, ref: `Lote ${num} (planta georreferenciada)`, titulo: `Lote ${num}` };
+      const wa = L.leads.hasWhatsapp && L.leads.hasWhatsapp();
+      const close = h('button', { class: 'lotmap__close', type: 'button', 'aria-label': 'Fechar', html: '&times;' });
+      close.addEventListener('click', () => this.close());
+      const consult = h('button', { class: 'btn btn--dark btn--sm', type: 'button' }, 'Consultar este lote');
+      consult.addEventListener('click', () => L.contact.consultLot(lote));
+      this.panel.replaceChildren(
+        close,
+        h('p', { class: 'lotmap__eyebrow' }, 'Planta georreferenciada'),
+        h('h3', { class: 'lotmap__title' }, `Lote ${num}`),
+        h('dl', { class: 'lotmap__facts' },
+          h('div', null, h('dt', null, 'Área'), h('dd', null, `${fmtArea(f.properties.area_m2)} m²`)),
+          h('div', null, h('dt', null, 'Medidas'), h('dd', null, `${fmtM(d.frente)} × ${fmtM(d.fundo)} m`)),
+          h('div', null, h('dt', null, 'Situação'), h('dd', null, 'Sob consulta'))),
+        h('div', { class: 'lotmap__actions' },
+          consult,
+          wa ? h('a', { class: 'btn btn--wa btn--sm', href: L.contact.whatsappUrl({ lote }), target: '_blank', rel: 'noopener', html: '<svg><use href="#i-wa"/></svg>WhatsApp' }) : null),
+        share,
+        h('p', { class: 'lotmap__note' }, 'Área e medidas calculadas a partir das coordenadas da planta. Os valores oficiais constam na matrícula do lote.'),
+      );
+      this.panel.hidden = false;
+      this.box.classList.add('has-panel');
+      // Leva o lote para a área livre do mapa (à esquerda do painel no desktop, acima dele no celular)
+      const map = this.map, z = Math.max(map.getZoom(), LABEL_Z);
+      const side = this.panel.offsetLeft > 40; // painel lateral (desktop)
+      const off = side ? [this.panel.offsetWidth / 2 + 12, 0] : [0, this.panel.offsetHeight / 2 + 12];
+      const p = map.project(layer.getBounds().getCenter(), z).add(off);
+      map.flyTo(map.unproject(p, z), z, { duration: 0.6 });
+    },
+
+    close() {
+      if (this.sel && this.layers && this.layers.get(this.sel)) this.layers.get(this.sel).setStyle(this.styles.base);
+      this.sel = null;
+      if (this.panel) this.panel.hidden = true;
+      if (this.box) this.box.classList.remove('has-panel');
+      if (HASH.test(location.hash)) history.replaceState(null, '', '#localizacao');
+    },
+  };
+})(window.Lumoa);
+
 /* components/hero.js */
 /* Herói: apresentação de imagens em sequência com transição lenta */
 (function (L) {
@@ -3725,6 +4012,7 @@ ${knowledge()}`;
       ['gallery', () => L.gallery.init()],
       ['contact', () => L.contact.init()],
       ['location', () => L.location.init()],
+      ['lotMap', () => L.lotMap.init()],
       ['layout', () => L.layout.init()],
       ['hero', () => L.hero.init()],
       ['team', () => L.teamPanel.init()],

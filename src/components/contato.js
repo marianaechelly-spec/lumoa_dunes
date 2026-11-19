@@ -142,13 +142,14 @@
     init() {
       const cfg = L.config;
       const link = $('#mapLink');
-      // Só abre o Google Maps com o ponto exato da entrada (config.coordenadas).
+      // Abre o Google Maps no centro do condomínio (config.coordenadas, calculado dos KML).
       // Sem coordenadas, o botão pede a localização à equipe em vez de pesquisar o bairro.
       if (link) {
         if (cfg.coordenadas) {
           link.href = `https://www.google.com/maps/search/?api=1&query=${cfg.coordenadas.lat},${cfg.coordenadas.lng}`;
-          link.textContent = 'Abrir a entrada no Google Maps';
-          $('#mapNote').textContent = 'Ponto marcado: entrada do Lumoa Dunes.';
+          link.target = '_blank'; link.rel = 'noopener';
+          link.textContent = 'Abrir no Google Maps';
+          $('#mapNote').textContent = 'Ponto marcado: centro do condomínio, a partir da planta georreferenciada. As orientações de acesso são enviadas pela equipe comercial.';
         } else {
           link.removeAttribute('target');
           link.href = '#contato';

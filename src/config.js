@@ -18,10 +18,12 @@ window.Lumoa.config = {
   // A chave da API fica SOMENTE no servidor, em variável de ambiente.
   lunaAiEndpoint: '',
 
-  // Coordenadas confirmadas da ENTRADA do condomínio. Enquanto estiver null,
-  // o mapa mostra a região do catálogo e o botão pede a localização à equipe
-  // (não pesquisa mais o bairro Olho D'Água no Google Maps).
-  coordenadas: null, // ex.: { lat: -2.5, lng: -43.2 }
+  // Centro do condomínio: centroide do perímetro (camada LIMITE_LOTEAMENTO) dos
+  // KML georreferenciados da pasta kml/ — o mesmo valor que
+  // tools/kml-para-geojson.mjs imprime e grava em src/data/lotes.js.
+  // O botão "Abrir no Google Maps" da seção Localização usa este ponto.
+  // null = o botão pede a localização à equipe.
+  coordenadas: { lat: -2.51797678, lng: -43.25319801 },
 
   // E-mail comercial oficial (opcional). Exibido como texto selecionável.
   email: '',

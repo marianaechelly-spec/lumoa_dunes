@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="LOTE_28_LUMOA_DUNES" id="LOTE_28_LUMOA_DUNES">
+	<SimpleField name="descriptio" type="string"></SimpleField>
+	<SimpleField name="timestamp" type="string"></SimpleField>
+	<SimpleField name="begin" type="string"></SimpleField>
+	<SimpleField name="end" type="string"></SimpleField>
+	<SimpleField name="altitudeMo" type="string"></SimpleField>
+	<SimpleField name="tessellate" type="float"></SimpleField>
+	<SimpleField name="extrude" type="float"></SimpleField>
+	<SimpleField name="visibility" type="float"></SimpleField>
+	<SimpleField name="drawOrder" type="float"></SimpleField>
+	<SimpleField name="icon" type="string"></SimpleField>
+	<SimpleField name="descript_1" type="string"></SimpleField>
+	<SimpleField name="altitude_1" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="handle" type="float"></SimpleField>
+	<SimpleField name="block" type="float"></SimpleField>
+	<SimpleField name="etype" type="float"></SimpleField>
+	<SimpleField name="space" type="float"></SimpleField>
+	<SimpleField name="layer" type="string"></SimpleField>
+	<SimpleField name="olinetype" type="string"></SimpleField>
+	<SimpleField name="linetype" type="string"></SimpleField>
+	<SimpleField name="color" type="string"></SimpleField>
+	<SimpleField name="ocolor" type="float"></SimpleField>
+	<SimpleField name="color24" type="float"></SimpleField>
+	<SimpleField name="transparen" type="float"></SimpleField>
+	<SimpleField name="lweight" type="float"></SimpleField>
+	<SimpleField name="linewidth" type="float"></SimpleField>
+	<SimpleField name="ltscale" type="float"></SimpleField>
+	<SimpleField name="visible" type="float"></SimpleField>
+	<SimpleField name="width" type="float"></SimpleField>
+	<SimpleField name="thickness" type="float"></SimpleField>
+	<SimpleField name="ext" type="string"></SimpleField>
+</Schema>
+<Folder><name>LOTE_28_LUMOA_DUNES</name>
+  <Placemark>
+	<name>LOTE 28</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#LOTE_28_LUMOA_DUNES">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="fid">160.000000000000000</SimpleData>
+		<SimpleData name="handle">198027.000000000000000</SimpleData>
+		<SimpleData name="block">-1.000000000000000</SimpleData>
+		<SimpleData name="etype">18.000000000000000</SimpleData>
+		<SimpleData name="space">0.000000000000000</SimpleData>
+		<SimpleData name="layer">Vista 02</SimpleData>
+		<SimpleData name="olinetype">bylayer</SimpleData>
+		<SimpleData name="color">255,255,0,255</SimpleData>
+		<SimpleData name="ocolor">256.000000000000000</SimpleData>
+		<SimpleData name="color24">-1.000000000000000</SimpleData>
+		<SimpleData name="transparen">0.000000000000000</SimpleData>
+		<SimpleData name="lweight">-1.000000000000000</SimpleData>
+		<SimpleData name="linewidth">0.090000000000000</SimpleData>
+		<SimpleData name="ltscale">1.000000000000000</SimpleData>
+		<SimpleData name="visible">1.000000000000000</SimpleData>
+		<SimpleData name="width">0.000000000000000</SimpleData>
+		<SimpleData name="thickness">0.000000000000000</SimpleData>
+		<SimpleData name="ext">(3:0,0,0.1)</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-43.2535053938792,-2.51834265199192,7.02269675383003 -43.2535472293125,-2.51826260807558,7.02269675383003 -43.2533880574062,-2.5181784557502,7.02269675383003 -43.253346221973,-2.51825849965654,7.02269675383003 -43.2535053938792,-2.51834265199192,7.02269675383003</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>

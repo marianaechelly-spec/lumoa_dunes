@@ -75,7 +75,7 @@
       addEventListener('scroll', () => {
         if (this.pres.classList.contains('speech-open') && !this.pres.matches(':hover') && Math.abs(scrollY - this.sayY) > innerHeight * 0.45) this.hush();
       }, { passive: true });
-      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => isMobile() ? this.say('Olá! Eu sou a **Luma**, sua assistente no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
+      const start = () => { this.fig.classList.add('arrive'); setTimeout(() => this.quiet_ ? null : isMobile() ? this.say('Olá! Eu sou a **Luma**, sua assistente no Lumoa Dunes. Posso apresentar o empreendimento para você?', [['Sim, apresentar', 'intent:sobre']], 8000) : this.say(WELCOME, [['Sim, quero conhecer', 'intent:sobre'], ['Tenho uma pergunta', 'open']], 14000), isMobile() ? 1800 : 900); };
       if (document.documentElement.classList.contains('boot')) L.bus.addEventListener('ready', start, { once: true }); else setTimeout(start, 400);
     },
 
@@ -139,12 +139,14 @@
       });
       this.hideT = setTimeout(() => this.hush(), ttl);
     },
+    /** Silencia os balões automáticos (ex.: enquanto o visitante usa o mapa de lotes). Conversa aberta pelo visitante não é afetada. */
+    setQuiet(on) { this.quiet_ = !!on; if (on) { clearTimeout(this.cueT); this.hush(); } },
     hush() { clearTimeout(this.hideT); this.pres.classList.remove('speech-open'); voice.stop(); this.talk(false); },
 
     cue(section) {
       const c = CUES[section];
       // No celular o balão ocuparia a tela toda: a Luma só fala quando a pessoa toca nela
-      if (!c || isMobile() || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
+      if (!c || isMobile() || this.quiet_ || this.seen.has(section) || this.open_ || document.body.classList.contains('no-scroll')) return;
       this.seen.add(section);
       clearTimeout(this.cueT);
       this.cueT = setTimeout(() => this.say(c.text, c.opts, isMobile() ? 6500 : 9000), 1200);

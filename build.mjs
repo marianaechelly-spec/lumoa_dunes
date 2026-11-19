@@ -11,6 +11,7 @@ const STYLES = ['styles/tokens.css', 'styles/base.css', 'styles/site.css', 'styl
 const SCRIPTS = [
   'config.js',
   'data/empreendimento.js',
+  'data/lotes.js',
   'components/ui.js',
   'services/leads.js',
   'services/luna-ai.js',
@@ -23,6 +24,7 @@ const SCRIPTS = [
   'components/casas.js',
   'components/galeria.js',
   'components/contato.js',
+  'components/lotes-mapa.js',
   'components/hero.js',
   'main.js',
 ];

@@ -13,6 +13,7 @@
       ['gallery', () => L.gallery.init()],
       ['contact', () => L.contact.init()],
       ['location', () => L.location.init()],
+      ['lotMap', () => L.lotMap.init()],
       ['layout', () => L.layout.init()],
       ['hero', () => L.hero.init()],
       ['team', () => L.teamPanel.init()],
