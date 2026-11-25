@@ -487,20 +487,29 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .privacy__body strong { color: var(--teal-deep); font-weight: 500; }
 .footer nav a[data-privacy] { opacity: 0.85; }
 
-/* Lotes no satélite (Localização) — Leaflet carregado sob demanda */
+/* Planta dos lotes (Localização) — Leaflet carregado sob demanda */
 .map__sat { position: absolute; top: 0; right: 0; z-index: 3; }
 .map__sat span { white-space: nowrap; }
 .map.is-sat { min-height: min(72vh, 600px); }
 .map.is-sat > img, .map.is-sat .map__pin, .map.is-sat .map__park, .map.is-sat .map__zoom, .map.is-sat figcaption { visibility: hidden; }
 .lotmap { position: absolute; inset: 0; z-index: 1; background: #2b3a2d; font-family: var(--font-body); }
 .lotmap[hidden] { display: none; }
-.lotmap .leaflet-control-zoom { margin: 56px 0 0 10px; border: 0; }
+.lotmap .leaflet-top .leaflet-control-zoom { margin: 56px 0 0 10px; border: 0; }
 .lotmap .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 40px; border-radius: 0; background: rgba(8, 42, 43, 0.7); color: var(--shell); border: 1px solid rgba(251, 248, 242, 0.3); }
 .lotmap .leaflet-control-zoom a:hover { background: var(--gold); }
 .lotmap .leaflet-control-attribution { font-size: 0.6rem; background: rgba(251, 248, 242, 0.75); }
 .lotmap path:focus-visible { outline: none; stroke: var(--gold); stroke-width: 4; }
 .lotmap__num.leaflet-tooltip { background: none; border: 0; box-shadow: none; padding: 0; color: var(--shell); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85); opacity: 0 !important; transition: opacity 0.3s; }
 .lotmap__num.leaflet-tooltip::before { display: none; }
+/* Base vetorial: fundo areia liso, números sem sombra sobre o lote chapado */
+.lotmap.is-planta { background: var(--shell); box-shadow: inset 0 0 0 1px var(--line); }
+.lotmap.is-planta .lotmap__num.leaflet-tooltip { text-shadow: none; font-weight: 500; }
+.lotmap .leaflet-bottom .leaflet-control-scale { margin: 0 0 30px 60px; }
+.lotmap .leaflet-control-scale-line { border-color: var(--teal-deep); color: var(--teal-deep); background: rgba(251, 248, 242, 0.8); font-size: 0.62rem; }
+.lotmap__base { position: absolute; left: 10px; top: 10px; z-index: 800; display: flex; border: 1px solid rgba(251, 248, 242, 0.3); background: rgba(8, 42, 43, 0.7); }
+.lotmap__base button { height: 36px; padding: 0 12px; border: 0; background: none; font: inherit; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--shell); cursor: pointer; }
+.lotmap__base button[aria-pressed="true"] { background: var(--gold); }
+.lotmap__base button:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -2px; }
 .lotmap.show-nums .lotmap__num.leaflet-tooltip { opacity: 1 !important; }
 .lotmap__reset { position: absolute; left: 10px; bottom: 28px; z-index: 800; width: 40px; height: 40px; }
 .lotmap__panel { position: absolute; right: 12px; top: 56px; z-index: 800; width: min(300px, calc(100% - 24px)); background: var(--shell); color: var(--ink); padding: 20px 20px 16px; box-shadow: var(--shadow-pop); cursor: auto; }
@@ -896,7 +905,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   <div class="hero__slides" id="heroSlides">
     <figure class="hero__slide is-on"><img src="assets/img/dunas-aereo.webp" alt="Dunas e lagoas dos Lençóis Maranhenses vistas do alto" fetchpriority="high"></figure>
     <figure class="hero__slide"><img src="assets/img/aereo-condominio.webp" alt="Vista aérea do condomínio Lumoa Dunes ao pôr do sol, com os Lençóis ao fundo" loading="lazy" style="object-position:50% 45%"></figure>
-    <figure class="hero__slide"><img src="assets/img/piscina-bar-molhado.webp" alt="Piscina com bar molhado, prainha e deck do Lumoa Dunes" loading="lazy"></figure>
+    <figure class="hero__slide"><img src="assets/img/piscina-gazebo.webp" alt="Piscina com cascata, gazebo e bar molhado do Lumoa Dunes" loading="lazy"></figure>
     <figure class="hero__slide"><img src="assets/img/rooftop-musica.webp" alt="Rooftop com mirante ao entardecer, com música ao vivo" loading="lazy" style="object-position:45% 50%"></figure>
   </div>
   <div class="hero__shade"></div>
@@ -1009,8 +1018,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <span class="map__pin"><b>Lumoa Dunes</b><i></i></span>
       <span class="map__park">Parque Nacional dos<br>Lençóis Maranhenses</span>
       <button class="tool map__zoom" type="button" id="mapZoom" aria-label="Aproximar o mapa" aria-pressed="false"><svg><use href="#i-plus"/></svg></button>
-      <button class="tool tool--txt map__sat" type="button" id="mapSat" aria-pressed="false" aria-controls="lotMap" hidden><svg><use href="#i-plan"/></svg><span>Ver os lotes no satélite</span></button>
-      <div class="lotmap" id="lotMap" aria-label="Mapa de satélite com os 32 lotes do Lumoa Dunes" hidden></div>
+      <button class="tool tool--txt map__sat" type="button" id="mapSat" aria-pressed="false" aria-controls="lotMap" hidden><svg><use href="#i-plan"/></svg><span>Ver a planta dos lotes</span></button>
+      <div class="lotmap" id="lotMap" aria-label="Planta interativa dos 32 lotes do Lumoa Dunes" hidden></div>
       <figcaption id="mapNote">Mapa da região reproduzido do catálogo oficial; a marcação é aproximada. A localização exata da entrada é enviada pela equipe comercial.</figcaption>
     </figure>
   </div>
@@ -1377,7 +1386,7 @@ window.Lumoa = window.Lumoa || {};
         desc: 'Espaço Kids com brinquedos de madeira sobre piso de areia, cercado de verde.' },
       { n: 8, id: 'redario', nome: 'Redário', grupo: 'lazer', pos: [47.0, 17.5], img: 'redario-redes',
         desc: 'Área de redes à sombra das árvores, para descansar em meio à natureza.' },
-      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [24.0, 8.2], img: 'piscina-bar-molhado',
+      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [24.0, 8.2], img: 'piscina-deck-bar',
         desc: 'Piscina com bar molhado, prainha e hidromassagem.' },
       { n: 10, id: 'gazebo', nome: 'Gazebo', grupo: 'lazer', pos: [10.2, 4.8], img: 'piscina-gazebo', foco: '30% 50%',
         desc: 'Gazebo integrado ao núcleo de lazer, ao lado da piscina.' },
@@ -1488,7 +1497,6 @@ window.Lumoa = window.Lumoa || {};
       { src: 'casa-aerea-piscina', cat: 'casas', forma: 'w', legenda: 'Casa com varanda, rooftop e piscina privativa' },
       // Fachadas e interiores de cada modelo ficam só na seção Casas (evita repetição).
       // Piscina
-      { src: 'piscina-bar-molhado', cat: 'piscina', forma: 'w', legenda: 'Piscina com bar molhado, prainha e deck' },
       { src: 'piscina-cascata', cat: 'piscina', legenda: 'Piscina com cascata junto ao mirante' },
       { src: 'piscina-deck-bar', cat: 'piscina', forma: 'w', legenda: 'Deck da piscina e bar molhado ao pôr do sol' },
       { src: 'piscina-gazebo', cat: 'piscina', forma: 'w', legenda: 'Piscina, gazebo e bar molhado' },
@@ -3736,17 +3744,36 @@ ${knowledge()}`;
 })(window.Lumoa);
 
 /* components/lotes-mapa.js */
-/* Lotes no satélite (seção Localização).
+/* Planta dos lotes (seção Localização).
    Desenha os 32 lotes e o perímetro dos KML georreferenciados (L.lotesGeo, gerado por
-   tools/kml-para-geojson.mjs) sobre imagem de satélite. O Leaflet só é baixado quando o
-   visitante abre a vista, então não pesa no carregamento da página. */
+   tools/kml-para-geojson.mjs) como planta vetorial, com a imagem de satélite como base
+   alternativa. O Leaflet só é baixado quando o visitante abre a vista, então não pesa no
+   carregamento da página. */
 (function (L) {
   const { $, h, toast, copyText } = L.ui;
   const LEAFLET = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/';
   // Imagem Esri: nesta região só há foto real até o zoom 17; acima disso é ampliada.
   const TILES = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
   const NATIVE_Z = 17;
-  const LABEL_Z = 19; // números dos lotes aparecem a partir deste zoom
+  // Números dos lotes aparecem a partir deste zoom (na planta o traço é nítido, então antes)
+  const LABEL_Z = { planta: 18, sat: 19 };
+  const MAX_Z = { planta: 21, sat: 20 };
+  // Estilos por base: planta em cores chapadas da marca, satélite com contorno claro
+  const corner = { lineJoin: 'miter', lineCap: 'square' };
+  const STYLES = {
+    planta: {
+      perim: { ...corner, color: '#0c3b3c', weight: 2, fill: true, fillColor: '#e6d6bd', fillOpacity: 1 },
+      base: { ...corner, color: '#fbf8f2', weight: 1.5, opacity: 1, fillColor: '#2aa39c', fillOpacity: 0.85 },
+      hover: { ...corner, color: '#fbf8f2', weight: 1.5, fillColor: '#19706d', fillOpacity: 1 },
+      active: { ...corner, color: '#fbf8f2', weight: 2, fillColor: '#b08a52', fillOpacity: 1 },
+    },
+    sat: {
+      perim: { ...corner, color: '#d6bd92', weight: 2.5, dashArray: '6 5', fill: false },
+      base: { ...corner, color: '#fbf8f2', weight: 1.4, opacity: 0.95, fillColor: '#2aa39c', fillOpacity: 0.22 },
+      hover: { ...corner, color: '#ffffff', weight: 2.2, fillColor: '#2aa39c', fillOpacity: 0.42 },
+      active: { ...corner, color: '#b08a52', weight: 3, fillColor: '#b08a52', fillOpacity: 0.45 },
+    },
+  };
 
   const fmtArea = (m2) => m2.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtM = (m) => m.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -3790,12 +3817,12 @@ ${knowledge()}`;
       if (!geo || !geo.geojson || !geo.geojson.features.length) { this.btn.hidden = true; return; }
       this.btn.hidden = false;
       this.btn.addEventListener('click', () => this.toggle());
-      // Luma não abre balões automáticos enquanto o satélite está aberto e na tela
+      // Luma não abre balões automáticos enquanto a planta está aberta e na tela
       this.visible = false;
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(([e]) => { this.visible = e.isIntersecting; this.syncQuiet(); }, { threshold: 0.25 }).observe(this.fig);
       }
-      // Link direto para um lote (#lote-07): abre o satélite já com o lote destacado
+      // Link direto para um lote (#lote-07): abre a planta já com o lote destacado
       this.fromHash();
       addEventListener('hashchange', () => this.fromHash());
     },
@@ -3825,7 +3852,7 @@ ${knowledge()}`;
         try { await this.build(); }
         catch (e) {
           console.error('[Lumoa] mapa de lotes', e);
-          toast('Não foi possível carregar o satélite agora. Verifique a conexão e tente de novo.', 'err');
+          toast('Não foi possível carregar a planta agora. Verifique a conexão e tente de novo.', 'err');
           this.btn.disabled = false; this.setLabel(false);
           return;
         }
@@ -3841,7 +3868,7 @@ ${knowledge()}`;
     },
 
     setLabel(on) {
-      this.btn.lastChild.textContent = on ? 'Ver a região' : 'Ver os lotes no satélite';
+      this.btn.lastChild.textContent = on ? 'Ver a região' : 'Ver a planta dos lotes';
     },
 
     async build() {
@@ -3849,36 +3876,36 @@ ${knowledge()}`;
       const feats = L.lotesGeo.geojson.features;
       this.box.hidden = false; // Leaflet precisa medir o contêiner visível
       const map = this.map = Lf.map(this.box, {
-        zoomSnap: 1, zoomDelta: 1, maxZoom: 20, minZoom: 14, scrollWheelZoom: false, attributionControl: true,
+        zoomSnap: 1, zoomDelta: 1, maxZoom: MAX_Z.planta, minZoom: 14, scrollWheelZoom: false, attributionControl: true,
         tap: true, zoomControl: true,
       });
       map.attributionControl.setPrefix(false);
-      Lf.tileLayer(TILES, {
-        maxNativeZoom: NATIVE_Z, maxZoom: 20,
+      // Satélite só é adicionado quando o visitante escolhe essa base
+      this.sat = Lf.tileLayer(TILES, {
+        maxNativeZoom: NATIVE_Z, maxZoom: MAX_Z.sat,
         attribution: 'Imagem de satélite © Esri, Maxar, Earthstar Geographics',
-      }).addTo(map);
+      });
+      Lf.control.scale({ metric: true, imperial: false, maxWidth: 120, position: 'bottomleft' }).addTo(map);
       // Roda do mouse só amplia depois de clicar no mapa (não prende a rolagem da página)
       map.on('focus click', () => map.scrollWheelZoom.enable());
       map.on('blur mouseout', () => map.scrollWheelZoom.disable());
 
       const perim = feats.find((f) => f.properties.camada);
       if (perim) {
-        this.perim = Lf.geoJSON(perim, { interactive: false, style: { color: '#d6bd92', weight: 2.5, dashArray: '6 5', fill: false } }).addTo(map);
+        this.perim = Lf.geoJSON(perim, { interactive: false, style: STYLES.planta.perim }).addTo(map);
       }
 
-      const base = { color: '#fbf8f2', weight: 1.4, opacity: 0.95, fillColor: '#2aa39c', fillOpacity: 0.22 };
-      const hover = { color: '#ffffff', weight: 2.2, fillColor: '#2aa39c', fillOpacity: 0.42 };
-      const active = { color: '#b08a52', weight: 3, fillColor: '#b08a52', fillOpacity: 0.45 };
-      this.styles = { base, active };
+      this.base = 'planta';
+      this.styles = STYLES.planta;
       this.layers = new Map();
       this.lots = Lf.geoJSON({ type: 'FeatureCollection', features: feats.filter((f) => f.properties.numero) }, {
-        style: () => base,
+        style: () => this.styles.base,
         onEachFeature: (f, layer) => {
           const n = f.properties.numero;
           this.layers.set(n, layer);
           layer.bindTooltip(String(n).padStart(2, '0'), { permanent: true, direction: 'center', className: 'lotmap__num', interactive: false });
-          layer.on('mouseover', () => { if (this.sel !== n) layer.setStyle(hover); });
-          layer.on('mouseout', () => { if (this.sel !== n) layer.setStyle(base); });
+          layer.on('mouseover', () => { if (this.sel !== n) layer.setStyle(this.styles.hover); });
+          layer.on('mouseout', () => { if (this.sel !== n) layer.setStyle(this.styles.base); });
           layer.on('click', (e) => { Lf.DomEvent.stopPropagation(e); this.select(n); });
           // Teclado: cada lote vira um item focável
           layer.on('add', () => {
@@ -3891,8 +3918,19 @@ ${knowledge()}`;
         },
       }).addTo(map);
       map.on('click', () => this.close());
-      const syncLabels = () => this.box.classList.toggle('show-nums', map.getZoom() >= LABEL_Z - 0.01);
-      map.on('zoomend', syncLabels);
+      this.syncLabels = () => this.box.classList.toggle('show-nums', map.getZoom() >= LABEL_Z[this.base] - 0.01);
+      map.on('zoomend', this.syncLabels);
+
+      // Seletor de base: Planta | Satélite
+      const sw = this.switch = h('div', { class: 'lotmap__base', role: 'group', 'aria-label': 'Base do mapa' });
+      [['planta', 'Planta'], ['sat', 'Satélite']].forEach(([k, label]) => {
+        const b = h('button', { type: 'button', 'data-base': k, 'aria-pressed': String(k === 'planta') }, label);
+        b.addEventListener('click', (e) => { e.stopPropagation(); this.setBase(k); });
+        sw.append(b);
+      });
+      this.box.append(sw);
+      Lf.DomEvent.disableClickPropagation(sw);
+      this.box.classList.add('is-planta');
 
       // Painel do lote selecionado
       this.panel = h('div', { class: 'lotmap__panel', hidden: '', role: 'dialog', 'aria-live': 'polite' });
@@ -3907,7 +3945,21 @@ ${knowledge()}`;
       Lf.DomEvent.disableClickPropagation(reset);
       if (!document.getElementById('i-pin')) reset.textContent = '⌖';
 
-      syncLabels();
+      this.syncLabels();
+    },
+
+    setBase(k) {
+      if (!this.map || k === this.base || !STYLES[k]) return;
+      const map = this.map;
+      this.base = k;
+      this.styles = STYLES[k];
+      this.box.classList.toggle('is-planta', k === 'planta');
+      this.switch.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.base === k)));
+      if (k === 'sat') { this.sat.addTo(map); this.sat.bringToBack(); } else this.sat.remove();
+      map.setMaxZoom(MAX_Z[k]);
+      if (this.perim) this.perim.setStyle(STYLES[k].perim);
+      this.layers.forEach((layer, n) => layer.setStyle(n === this.sel ? this.styles.active : this.styles.base));
+      this.syncLabels();
     },
 
     fit() {
@@ -3950,7 +4002,7 @@ ${knowledge()}`;
       this.panel.hidden = false;
       this.box.classList.add('has-panel');
       // Leva o lote para a área livre do mapa (à esquerda do painel no desktop, acima dele no celular)
-      const map = this.map, z = Math.max(map.getZoom(), LABEL_Z);
+      const map = this.map, z = Math.max(map.getZoom(), LABEL_Z[this.base]);
       const side = this.panel.offsetLeft > 40; // painel lateral (desktop)
       const off = side ? [this.panel.offsetWidth / 2 + 12, 0] : [0, this.panel.offsetHeight / 2 + 12];
       const p = map.project(layer.getBounds().getCenter(), z).add(off);

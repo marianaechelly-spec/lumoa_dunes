@@ -1,14 +1,33 @@
-/* Lotes no satélite (seção Localização).
+/* Planta dos lotes (seção Localização).
    Desenha os 32 lotes e o perímetro dos KML georreferenciados (L.lotesGeo, gerado por
-   tools/kml-para-geojson.mjs) sobre imagem de satélite. O Leaflet só é baixado quando o
-   visitante abre a vista, então não pesa no carregamento da página. */
+   tools/kml-para-geojson.mjs) como planta vetorial, com a imagem de satélite como base
+   alternativa. O Leaflet só é baixado quando o visitante abre a vista, então não pesa no
+   carregamento da página. */
 (function (L) {
   const { $, h, toast, copyText } = L.ui;
   const LEAFLET = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/';
   // Imagem Esri: nesta região só há foto real até o zoom 17; acima disso é ampliada.
   const TILES = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
   const NATIVE_Z = 17;
-  const LABEL_Z = 19; // números dos lotes aparecem a partir deste zoom
+  // Números dos lotes aparecem a partir deste zoom (na planta o traço é nítido, então antes)
+  const LABEL_Z = { planta: 18, sat: 19 };
+  const MAX_Z = { planta: 21, sat: 20 };
+  // Estilos por base: planta em cores chapadas da marca, satélite com contorno claro
+  const corner = { lineJoin: 'miter', lineCap: 'square' };
+  const STYLES = {
+    planta: {
+      perim: { ...corner, color: '#0c3b3c', weight: 2, fill: true, fillColor: '#e6d6bd', fillOpacity: 1 },
+      base: { ...corner, color: '#fbf8f2', weight: 1.5, opacity: 1, fillColor: '#2aa39c', fillOpacity: 0.85 },
+      hover: { ...corner, color: '#fbf8f2', weight: 1.5, fillColor: '#19706d', fillOpacity: 1 },
+      active: { ...corner, color: '#fbf8f2', weight: 2, fillColor: '#b08a52', fillOpacity: 1 },
+    },
+    sat: {
+      perim: { ...corner, color: '#d6bd92', weight: 2.5, dashArray: '6 5', fill: false },
+      base: { ...corner, color: '#fbf8f2', weight: 1.4, opacity: 0.95, fillColor: '#2aa39c', fillOpacity: 0.22 },
+      hover: { ...corner, color: '#ffffff', weight: 2.2, fillColor: '#2aa39c', fillOpacity: 0.42 },
+      active: { ...corner, color: '#b08a52', weight: 3, fillColor: '#b08a52', fillOpacity: 0.45 },
+    },
+  };
 
   const fmtArea = (m2) => m2.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtM = (m) => m.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -52,12 +71,12 @@
       if (!geo || !geo.geojson || !geo.geojson.features.length) { this.btn.hidden = true; return; }
       this.btn.hidden = false;
       this.btn.addEventListener('click', () => this.toggle());
-      // Luma não abre balões automáticos enquanto o satélite está aberto e na tela
+      // Luma não abre balões automáticos enquanto a planta está aberta e na tela
       this.visible = false;
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(([e]) => { this.visible = e.isIntersecting; this.syncQuiet(); }, { threshold: 0.25 }).observe(this.fig);
       }
-      // Link direto para um lote (#lote-07): abre o satélite já com o lote destacado
+      // Link direto para um lote (#lote-07): abre a planta já com o lote destacado
       this.fromHash();
       addEventListener('hashchange', () => this.fromHash());
     },
@@ -87,7 +106,7 @@
         try { await this.build(); }
         catch (e) {
           console.error('[Lumoa] mapa de lotes', e);
-          toast('Não foi possível carregar o satélite agora. Verifique a conexão e tente de novo.', 'err');
+          toast('Não foi possível carregar a planta agora. Verifique a conexão e tente de novo.', 'err');
           this.btn.disabled = false; this.setLabel(false);
           return;
         }
@@ -103,7 +122,7 @@
     },
 
     setLabel(on) {
-      this.btn.lastChild.textContent = on ? 'Ver a região' : 'Ver os lotes no satélite';
+      this.btn.lastChild.textContent = on ? 'Ver a região' : 'Ver a planta dos lotes';
     },
 
     async build() {
@@ -111,36 +130,36 @@
       const feats = L.lotesGeo.geojson.features;
       this.box.hidden = false; // Leaflet precisa medir o contêiner visível
       const map = this.map = Lf.map(this.box, {
-        zoomSnap: 1, zoomDelta: 1, maxZoom: 20, minZoom: 14, scrollWheelZoom: false, attributionControl: true,
+        zoomSnap: 1, zoomDelta: 1, maxZoom: MAX_Z.planta, minZoom: 14, scrollWheelZoom: false, attributionControl: true,
         tap: true, zoomControl: true,
       });
       map.attributionControl.setPrefix(false);
-      Lf.tileLayer(TILES, {
-        maxNativeZoom: NATIVE_Z, maxZoom: 20,
+      // Satélite só é adicionado quando o visitante escolhe essa base
+      this.sat = Lf.tileLayer(TILES, {
+        maxNativeZoom: NATIVE_Z, maxZoom: MAX_Z.sat,
         attribution: 'Imagem de satélite © Esri, Maxar, Earthstar Geographics',
-      }).addTo(map);
+      });
+      Lf.control.scale({ metric: true, imperial: false, maxWidth: 120, position: 'bottomleft' }).addTo(map);
       // Roda do mouse só amplia depois de clicar no mapa (não prende a rolagem da página)
       map.on('focus click', () => map.scrollWheelZoom.enable());
       map.on('blur mouseout', () => map.scrollWheelZoom.disable());
 
       const perim = feats.find((f) => f.properties.camada);
       if (perim) {
-        this.perim = Lf.geoJSON(perim, { interactive: false, style: { color: '#d6bd92', weight: 2.5, dashArray: '6 5', fill: false } }).addTo(map);
+        this.perim = Lf.geoJSON(perim, { interactive: false, style: STYLES.planta.perim }).addTo(map);
       }
 
-      const base = { color: '#fbf8f2', weight: 1.4, opacity: 0.95, fillColor: '#2aa39c', fillOpacity: 0.22 };
-      const hover = { color: '#ffffff', weight: 2.2, fillColor: '#2aa39c', fillOpacity: 0.42 };
-      const active = { color: '#b08a52', weight: 3, fillColor: '#b08a52', fillOpacity: 0.45 };
-      this.styles = { base, active };
+      this.base = 'planta';
+      this.styles = STYLES.planta;
       this.layers = new Map();
       this.lots = Lf.geoJSON({ type: 'FeatureCollection', features: feats.filter((f) => f.properties.numero) }, {
-        style: () => base,
+        style: () => this.styles.base,
         onEachFeature: (f, layer) => {
           const n = f.properties.numero;
           this.layers.set(n, layer);
           layer.bindTooltip(String(n).padStart(2, '0'), { permanent: true, direction: 'center', className: 'lotmap__num', interactive: false });
-          layer.on('mouseover', () => { if (this.sel !== n) layer.setStyle(hover); });
-          layer.on('mouseout', () => { if (this.sel !== n) layer.setStyle(base); });
+          layer.on('mouseover', () => { if (this.sel !== n) layer.setStyle(this.styles.hover); });
+          layer.on('mouseout', () => { if (this.sel !== n) layer.setStyle(this.styles.base); });
           layer.on('click', (e) => { Lf.DomEvent.stopPropagation(e); this.select(n); });
           // Teclado: cada lote vira um item focável
           layer.on('add', () => {
@@ -153,8 +172,19 @@
         },
       }).addTo(map);
       map.on('click', () => this.close());
-      const syncLabels = () => this.box.classList.toggle('show-nums', map.getZoom() >= LABEL_Z - 0.01);
-      map.on('zoomend', syncLabels);
+      this.syncLabels = () => this.box.classList.toggle('show-nums', map.getZoom() >= LABEL_Z[this.base] - 0.01);
+      map.on('zoomend', this.syncLabels);
+
+      // Seletor de base: Planta | Satélite
+      const sw = this.switch = h('div', { class: 'lotmap__base', role: 'group', 'aria-label': 'Base do mapa' });
+      [['planta', 'Planta'], ['sat', 'Satélite']].forEach(([k, label]) => {
+        const b = h('button', { type: 'button', 'data-base': k, 'aria-pressed': String(k === 'planta') }, label);
+        b.addEventListener('click', (e) => { e.stopPropagation(); this.setBase(k); });
+        sw.append(b);
+      });
+      this.box.append(sw);
+      Lf.DomEvent.disableClickPropagation(sw);
+      this.box.classList.add('is-planta');
 
       // Painel do lote selecionado
       this.panel = h('div', { class: 'lotmap__panel', hidden: '', role: 'dialog', 'aria-live': 'polite' });
@@ -169,7 +199,21 @@
       Lf.DomEvent.disableClickPropagation(reset);
       if (!document.getElementById('i-pin')) reset.textContent = '⌖';
 
-      syncLabels();
+      this.syncLabels();
+    },
+
+    setBase(k) {
+      if (!this.map || k === this.base || !STYLES[k]) return;
+      const map = this.map;
+      this.base = k;
+      this.styles = STYLES[k];
+      this.box.classList.toggle('is-planta', k === 'planta');
+      this.switch.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.base === k)));
+      if (k === 'sat') { this.sat.addTo(map); this.sat.bringToBack(); } else this.sat.remove();
+      map.setMaxZoom(MAX_Z[k]);
+      if (this.perim) this.perim.setStyle(STYLES[k].perim);
+      this.layers.forEach((layer, n) => layer.setStyle(n === this.sel ? this.styles.active : this.styles.base));
+      this.syncLabels();
     },
 
     fit() {
@@ -212,7 +256,7 @@
       this.panel.hidden = false;
       this.box.classList.add('has-panel');
       // Leva o lote para a área livre do mapa (à esquerda do painel no desktop, acima dele no celular)
-      const map = this.map, z = Math.max(map.getZoom(), LABEL_Z);
+      const map = this.map, z = Math.max(map.getZoom(), LABEL_Z[this.base]);
       const side = this.panel.offsetLeft > 40; // painel lateral (desktop)
       const off = side ? [this.panel.offsetWidth / 2 + 12, 0] : [0, this.panel.offsetHeight / 2 + 12];
       const p = map.project(layer.getBounds().getCenter(), z).add(off);

@@ -113,7 +113,7 @@ window.Lumoa = window.Lumoa || {};
         desc: 'Espaço Kids com brinquedos de madeira sobre piso de areia, cercado de verde.' },
       { n: 8, id: 'redario', nome: 'Redário', grupo: 'lazer', pos: [47.0, 17.5], img: 'redario-redes',
         desc: 'Área de redes à sombra das árvores, para descansar em meio à natureza.' },
-      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [24.0, 8.2], img: 'piscina-bar-molhado',
+      { n: 9, id: 'piscina', nome: 'Piscina com bar molhado', grupo: 'lazer', pos: [24.0, 8.2], img: 'piscina-deck-bar',
         desc: 'Piscina com bar molhado, prainha e hidromassagem.' },
       { n: 10, id: 'gazebo', nome: 'Gazebo', grupo: 'lazer', pos: [10.2, 4.8], img: 'piscina-gazebo', foco: '30% 50%',
         desc: 'Gazebo integrado ao núcleo de lazer, ao lado da piscina.' },
@@ -224,7 +224,6 @@ window.Lumoa = window.Lumoa || {};
       { src: 'casa-aerea-piscina', cat: 'casas', forma: 'w', legenda: 'Casa com varanda, rooftop e piscina privativa' },
       // Fachadas e interiores de cada modelo ficam só na seção Casas (evita repetição).
       // Piscina
-      { src: 'piscina-bar-molhado', cat: 'piscina', forma: 'w', legenda: 'Piscina com bar molhado, prainha e deck' },
       { src: 'piscina-cascata', cat: 'piscina', legenda: 'Piscina com cascata junto ao mirante' },
       { src: 'piscina-deck-bar', cat: 'piscina', forma: 'w', legenda: 'Deck da piscina e bar molhado ao pôr do sol' },
       { src: 'piscina-gazebo', cat: 'piscina', forma: 'w', legenda: 'Piscina, gazebo e bar molhado' },
